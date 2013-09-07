@@ -14,3 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+## for OS X and Vim [cathames]
+*.swp
+.DS_Store
