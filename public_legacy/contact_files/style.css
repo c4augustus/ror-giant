@@ -1,0 +1,217 @@
+/*
+Theme Name:     Striking Child
+Description:    Child theme for the Striking theme 
+Author:         KaptinLin
+Author URI:     http://themeforest.net/user/Kaptinlin
+Template:       striking
+Version:        1.0.0
+*/ 
+
+/* =========== START iframe open jobs page =====================  */
+
+div.wpcf7, .wpcf7-form {
+    width: 428px;
+	}
+	
+span.wpcf7-form-control-wrap {
+    width: 100px;
+	}
+
+iframe {
+	margin: -111px 0 0 -25px;
+	}
+	
+.overlay {
+  background-image: url("http://giant-staffing.com/images/overlay.png");
+    height: 75px;
+    position: absolute;
+    right: 10px;
+    top: -60px;
+    width: 1000px;
+	}
+	
+.EditField {
+    border: 1px solid #CCCCCC!important;
+    color: #333333!important;
+	}
+.BHContent_HeadingLight {
+    color: #E78C3B!important;
+	}
+	
+.BHContent_ActionButton {
+    background-color: #E78C3B!important;
+    border: 1px solid #999999!important;
+    color: white!important;
+    font-weight: bold!important;
+	}
+	
+.BHContent_NavBar {
+    background-color: #BABBB6!important;
+	}
+
+A.BHContent_NavLink:link, A.BHContent_NavLink:visited {
+    border: 1px solid #999999!important;
+    color: #000!important;
+    display: block;
+    font-weight: bold!important;
+	}
+	
+/* =========== END iframe open jobs page =====================  */
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+	}
+	
+input[type="text"], input[type="password"], input[type="email"] {
+    cursor: text;
+    width: 200px!important;
+	}
+	
+textarea, input[type="text"], input[type="password"], input[type="email"], select {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    font-size: inherit;
+    width: 420px;
+	}
+	
+table, td, th {
+    font-size: 12px;
+	}
+	
+div.wpcf7-response-output {
+    background-color: #2E2B25;	
+	}
+	
+div.wpcf7-mail-sent-ok {
+    border: 2px solid #ED8322;
+	}
+
+.hoverb:hover{
+	opacity:0.7;
+	}
+	
+textarea, input {
+    margin: -3px 0 10px;
+    padding: 3px;
+	}
+
+.wpcf7 {
+	color: #ccc;
+	}
+	
+.trbtn {
+    background-color: #ED8322;
+    border: medium none;
+    color: #FFFFFF;
+    float: right;
+    font-weight: bold;
+	/*margin-left: 140px;*/
+	}
+	
+	
+.trbtn:hover {
+	opacity:0.7;
+	}
+	
+.contactbg {
+	 background-image: url("http://giant-staffing.com/images/contact-us_bg.jpg");
+    height: 654px;
+    margin: -45px -45px 0;
+	}
+	
+.contact {
+	  color: #FFFFFF;
+    padding: 45px 45px 0;
+	}
+	
+.contact iframe {
+	margin: 0px;
+	border: 1px solid #999999;
+	}
+	
+
+
+.framed_box {
+	 position: absolute;
+     right: 0px;
+     top: 21px;
+	 }
+	 
+.framed_box h3 {
+	margin-bottom: 0px;
+	}
+
+.framed_box p { 
+	 color: #ccc;
+	 font-size:12px;
+	 }
+
+#page_bottom {
+    background: none;
+    height: 0;
+	}
+
+.content {
+	border: 1px solid #CCCCCC;
+	padding: 45px 45px 0;
+	}
+	
+#top_area {
+    right: 28px;
+    top: 111px;
+	}
+
+.hmcontent {
+	padding: 290px 0 0 0px;
+	}
+	
+#page {
+	background:none;
+	}
+
+#page .inner {
+    padding: 31px 0 0;
+	}
+	
+.framed_box {
+    border: none;
+    border-radius: 0px;
+	margin-top: -20px;
+	}
+	
+.framed_box_content {
+    border: none;
+	}
+	
+#header, #feature, #page, #footer {
+    min-width: 1024px;
+	}
+	
+.inner {
+    width: 1024px;
+	}
+
+#navigation {
+    float: left;
+    position: relative;
+    right: 0px;
+    top: 105px;
+	}
+	
+.jqueryslidemenu ul li a {
+    font-weight: bold;
+    height: 27px;
+    line-height: 26px;
+    padding: 4px 18px 0;
+    text-align: center;
+    width: 103px;
+	}
+	
+#footer_bottom {
+	background: none;
+	}
+	
+#navigation .menu > li > a, #navigation .menu > li > a:visited {
+    border: 1px solid #CCCCCC;
+	}

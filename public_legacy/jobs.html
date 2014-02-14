@@ -1,0 +1,175 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="jobs_files/home_style.css">
+        <title>Job Board Powered by Bullhorn</title>
+    <script type="text/javascript" src="jobs_files/cfform.js"></script>
+<script type="text/javascript" src="jobs_files/masks.js"></script>
+<script type="text/javascript">
+<!--
+    function  _CF_checkFilterJobListForm(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+</head>
+
+    <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginheight="0" marginwidth="0">
+        <p>
+                </p><p></p><table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody><tr>
+                <td><a href="http://www.bullhorn.com/"><img src="jobs_files/giant-staffing-logo1.png" border="0"></a></td><td width="100">&nbsp;</td>
+                <td style="border-left:1px solid #999999; padding:2px;" align="right">
+                    <div style="font-family:arial; color:#333333; font-size:8pt;">
+                    Sep 7, 2013
+                    </div>
+                </td>
+             </tr>
+        </tbody></table>
+
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody><tr class="BHContent_NavBar">
+                <td>
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+                            <td align="center"><a class="BHContent_NavLink" href="http://public.bullhornstaffing.com/JobBoard/Standard/BHContent_JobOpportunities.cfm">Jobs</a></td>
+                            <td align="center"><a class="BHContent_NavLink" href="http://public.bullhornstaffing.com/JobBoard/Standard/BHContent_UpdateProfile.cfm">Your Profile</a></td>
+                            <td align="center"><a class="BHContent_NavLink" href="http://public.bullhornstaffing.com/JobBoard/Standard/BHContent_Login.cfm">Login</a></td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+        </tbody></table>
+
+
+<script type="text/javascript" language="javascript" src="jobs_files/jquery-1.js"></script>
+<script type="text/javascript" language="javascript" src="jobs_files/jquery.js"></script>
+
+<script>
+<!--
+
+    var searchCritDisplay = 0;
+
+    function toggleRowDetail(cell) {
+        try {
+            var row = cell.parentElement;
+            row = row.nextSibling;
+            row.style.display = (row.style.display != "none"?"none":"block");
+
+            if (cell.children.length > 0
+                && cell.children[0].tagName == "IMG") {
+                cell.children[0].src = "/BullhornSTAFFING/Images/Icons/"
+                    + (row.style.display != "none"?"true":"false")
+                    + ".gif";
+            }
+        } catch(e) {
+            alert("Error in toggleRowDetail()\n\n" + e.description);
+        }
+    }
+
+
+    function showSearchCriteria() {
+
+        if (searchCritDisplay == 0) {
+            BHJobSearchCriteria.style.display = 'block';
+            FilterJobListForm.searchButton.value = 'Hide Search Criteria';
+            searchCritDisplay = 1;
+        }
+        else {
+            BHJobSearchCriteria.style.display = 'none';
+            FilterJobListForm.searchButton.value = 'Show Search Criteria';
+            searchCritDisplay = 0;
+        }
+
+    }
+
+//-->
+</script>
+<div class="BHContent_HeadingLight">
+    Job Search Criteria
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form name="FilterJobListForm" action="BHContent_JobOpportunities.cfm" method="get" onsubmit="return _CF_checkFilterJobListForm(this)">
+
+        <br>
+        <br>
+
+        <div id="BHJobSearchCriteria" style=" font-family:arial,sans serif; font-size:10pt; border:1px #999999 solid; width:100%; padding:10px;">
+            <strong>You may search based on any or all of the following criteria.<br></strong>
+            Leave all items blank to list all jobs<br>
+            <br>
+            
+                <strong>Category Search:</strong><br>
+                <select name="category" size="1" class="EditField">
+                    <option selected="selected" value="">-- All Categories --
+                    
+                        </option><option value="Other Area(s)">Other Area(s)
+                    
+                </option></select><br>
+                <br>
+            
+			
+			
+            <strong>Key Word Search:</strong><br>
+            <input name="filter" style="font-family:arial; font-size:9pt;" size="20" type="Text"><br>
+            <br>
+            <input value="Search" class="BHContent_ActionButton" name="submitButton" type="Submit">
+            <input value="Reset" class="BHContent_ActionButton" name="resetButton" type="Reset">
+
+        </div>
+    </form>
+
+
+    
+
+
+
+
+
+<div class="poweredby"><a href="http://www.bullhorn.com/" alt="Staffing and Recruiting Software powered by Bullhorn" title="Staffing and Recruiting Software powered by Bullhorn"><img src="jobs_files/Powered_by_Bullhorn.gif" border="0"></a></div>
+
+<style>.poweredby {text-align:left;padding-left:11px;padding-top:0px;margin-top:0px;padding-right:0px;margin-right:0px;vertical-align: top; }
+FORM {padding-bottom:0px;margin-bottom:2px;}</style>
+<br>
+<a style="text-decoration:none;font-size:8px; color:#777777; font-family:arial,verdana,sans serif;" href="http://www.bullhorn.com/">PLID: 7209</a>
+
+</body></html>
