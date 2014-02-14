@@ -4,11 +4,16 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-## disabled, using mongo below [2014.02.12 cathames]
+## customized database change [2014.02.13 cathames]
 ##gem 'sqlite3'
+gem 'mongoid'
+gem 'bson_ext'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+
+## customized bootstrap for SCSS [2014.02.13 cathames]
+gem 'bootstrap-sass'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -44,8 +49,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-## customizations [2014.02.12 cathames]
-gem 'mongoid'
-gem 'bson_ext'
-gem 'bootstrap-sass'
