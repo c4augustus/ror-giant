@@ -7,7 +7,7 @@ gem 'rails', '~> 4.0.0'
 # Use sqlite3 as the database for Active Record
 ## customized database change [2014.02.13 cathames]
 ##gem 'sqlite3'
-gem 'mongoid'
+gem 'mongoid', '~> 4.0.0.beta1'
 gem 'bson_ext'
 
 # Use SCSS for stylesheets
