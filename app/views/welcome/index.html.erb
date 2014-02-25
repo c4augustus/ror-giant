@@ -1,2 +1,65 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
+<section>
+  <article id="billboard">
+    <video autoplay loop>
+      <source src="videos/coilcore_comp_vast_0001_640x352.mp4" type="video/mp4">
+      <source src="videos/coilcore_comp_vast_0001_640x352.webm" type="video/webm">
+    </video>
+  </article>
+  <article id="hire">
+    <h2>Looking to Hire Talent?</h2>
+    <p>Whether you need to fill a single position or need
+      an entire team, Giant Recruiting is here to help.</p>
+    <p><a href="hire">Request Talent</a></p>
+  </article>
+  <article id="jobs">
+    <h2>Looking for a Job?</h2>
+    <p>Looking for a job has never been an easy task. Giant's
+      recruiters will advise you every step of the way.</p>
+    <p><a href="jobs">Open Jobs</a></p>
+  </article>
+  <article id="roles">
+    <h2>Interaction + Creative + Marketing Roles we Focus us:</h2>
+    <ul id="role_list_a">
+      <li>UI/UX Designer</li>
+      <li>Front End Developer (HTML5,CSS3)</li>
+      <li>Product Designer</li>
+      <li>iOS Developer</li>
+      <li>3D Animator / Game Designer</li>
+      <li>Motion Graphics Telent</li>
+      <li>Video Editor</li>
+      <li>Producer / Project Manager</li>
+      <li>Web Content Strategist</li>
+      <li>Media Buyer</li>
+      <li>Media Planner</li>
+    </ul>
+    <ul id="role_list_b">
+      <li>Creative Director</li>
+      <li>Art Director</li>
+      <li>Graphic Designer / Web Designer</li>
+      <li>Production Talent</li>
+      <li>Project Manager</li>
+      <li>Presentation Specialist (PowerPoint)</li>
+      <li>Account Manager / Director</li>
+      <li>Studio Manager / Director</li>
+      <li>Copywriter</li>
+      <li>Proofreader / Editor</li>
+      <li>Account Executive</li>
+    </ul>
+    <ul id="role_list_c">
+      <li>Social Media Strategist</li>
+      <li>Bi Analyst</li>
+      <li>Product Manager</li>
+      <li>Marketing Manager</li>
+      <li>Marcom Manager</li>
+      <li>Email Marketing Manager</li>
+      <li>Market Research</li>
+      <li>Consumer Promotions</li>
+      <li>Online Marketing</li>
+      <li>SEO/SEM</li>
+      <li>Social Media Web Analytics</li>
+    </ul>
+  </article>
+</section>
+<%= render partial: "shared/footer" %>
+
