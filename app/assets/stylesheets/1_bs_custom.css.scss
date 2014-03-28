@@ -1,0 +1,78 @@
+// ## custom file [2014.03.27 cathames]
+// ## based on http://getbootstrap.com/examples/grid/grid.css
+
+@import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
+
+body {
+  color: #777;
+  font-family: Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+h1 {
+  color: #f60;
+//  font: 50px/60px 'Signika-Semi-Bold';
+//  font-family: 'Signika-Semi-Bold';
+  font-weight: 600;
+  font-size: 24px;
+}
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.btn {
+  border: 0;
+  border-radius: 0px;
+}
+.btn-primary {
+  background-color: #777;
+}
+.btn-primary:hover {
+  background-color: #000;
+}
+//.container {
+//  padding-right: 15px;
+//  padding-left: 15px;
+//}
+.navbar-brand {
+    float: left;
+    font-size: 18px;
+    height: 50px;
+    line-height: 20px;
+    padding: 15px;
+}
+.navbar-inverse {
+    background-color: #777;
+    border-color: #777;
+}
+.navbar-inverse .navbar-nav li a {
+    color: #fff;
+}
+.navbar-inverse .navbar-nav li a:hover {
+    background-color: #000;
+}
+.panel-primary {
+//  color: #6f6f6f;
+//  padding-left: 15px;
+//  padding-bottom: 15px;
+  text-align: center;
+}
+.panel-primary .panel-heading {
+  background-color: #fff0ec;
+  color: #f60;
+}
+.panel-title {
+  font-size: 24px;
+}
+.row {
+  margin-bottom: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+[class*="panel-"] {
+  background-color: #fff0ec;
+  border: 0px;
+//  color: #ff6600;
+}

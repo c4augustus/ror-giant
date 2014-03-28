@@ -1,4 +1,5 @@
 <%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
+<!-- non-bootstrap HTML5, from ror-cathames
 <section>
   <article id="billboard">
     <video autoplay loop>
@@ -18,7 +19,77 @@
       recruiters will advise you every step of the way.</p>
     <p><a href="jobs">Open Jobs</a></p>
   </article>
-  <article id="roles">
+</section>
+-->
+<!-- bootstrap, based on http://getbootstrap.com/examples/grid/ --> 
+<div class="container">
+<div class='row'>
+  <div class='col-sm-6'>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1 class="panel-title">Looking to Hire Talent?</h1>
+      </div>
+      <div class="panel-body">
+        <p>Whether you need to fill a single position or need
+        an entire team, Giant Recruiting is here to help.</p>
+        <button type="button" class="btn btn-primary">
+          <!-- <a href="hire"> -->
+            REQUEST TALENT
+          <!-- </a> -->
+        </button>
+      </div>
+    </div> <!-- /panel -->
+  </div> <!-- /col -->
+  <div class='col-sm-6'>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1 class="panel-title">Looking for a Job?</h1>
+      </div>
+      <div class="panel-body">
+        <p>Looking for a job has never been an easy task. Giant's
+          recruiters will advise you every step of the way.</p>
+        <button type="jobs" class="btn btn-primary">
+          <!-- <a href="hire"> -->
+            OPEN JOBS
+          <!-- </a> -->
+        </button>
+      </div>
+    </div> <!-- /panel -->
+  </div> <!-- /col -->
+</div> <!-- /row -->
+</div> <!-- /container -->
+
+<!-- bootstrap, based on http://wildphotos.org.uk/ --> 
+<div class="container">
+<div class='row'>
+  <div class='span8 largeBox'><div class="contentPanel">
+    <a href="/about/">        
+      <div class="imageContent">
+        <img src="/media/354474/Mark-Carwardine-large-content-panel.jpg" />
+      </div>
+      <div class="textContent homeContent lines1">        
+        <p>About</p>        
+      </div>        
+    </a>
+    <a href="#" data-toggle="tooltip" title="" data-original-title="WildPhotos 2013 / &#169; Mark Carwardine" class="tooltip">&copy;</a>
+  </div></div>
+  <div class='span8 largeBox'><div class="contentPanel">
+    <a href="http://wildphotos.us1.list-manage.com/subscribe?u=722a3ad7755a24108f2cd402e&amp;id=ad6b630957">        
+      <div class="imageContent">
+        <img src="/media/354538/Steve-Winter-homepage-panels.jpg" />
+      </div>
+      <div class="textContent homeContent lines1">        
+        <p>enews signup</p>       
+      </div>        
+    </a>
+    <a href="#" data-toggle="tooltip" title="" data-original-title="WildPhotos 2013 / &#169; Steve Winter" class="tooltip">&copy;</a>
+  </div></div>
+</div> <!-- row -->
+</div> <!-- container -->
+
+<section>    
+</div>
+    <article id="roles">
     <h2>Interaction + Creative + Marketing Roles we Focus us:</h2>
     <ul id="role_list_a">
       <li>UI/UX Designer</li>
