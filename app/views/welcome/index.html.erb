@@ -1,28 +1,6 @@
 <%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
-<!-- non-bootstrap HTML5, from ror-cathames
-<section>
-  <article id="billboard">
-    <video autoplay loop>
-      <source src="videos/coilcore_comp_vast_0001_640x352.mp4" type="video/mp4">
-      <source src="videos/coilcore_comp_vast_0001_640x352.webm" type="video/webm">
-    </video>
-  </article>
-  <article id="hire">
-    <h2>Looking to Hire Talent?</h2>
-    <p>Whether you need to fill a single position or need
-      an entire team, Giant Recruiting is here to help.</p>
-    <p><a href="hire">Request Talent</a></p>
-  </article>
-  <article id="jobs">
-    <h2>Looking for a Job?</h2>
-    <p>Looking for a job has never been an easy task. Giant's
-      recruiters will advise you every step of the way.</p>
-    <p><a href="jobs">Open Jobs</a></p>
-  </article>
-</section>
--->
-<!-- bootstrap, based on http://getbootstrap.com/examples/grid/ --> 
-<div class="container">
+
+<div class="container-fluid">
 <div class='row'>
   <div class='col-sm-6'>
     <div class="panel panel-primary">
@@ -57,40 +35,8 @@
     </div> <!-- /panel -->
   </div> <!-- /col -->
 </div> <!-- /row -->
-</div> <!-- /container -->
-
-<!-- bootstrap, based on http://wildphotos.org.uk/ --> 
-<div class="container">
-<div class='row'>
-  <div class='span8 largeBox'><div class="contentPanel">
-    <a href="/about/">        
-      <div class="imageContent">
-        <img src="/media/354474/Mark-Carwardine-large-content-panel.jpg" />
-      </div>
-      <div class="textContent homeContent lines1">        
-        <p>About</p>        
-      </div>        
-    </a>
-    <a href="#" data-toggle="tooltip" title="" data-original-title="WildPhotos 2013 / &#169; Mark Carwardine" class="tooltip">&copy;</a>
-  </div></div>
-  <div class='span8 largeBox'><div class="contentPanel">
-    <a href="http://wildphotos.us1.list-manage.com/subscribe?u=722a3ad7755a24108f2cd402e&amp;id=ad6b630957">        
-      <div class="imageContent">
-        <img src="/media/354538/Steve-Winter-homepage-panels.jpg" />
-      </div>
-      <div class="textContent homeContent lines1">        
-        <p>enews signup</p>       
-      </div>        
-    </a>
-    <a href="#" data-toggle="tooltip" title="" data-original-title="WildPhotos 2013 / &#169; Steve Winter" class="tooltip">&copy;</a>
-  </div></div>
-</div> <!-- row -->
-</div> <!-- container -->
-
-<section>    
-</div>
-    <article id="roles">
-    <h2>Interaction + Creative + Marketing Roles we Focus us:</h2>
+<div class="row">
+    <h1>Interaction + Creative + Marketing Roles we Focus us:</h1>
     <ul id="role_list_a">
       <li>UI/UX Designer</li>
       <li>Front End Developer (HTML5,CSS3)</li>
@@ -130,7 +76,7 @@
       <li>SEO/SEM</li>
       <li>Social Media Web Analytics</li>
     </ul>
-  </article>
-</section>
-<%= render partial: "shared/footer" %>
+</div> <!-- /row -->
+</div> <!-- /container -->
 
+<%= render partial: "shared/footer" %>
