@@ -51,3 +51,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+## static pages [2014.04.23 cathames]
+gem 'high_voltage'
