@@ -10,12 +10,33 @@ body {
 }
 h1 {
   color: #f60;
-  font-weight: 600;
+  font-family: Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
   font-size: 24px;
+}
+h2 {
+  color: #666;
+  font-weight: 700;
+  font-size: 28px;
+}
+h3 {
+  color: #666;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 2px;
 }
 hr {
   margin-top: 40px;
   margin-bottom: 40px;
+}
+p {
+  line-height: 1.1;
+}
+
+.giant-heading-bullet {
+  background-color: #f60;
+  margin-right: 8px;
+  width: 20px;
 }
 
 .giant-navbar-separator {
