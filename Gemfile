@@ -54,3 +54,6 @@ end
 
 ## static pages [2014.04.23 cathames]
 gem 'high_voltage'
+
+## RESTful service integration [2014.05.08 cathames]
+gem 'rest-client'
