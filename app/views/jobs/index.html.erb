@@ -1,4 +1,10 @@
-<h1>Listing jobs</h1>
+<%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
+
+<div class="container-fluid">
+<div class="row">
+  <h2><span class="giant-heading-bullet">&nbsp;&nbsp;</span>OPEN JOBS</h2>
+</div>
+<div class="row">
 
 <table>
   <thead>
@@ -37,3 +43,8 @@
 <br>
 
 <%= link_to 'New Job', new_job_path %>
+
+</div> <!-- /row -->
+</div> <!-- /container -->
+
+<%= render partial: "shared/footer" %>
