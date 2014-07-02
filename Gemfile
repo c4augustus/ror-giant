@@ -25,6 +25,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+  ## ^customization [2014.07.02 augustus]
+  ## ^@@@ UNCOMMENT ABOVE ON CLOUD. Local dev uses node.
+  ## ^@@@ web rumors state that RubyRacer has memory hog/leak issues, but let's try it
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
