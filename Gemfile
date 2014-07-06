@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 ##gem 'rails', '4.0.0'
 gem 'rails', '~> 4.0.0'
 
+## rails 4.1 feature backported
+gem 'rails-secrets'
+
 # Use sqlite3 as the database for Active Record
 ## customized database change [2014.02.13 cathames]
 ##gem 'sqlite3'
