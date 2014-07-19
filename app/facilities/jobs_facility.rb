@@ -1,4 +1,5 @@
 class JobsFacility
+  require 'json'
   require 'rest_client'
 
   def log_integrating
@@ -31,8 +32,7 @@ class JobsFacility
       }
 =end
     ) {|response, request, result, &block|
-      case response.code
-      when 302 # Found
+      if response.code == 302 # Found
         uri_redirection = URI(response.headers[:location])
         puts "#..response redirection URI <#{uri_redirection}>"
         uri_redirection_params = CGI::parse(uri_redirection.query)
@@ -44,7 +44,7 @@ class JobsFacility
       else
         # do not letting RestClient handle it
         ##response.return!(request, result, &block)
-        puts "### FAILED: response code #{response.code}, require 302/Found redirection that include the authorization code"
+        puts "### FAILED: response code #{response.code}, expected 302/Found redirection that include the authorization code"
       end
 =begin
       puts "response.code=#{response.code}"
@@ -78,19 +78,26 @@ class JobsFacility
       "&client_secret=#{sec['auth_client_secret']}",
       nothing: 'nothing'
     ) {|response, request, result, &block|
-      case response.code
-      when 200 # Found
+      if response.code == 200 # Success
         puts "# SUCCESS, response=#{response}"
+        responseHash = JSON.parse response
+        @external_access_token = responseHash["access_token"]
+        @external_refresh_token = responseHash["refresh_token"]
       else
         # do not letting RestClient handle it
         ##response.return!(request, result, &block)
-        puts "### FAILED: response code #{response.code}, require 302/Found redirection that include the authorization code"
+        puts "### FAILED: response code #{response.code}"
       end
     }
     if @external_access_token
       puts "#..obtained external access token <#{@external_access_token}>"
     else
       puts "#..did NOT obtain external access token" 
+    end
+    if @external_refresh_token
+      puts "#..obtained external refresh token <#{@external_refresh_token}>"
+    else
+      puts "#..did NOT obtain external refresh token" 
     end
     @external_access_token
   end
@@ -99,8 +106,50 @@ class JobsFacility
     @external_access_token ||= acquire_external_access_token
   end
 
+  def acquire_external_session_key
+    sec = Rails.application.secrets[:service_external_jobs]
+    return unless sec && external_auth_code
+    @external_session_key = nil
+    log_integrating
+    RestClient.get(
+      #https://rest.bullhornstaffing.com/rest-services/login?version=*&access_token={xxxxxxxx}
+      "#{sec['uri_base_rest']}/login"\
+      "?grant_type=authorization_code"\
+      "&code=#{@external_auth_code}"\
+      "&client_id=#{sec['auth_client_id']}"\
+      "&client_secret=#{sec['auth_client_secret']}",
+      nothing: 'nothing'
+    ) {|response, request, result, &block|
+      if response.code == 200 # Success
+        puts "# SUCCESS, response=#{response}"
+        responseHash = JSON.parse response
+        @external_session_key = responseHash["session_key"]
+        @external_refresh_token = responseHash["refresh_token"]
+      else
+        # do not letting RestClient handle it
+        ##response.return!(request, result, &block)
+        puts "### FAILED: response code #{response.code}"
+      end
+    }
+    if @external_session_key
+      puts "#..obtained external access token <#{@external_session_key}>"
+    else
+      puts "#..did NOT obtain external access token" 
+    end
+    if @external_refresh_token
+      puts "#..obtained external refresh token <#{@external_refresh_token}>"
+    else
+      puts "#..did NOT obtain external refresh token" 
+    end
+    @external_session_key
+  end
+
+  def external_session_key
+    @external_session_key ||= acquire_external_session_key
+  end
+
   def refresh_jobs
-    if external_access_token
+    if external_session_key
     end
     Job.all 
   end
