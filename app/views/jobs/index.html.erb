@@ -17,6 +17,8 @@
     <h3>STATUS:<%=    job.employment_type %></h3>
     <h3>STARTS:<%=    job.start_date %></h3>
     <h3>RATE:<%=      job.pay_rate %></h3>
+    <br>
+    <%= raw job.description %>
 <!--
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
