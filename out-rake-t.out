@@ -1,0 +1,35 @@
+rake about                                # List versions of all Rails frameworks and the environment
+rake assets:clean[keep]                   # Remove old compiled assets
+rake assets:clobber                       # Remove compiled assets
+rake assets:environment                   # Load asset compile environment
+rake assets:precompile                    # Compile all the assets named in config.assets.precompile
+rake cache_digests:dependencies           # Lookup first-level dependencies for TEMPLATE (like messages/show or comments/_comment.html)
+rake cache_digests:nested_dependencies    # Lookup nested dependencies for TEMPLATE (like messages/show or comments/_comment.html)
+rake db:drop                              # Drops all the collections for the database for the current Rails.env
+rake db:mongoid:create_indexes            # Create the indexes defined on your mongoid models
+rake db:mongoid:drop                      # Drops the default session
+rake db:mongoid:purge                     # Drop all collections except the system collections
+rake db:mongoid:remove_indexes            # Remove the indexes defined on your mongoid models without questions!
+rake db:mongoid:remove_undefined_indexes  # Remove indexes that exist in the database but aren't specified on the models
+rake db:purge                             # Drop all collections except the system collections
+rake db:reset                             # Delete data and loads the seeds
+rake db:seed                              # Load the seed data from db/seeds.rb
+rake db:setup                             # Create the database, and initialize with the seed data
+rake doc:app                              # Generate docs for the app -- also available doc:rails, doc:guides (options: TEMPLATE=/rdoc-template.rb, TITLE="Custom Title")
+rake log:clear                            # Truncates all *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)
+rake middleware                           # Prints out your Rack middleware stack
+rake notes                                # Enumerate all annotations (use notes:optimize, :fixme, :todo for focus)
+rake notes:custom                         # Enumerate a custom annotation, specify with ANNOTATION=CUSTOM
+rake rails:template                       # Applies the template supplied by LOCATION=(/path/to/template) or URL
+rake rails:update                         # Update configs and some other initially generated files (or use just update:configs, update:bin, or update:application_controller)
+rake routes                               # Print out all defined routes in match order, with names
+rake secret                               # Generate a cryptographically secure secret key (this is typically used to generate a secret for cookie sessions)
+rake stats                                # Report code statistics (KLOCs, etc) from the application
+rake test                                 # Runs test:units, test:functionals, test:integration together
+rake test:all                             # Run tests quickly by merging all types and not resetting db
+rake test:all:db                          # Run tests quickly, but also reset db
+rake test:recent                          # Run tests for {:recent=>["test:deprecated", "test:prepare"]} / Deprecated; Test recent changes
+rake test:uncommitted                     # Run tests for {:uncommitted=>["test:deprecated", "test:prepare"]} / Deprecated; Test changes since last checkin (only Subversion and Git)
+rake time:zones:all                       # Displays all time zones, also available: time:zones:us, time:zones:local -- filter with OFFSET parameter, e.g., OFFSET=-6
+rake tmp:clear                            # Clear session, cache, and socket files from tmp/ (narrow w/ tmp:sessions:clear, tmp:cache:clear, tmp:sockets:clear)
+rake tmp:create                           # Creates tmp directories for sessions, cache, sockets, and pids
