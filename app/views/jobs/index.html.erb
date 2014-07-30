@@ -2,49 +2,37 @@
 
 <div class="container-fluid">
 <div class="row">
+<!-- @@@ design draft 1
   <h2><span class="giant-heading-bullet">&nbsp;&nbsp;</span>OPEN JOBS</h2>
+-->
+  <h1>Open Jobs</h1>
 </div>
-<div class="row">
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Identification</th>
-      <th>Location</th>
-      <th>Work schedule</th>
-      <th>Start date</th>
-      <th>Pay rate</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.title %></td>
-        <td><%= job.identification %></td>
-        <td><%= job.location %></td>
-        <td><%= job.work_schedule %></td>
-        <td><%= job.start_date %></td>
-        <td><%= job.pay_rate %></td>
-        <td><%= job.description %></td>
+<% @jobs.each do |job| %>
+  <hr>
+  <div class="row">
+    <h2><%=           job.title %></h2>
+    <h3>JOB#<%=       job.id_scheme_ext %></h3>
+    <br>
+    <h3>LOCATION:<%=  job.location %></h3>
+    <h3>STATUS:<%=    job.employment_type %></h3>
+    <h3>STARTS:<%=    job.start_date %></h3>
+    <h3>RATE:<%=      job.pay_rate %></h3>
+<!--
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
-
 <br>
+-->
+    <br>
+    <%= link_to 'APPLY', new_job_path %>
+    <%= link_to 'TELL A FRIEND', new_job_path %>
+  </div> <!-- /row -->
+<% end %>
 
-<%= link_to 'New Job', new_job_path %>
-
-</div> <!-- /row -->
+  <hr>
 </div> <!-- /container -->
 
 <%= render partial: "shared/footer" %>

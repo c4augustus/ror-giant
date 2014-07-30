@@ -136,7 +136,7 @@ class JobsFacility
     if @external_url_rest
       puts "#..obtained external URL for REST <#{@external_url_rest}>"
     else
-      puts "#..did NOT obtain external URL for REST" 
+      puts "#..did NOT obtain external URL for RESTn" 
     end
     @external_session_key
   end
@@ -145,9 +145,64 @@ class JobsFacility
     @external_session_key ||= acquire_external_session_key
   end
 
-  def refresh_jobs
-    if external_session_key
+  def external_url_rest
+    @external_url_rest
+  end
+
+  def fetch_external_jobs_hash(including_all_fields)
+    if external_session_key && external_url_rest
+      log_integrating
+      RestClient.get(URI.encode(
+        "#{external_url_rest}search/JobOrder"\
+        "?BhRestToken=#{external_session_key}"\
+        "&query=isOpen:1 AND isDeleted:0 AND NOT status:archive"\
+        "&fields=#{including_all_fields ? "*" :
+          "id,title,employmentType,startDate,payRate,salary,salaryUnit,publicDescription"}"\
+        "&start=0"
+      )) {|response, request, result, &block|
+        if response.code == 200 # Success
+          #puts "# SUCCESS, response=#{response}"
+          if including_all_fields
+            File.open("db/data_bh_job_offers_all_fields_"\
+                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+              f.write(response.encode)
+            end
+          end
+          return JSON.parse response
+        else
+          # do not letting RestClient handle it
+          ##response.return!(request, result, &block)
+          puts "### FAILED: response code #{response.code}"
+        end
+      }
     end
-    Job.all 
+    nil
+  end
+
+  SECONDS_INTERVAL_REFRESH = 100000
+
+  def refresh_jobs
+    unless @time_refresh_last &&
+        ((timenow = Time.now) <
+         (@time_refresh_last + SECONDS_INTERVAL_REFRESH))
+      @time_refresh_last = timenow
+      if (hashjobs = fetch_external_jobs_hash(false))
+        hashjobs["data"].each do |hashjob|
+          if (idschemeext = hashjob["id"])
+            job = Job.find_or_create_by(id_scheme_ext: idschemeext)
+            job.write_attributes(
+              title:            hashjob["title"],
+              employment_type:  hashjob["employmentType"],
+              start_date:       hashjob["startDate"],
+              pay_rate:         hashjob["payRate"],
+              salary:           hashjob["salary"],
+              salary_unit:      hashjob["salaryUnit"],
+              description:      hashjob["publicDescription"])
+            job.save
+          end
+        end 
+      end
+    end
+    Job.all
   end
 end
