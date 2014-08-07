@@ -9,4 +9,12 @@ class Job
   field :salary, type: String
   field :salary_unit, type: String
   field :description, type: String
+
+  def self.categories
+    @@categories ||= ["UXD", "CREATIVE", "MARKETING"]
+  end
+
+  def category
+    "CREATIVE"
+  end
 end
