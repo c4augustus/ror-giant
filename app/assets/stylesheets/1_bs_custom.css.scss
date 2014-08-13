@@ -9,15 +9,17 @@ body {
   font-size: 16px;
 }
 h1 {
-  color: #ff792c;
+  color: #666;
   font-family: Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 20px;
+  text-align: center;
 }
 h2 {
-  color: #666;
+  color: #ff792c;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 20px;
+  text-align: center;
 }
 h3 {
   color: #ff792c;
@@ -61,16 +63,31 @@ p {
 // Bootstrap styles:
 
 .btn {
-  border: 0;
+  border: 3px solid;
   border-radius: 0px;
-  font-size: 16px;
-  min-width: 200px;
+  font-weight: 600;
+//  font-size: 16px;
+  min-width: 180px;
 }
 .btn-primary {
-  background-color: #666;
+  background-color: #fff; // override bs #428bea
+  border-color: #ff792c;  // override bs #357ebd
+  color: #ff792c;         // override bs white
 }
 .btn-primary:hover {
   background-color: #000;
+}
+.jumbotron {
+  background: url("/assets/giant_jumbo.jpg") no-repeat;
+  background-size: 100%;
+  height: 200px;
+  h1 {
+    color: #ff792c;
+    font-family: Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+  }
 }
 .nav > li > a {
     display: block;
@@ -99,10 +116,11 @@ p {
 .panel-primary .panel-heading {
 //  background-color: #fff0ec;
   background-color: #ffffff;
-  color: #f60;
+//  color: #f60;
 }
 .panel-title {
-  font-size: 24px;
+  color: #ff792c;   // override bs inherit
+  font-size: 20px;  // override bs 16px
 }
 .row {
   margin-bottom: 20px;
