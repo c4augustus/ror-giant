@@ -15,42 +15,57 @@
 //  src: asset-url('BrandonGrotesque_Thin.otf')
 //}
 
+$color-page:              #fff;
+$color-panel:             #f8e0f0;
+$color-primary:           #ff792c;
+$color-secondary:         rgba(80,80,80,1.0);
+$color-secondary-inverse: #000;
+$color-secondary-trans:   rgba(80,80,80,0.8);
+$color-tertiary:          #999;
+
+$font-family-primary:     Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
+$font-family-secondary:   Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+body, p {
+  color: $color-tertiary;
+  font-family: $font-family-secondary;
+}
 body {
-  color: #888;
-  font-family: Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 300;
   font-size: 16px;
 }
+h1, h2, h3, h4 {
+  font-family: $font-family-primary;
+}
 h1 {
-  color: #666;
+  color: $color-secondary;
   font-weight: 400;
   font-size: 20px;
   text-align: center;
 }
 h2 {
-  color: #ff792c;
+  color: $color-primary;
   font-weight: 300;
   font-size: 20px;
   text-align: center;
 }
 h3 {
-  color: #ff792c;
+  color: $color-primary;
   font-weight: 300;
   font-size: 20px;
 }
 h4 {
-  color: #666;
+  color: $color-secondary;
   font-weight: 400;
   font-size: 16px;
 }
 hr {
-  background: #666;
+  background: $color-secondary;
   height: 1px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 p {
-  color: #666;
   line-height: 1.0;
 }
 
@@ -64,12 +79,13 @@ p {
   min-width: 180px;
 }
 .btn-primary {
-  background-color: #fff; // override bs #428bea
-  border-color: #ff792c;  // override bs #357ebd
-  color: #ff792c;         // override bs white
+  background-color: $color-page;    // override bs #428bea
+  border-color:     $color-primary; // override bs #357ebd
+  color:            $color-primary; // override bs white
+  font-family: $font-family-primary;
 }
 .btn-primary:hover {
-  background-color: #000;
+  background-color: $color-secondary-inverse;
 }
 .container-fluid {
   padding-left: 0px;
@@ -79,8 +95,8 @@ p {
   background: transparent;
   padding: 5em 0em;
   h1 {
-    color: #ff792c;
-    font-family: Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: $color-primary;
+    font-family: $font-family-primary;
     font-weight: 600;
     font-size: 28px;
     line-height: 1.75;
@@ -100,7 +116,7 @@ p {
   color: #fff;
 }
 .navbar-inverse .navbar-nav li a:hover {
-  background-color: #000;
+  background-color: $color-secondary-inverse;
 }
 .navbar-collapse {
   text-align: center;
@@ -117,6 +133,8 @@ p {
   padding: 1.4em 2em;
 }
 .panel-primary {
+  background-color: $color-page;
+  font-family: $font-family-primary;
 //  color: #6f6f6f;
 //  padding-left: 15px;
 //  padding-bottom: 15px;
@@ -127,8 +145,15 @@ p {
   background-color: #ffffff;
 //  color: #f60;
 }
+.panel-secondary .panel-heading {
+  font-family: $font-family-secondary;
+//  background-color: #fff0ec;
+  background-color: #ffffff;
+//  color: #f60;
+}
+
 .panel-title {
-  color: #ff792c;   // override bs inherit
+  color: $color-primary;   // override bs inherit
   font-size: 20px;  // override bs 16px
 }
 .row {
@@ -136,8 +161,7 @@ p {
   margin-left: 0px;
 }
 [class*="panel-"] {
-//  background-color: #fff0ec;
-  background-color: #ffffff;
+  background-color: $color-page;
   border: 0px;
 //  color: #ff6600;
 }
@@ -179,7 +203,7 @@ p {
   } 
 }
 .giant-navbar-separator { 
-  background-color: #fff;
+  background-color: $color-page;
   font-size: 11px;  // same style as .navbar-nav > li 
   line-height: 1em; // same style as .navbar-nav > li
   margin-top: 1.1em;
