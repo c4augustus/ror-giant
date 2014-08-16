@@ -23,7 +23,6 @@ body {
 }
 h1 {
   color: #666;
-  font-family: Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 400;
   font-size: 20px;
   text-align: center;
@@ -105,11 +104,15 @@ p {
 .navbar-inverse .navbar-nav li a:hover {
   background-color: #000;
 }
-.nav .navbar-nav {
+.navbar-collapse {
+  text-align: center;
+  line-height: 1em;
+}
+.navbar-nav {
   display: inline-block;
   float: none;
 }
-.nav > li > a {
+.nav li a {
   border: 0;
   font-size: 11px;
   line-height: 1em;
