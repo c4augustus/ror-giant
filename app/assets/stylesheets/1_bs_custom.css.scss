@@ -90,23 +90,9 @@ p {
     text-align: center;
   }
 }
-.nav > li > a {
-  border: 0;
-  font-size: 11px;
-  line-height: 1em;
-  padding: 1.4em 2em;
-}
 .navbar {
   margin-bottom: 0;
   min-height: 0px;
-}
-.navbar-nav > li {
-  //float: right;
-}
-.nav .navbar-nav {
-  //.nav-justified;
-  display: inline-block;
-  float: none;
 }
 .navbar-inverse {
   background-color: rgba(80,80,80,0.8);
@@ -118,6 +104,16 @@ p {
 }
 .navbar-inverse .navbar-nav li a:hover {
   background-color: #000;
+}
+.nav .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+.nav > li > a {
+  border: 0;
+  font-size: 11px;
+  line-height: 1em;
+  padding: 1.4em 2em;
 }
 .panel-primary {
 //  color: #6f6f6f;
@@ -168,7 +164,7 @@ p {
     margin-bottom: 0.2em;
   } 
 }
-.giant-navbar-nav-separator { 
+.giant-navbar-separator { 
   background-color: #fff;
   font-size: 11px;  // same style as .navbar-nav > li 
   line-height: 1em; // same style as .navbar-nav > li
