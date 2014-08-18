@@ -98,10 +98,6 @@ p {
 .btn-primary:hover {
   background-color: $color-secondary-inverse;
 }
-.brand {
-  display: block;
-  padding: 1em 1em;
-}
 .container-fluid {
   padding-left: 0em;
   padding-right: 0em;
@@ -222,8 +218,24 @@ p {
 //  width: 20px;
 //}
 }
-.giant-header-top {
+.giant-header-top-row {
   background-color: $color-page-trans;
+  display: table;
+}
+.giant-header-top-column {
+  display: table-cell;
+  vertical-align: middle;
+}
+.giant-header-top-column-title {
+  width: 100%;
+}
+.giant-header-brand {
+  display: block;
+  padding: 1em 1em;
+}
+.giant-header-heading {
+  margin: 0;
+  padding: 0.5em 1em;
 }
 .giant-job {
   h4 {
