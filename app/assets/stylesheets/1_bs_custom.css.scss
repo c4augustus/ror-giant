@@ -15,30 +15,41 @@
 //  src: asset-url('BrandonGrotesque_Thin.otf')
 //}
 
-$color-page:              #fff;
-$color-panel:             #f8e0f0;
-$color-primary:           #ff792c;
-$color-secondary:         rgba(80,80,80,1.0);
-$color-secondary-inverse: #000;
-$color-secondary-trans:   rgba(80,80,80,0.8);
-$color-tertiary:          #999;
+$color-logo:                #c55e30;
+$color-logo-light:          #d3660b;
+$color-logo-trans:          rgba(197,94,48,0.8);
+$color-logo-trans-light:    rgba(211,102,11,0.8);
+$color-page:                #fff;
+$color-page-trans:          rgba(255,255,255,0.9);
+$color-panel:               #efefef;
+$color-panel-trans:         rgba(239,239,239,0.8);
+$color-primary:             #e06600;
+$color-primary-trans:       rgba(224,102,0,0.8);
+$color-secondary:           #5b5c5d; // !!! used by header
+$color-secondary-inverse:   #000;
+$color-secondary-trans:     rgba(91,92,93,0.8);
+$color-tertiary:            #757677; // !!! used by footer
+$color-tertiary-trans:      rgba(117,118,119,0.8);
+$color-quaternary:          #7f8083;
+$color-quaternary-trans:    rgba(127,128,131,0.8);
+$color-quintary:            #939393;
+$color-quintary-trans:      rgba(147,147,147,0.8);
 
-$font-family-primary:     Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
-$font-family-secondary:   Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
+$font-family-primary:       Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
+$font-family-secondary:     Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
 body, p {
-  color: $color-tertiary;
+  color: $color-quintary;
   font-family: $font-family-secondary;
 }
 body {
-  font-weight: 300;
   font-size: 16px;
 }
 h1, h2, h3, h4 {
   font-family: $font-family-primary;
 }
 h1 {
-  color: $color-secondary;
+  color: $color-quaternary;
   font-weight: 400;
   font-size: 20px;
   text-align: center;
@@ -62,21 +73,21 @@ h4 {
 hr {
   background: $color-secondary;
   height: 1px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 p {
+  font-weight: 300;
   line-height: 1.0;
 }
 
 // Bootstrap styles:
 
 .btn {
-  border: 3px solid;
-  border-radius: 0px;
+  border: 0.25em solid;
+  border-radius: 0em;
   font-weight: 600;
-//  font-size: 16px;
-  min-width: 180px;
+  min-width: 10em;
 }
 .btn-primary {
   background-color: $color-page;    // override bs #428bea
@@ -87,9 +98,13 @@ p {
 .btn-primary:hover {
   background-color: $color-secondary-inverse;
 }
+.brand {
+  display: block;
+  padding: 1em 1em;
+}
 .container-fluid {
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0em;
+  padding-right: 0em;
 }
 .jumbotron {
   background: transparent;
@@ -104,8 +119,9 @@ p {
   }
 }
 .navbar {
+  font-family: $font-family-primary;
   margin-bottom: 0;
-  min-height: 0px;
+  min-height: 0em;
 }
 .navbar-inverse {
   background-color: rgba(80,80,80,0.8);
@@ -120,7 +136,7 @@ p {
 }
 .navbar-collapse {
   text-align: center;
-  line-height: 1em;
+  line-height: 0em;
 }
 .navbar-nav {
   display: inline-block;
@@ -132,29 +148,43 @@ p {
   line-height: 1em;
   padding: 1.4em 2em;
 }
-.panel-primary {
-  background-color: $color-page;
-  font-family: $font-family-primary;
-//  color: #6f6f6f;
-//  padding-left: 15px;
-//  padding-bottom: 15px;
-  text-align: center;
+.panel {
+  box-shadow: none;
 }
-.panel-primary .panel-heading {
-//  background-color: #fff0ec;
-  background-color: #ffffff;
-//  color: #f60;
-}
-.panel-secondary .panel-heading {
+.panel-heading {
   font-family: $font-family-secondary;
-//  background-color: #fff0ec;
-  background-color: #ffffff;
-//  color: #f60;
 }
-
 .panel-title {
   color: $color-primary;   // override bs inherit
   font-size: 20px;  // override bs 16px
+}
+.panel-primary {
+  background-color: $color-page;
+  margin: 2em 0em;
+  text-align: center;
+  p {
+    font-family: $font-family-primary;
+    font-size: 14px;
+  }
+  .panel-body, .panel-heading, .panel-title {
+    background-color: $color-page;
+  }
+  .panel-heading {
+    padding: 0em 0em;
+  }
+}
+.panel-secondary {
+  .panel-body, .panel-heading, .panel-title {
+    background-color: $color-panel;
+  }
+  li {
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+  }
 }
 .row {
   margin-right: 0px;
@@ -193,7 +223,7 @@ p {
 //}
 }
 .giant-header-top {
-  background-color: rgba(255,255,255,0.9);
+  background-color: $color-page-trans;
 }
 .giant-job {
   h4 {
