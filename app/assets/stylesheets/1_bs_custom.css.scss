@@ -1,5 +1,6 @@
 // ## custom file [2014.08.13 christopheraugustus]
 // ## based on http://getbootstrap.com/examples/grid/grid.css
+@import "bootstrap";
 
 @import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Muli:400,300);
@@ -251,4 +252,29 @@ p {
   margin-top: 1.1em;
   padding: 0.3em 0em;
   width: 1px;
+}
+.giant-candidates-benefits-area {
+  @extend .container-fluid;
+}
+.giant-candidates-benefits-title {
+  @include make-row();
+  padding: 2em 2em;
+  h2 {
+    margin: 0;
+  }
+}
+.giant-candidates-benefit-cluster {
+  @include make-row();
+  padding: 0 4em;
+}
+.giant-candidates-benefit-item {
+  @include make-sm-column(6);
+  padding: 0 2em 1em;
+  h4 {
+    margin: 0;
+    padding: 0 0 0.2em;
+  }
+  p {
+    margin: 0;
+  }
 }
