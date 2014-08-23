@@ -84,21 +84,6 @@ p {
 
 // Bootstrap styles:
 
-.btn {
-  border: 0.25em solid;
-  border-radius: 0em;
-  font-weight: 600;
-  min-width: 10em;
-}
-.btn-primary {
-  background-color: $color-page;    // override bs #428bea
-  border-color:     $color-primary; // override bs #357ebd
-  color:            $color-primary; // override bs white
-  font-family: $font-family-primary;
-}
-.btn-primary:hover {
-  background-color: $color-secondary-inverse;
-}
 .container-fluid {
   padding-left: 0em;
   padding-right: 0em;
@@ -219,6 +204,21 @@ p {
 //  width: 20px;
 //}
 }
+.giant-button {
+  @extend .btn;
+  background-color: $color-page;    // override bs #428bea
+  border:           0.25em solid;
+  border-color:     $color-primary; // override bs #357ebd
+  border-radius:    0em;
+  color:            $color-primary; // override bs white
+  font-family:      $font-family-primary;
+  font-weight:      600;
+  min-width:        10em;
+}
+.giant-button:hover {
+  background-color: $color-secondary-inverse;
+  color:            $color-page;
+}
 .giant-header-top-row {
   background-color: $color-page-trans;
   display: table;
@@ -245,36 +245,71 @@ p {
     margin-bottom: 0.2em;
   } 
 }
+.giant-jumbotron {
+  @extend .jumbotron;
+  background:     transparent;
+  padding:        5em 0em;
+  text-align:     center;
+  h1, h4 {
+    font-weight:  600;
+  }
+  h1 {
+    color:        $color-primary;
+    font-family:  $font-family-primary;
+    font-size:    28px;
+    line-height:  1.75;
+  }
+}
 .giant-navbar-separator { 
   background-color: $color-page;
-  font-size: 11px;  // same style as .navbar-nav > li 
-  line-height: 1em; // same style as .navbar-nav > li
-  margin-top: 1.1em;
-  padding: 0.3em 0em;
-  width: 1px;
+  font-size:        11px;  // same style as .navbar-nav > li 
+  line-height:      1em; // same style as .navbar-nav > li
+  margin-top:       1.1em;
+  padding:          0.3em 0em;
+  width:            1px;
 }
-.giant-candidates-benefits-area {
+.giant-candidates-sections {
   @extend .container-fluid;
 }
-.giant-candidates-benefits-title {
+.giant-candidates-section {
+  .giant-jumbotron {
+    margin:         0;
+    padding:        3em 8em;
+    h1, h4 {
+      margin:       0;
+    }
+    h1 {
+      padding:      0 0 1em;
+    }
+  }
+}
+.giant-candidates-section-separator {
+  background-color: $color-tertiary;
+  height:           1px;
+  margin:           0em 5em; 
+}
+.giant-candidates-section-title {
   @include make-row();
-  padding: 2em 2em;
+  padding:          2em 2em;
+  text-align:       center;
   h2 {
-    margin: 0;
+    font-weight:    600;
+    margin:         0;
   }
 }
 .giant-candidates-benefit-cluster {
   @include make-row();
-  padding: 0 4em;
+  padding:          0 4em;
 }
 .giant-candidates-benefit-item {
   @include make-sm-column(6);
-  padding: 0 2em 1em;
+  padding:          0 2em 1em;
   h4 {
-    margin: 0;
-    padding: 0 0 0.2em;
+    font-weight:    600;
+    margin:         0;
+    padding:        0 0 0.2em;
   }
   p {
-    margin: 0;
+    margin:         0;
   }
 }
