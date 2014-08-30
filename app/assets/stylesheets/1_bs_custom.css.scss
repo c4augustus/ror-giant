@@ -88,18 +88,6 @@ p {
   padding-left: 0em;
   padding-right: 0em;
 }
-.jumbotron {
-  background: transparent;
-  padding: 5em 0em;
-  h1 {
-    color: $color-primary;
-    font-family: $font-family-primary;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 1.75;
-    text-align: center;
-  }
-}
 .navbar {
   font-family: $font-family-primary;
   margin-bottom: 0;
@@ -181,8 +169,8 @@ p {
 // unique styles:
 
 .giant-background {
-  background: url("/assets/giant_jumbo.jpg") no-repeat;
-  background-size: cover;
+  background:       url("/assets/giant_jumbo.jpg") no-repeat;
+  background-size:  cover;
 /*
 // from http://jsfiddle.net/josephmcasey/KhPaF/ 
   margin:auto;
@@ -221,49 +209,70 @@ p {
 }
 .giant-header-top-row {
   background-color: $color-page-trans;
-  display: table;
+  display:          table;
 }
 .giant-header-top-column {
-  display: table-cell;
-  vertical-align: middle;
+  display:          table-cell;
+  vertical-align:   middle;
 }
 .giant-header-top-column-title {
-  width: 100%;
+  width:            100%;
 }
 .giant-header-brand {
-  display: block;
-  padding: 1em 1em;
+  display:          block;
+  padding:          1em 1em;
 }
 .giant-header-heading {
-  margin: 0;
-  padding: 0.5em 1em;
+  margin:           0;
+  padding:          0.5em 1em;
 }
 .giant-job {
   h4 {
-    //line-height: 0.75;
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
+    //line-height:    0.75;
+    margin-top:     0.2em;
+    margin-bottom:  0.2em;
   } 
 }
-.giant-jumbotron {
+.giant-billboard {
   @extend .jumbotron;
-  background:     transparent;
-  padding:        5em 0em;
-  text-align:     center;
+  background:       transparent;
+  padding:          5em 3em;
+  text-align:       center;
   h1, h4 {
-    font-weight:  600;
+    font-weight:    600;
   }
   h1 {
-    color:        $color-primary;
-    font-family:  $font-family-primary;
-    font-size:    28px;
-    line-height:  1.75;
+    color:          $color-primary;
+    font-family:    $font-family-primary;
+    font-size:      28px;
+    line-height:    1.75;
+  }
+}
+.giant-testimonial {
+  @extend .giant-billboard;
+  margin:           0;
+  padding:          2em 10em;
+  blockquote {
+    @extend h2;
+    border:         0;
+    line-height:    1.5em;
+    margin:         0;
+    padding:        0;
+    footer:before {
+      content:      none;
+    }
+    cite {
+      @extend h4;
+      display:      block; 
+      margin:       0;
+      padding:      1em 0 0;
+    }
   }
 }
 .giant-navbar-separator { 
   background-color: $color-page;
-  font-size:        11px;  // same style as .navbar-nav > li 
-  line-height:      1em; // same style as .navbar-nav > li
+  font-size:        11px; // same style as .navbar-nav > li 
+  line-height:      1em;  // same style as .navbar-nav > li
   margin-top:       1.1em;
   padding:          0.3em 0em;
   width:            1px;
@@ -297,11 +306,11 @@ p {
     margin:         0;
   }
 }
-.giant-benefit-cluster {
+.giant-cluster {
   @include make-row();
   padding:          0 4em;
 }
-.giant-benefit-item {
+.giant-cluster-item {
   @include make-sm-column(6);
   padding:          0 2em 1em;
   h4 {
@@ -313,9 +322,25 @@ p {
     margin:         0;
   }
 }
+.giant-map {
+  padding:          0em 3em 3em;
+  img {
+    width:          100%;
+  }
+}
 .giant-clients-brands {
   padding:          2em 5em; // TODO: @@@ DRY: sides same as separator
   img {
     width:          100%;
+  }
+}
+.giant-contact-info {
+  p {
+    display: block;
+  }
+  span {
+    text-align: left;
+    .giant-contact-address span {
+    }
   }
 }
