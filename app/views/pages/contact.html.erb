@@ -1,0 +1,36 @@
+<%= render partial: "shared/header", locals: {tab: @virtual_path[/^[^\/]+/]} %>
+
+<div class="giant-sections">
+
+  <div class="giant-section">
+    <div class="giant-section-title">
+      <h2>Give Us a Call and Let's Get Started.</h2>
+    </div> <!-- /giant-section-title -->
+    <div class="giant-map">
+      <img src="/assets/giant-map.png"></img>
+    </div> <!-- /giant-map -->
+  </div> <!-- /giant-section -->
+
+  <div class="giant-section">
+    <div class="giant-cluster">
+      <div class="giant-cluster-item">
+        <p class="giant-contact-info">
+          <span class="giant-contact-address">1 HALLIDIE PLAZA, SUITE 200</span>
+          <span class="giant-contact-address">SAN FRANCISCO, CA 94102</span>
+          <span class="giant-contact-phone">415.366.8855</span>
+          <span class="giant-contact-divider"></span>
+          <span class="giant-contact-name">MICKEY PUCKO</span>
+          <span class="giant-contact-title">VP, CLIENT SERVICES</span>
+          <span class="giant-contact-email">MICKEY@GIANTRECRUITING.COM</span>
+        </p>
+      </div> <!-- /giant-cluster-item -->
+      <div class="giant-cluster-item">
+        <h4>FOLLOW US</h4>
+        <p>(FACEBOOK) (TWITTER) (LINKEDIN)</p>
+      </div> <!-- /giant-cluster-item -->
+    </div> <!-- /giant-cluster -->
+  </div> <!-- /giant-section -->
+
+</div> <!-- /giant-sections -->
+
+<%= render partial: "shared/footer" %>
