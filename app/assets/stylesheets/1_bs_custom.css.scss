@@ -335,12 +335,23 @@ p {
   }
 }
 .giant-contact-info {
-  p {
-    display: block;
-  }
+  padding:          0 0 2em;
+}
+.giant-contact-details {
   span {
-    text-align: left;
-    .giant-contact-address span {
-    }
+    @extend h4;
+    display:        block;
+    text-align:     left;
+  }
+  span.giant-contact-address,
+  span.giant-contact-title {
+    font-weight:    300;
+  }
+  span.giant-contact-name,
+  span.giant-contact-title {
+    color:          $color-primary;
+  }
+  span.giant-contact-divider {
+    height:         1em;
   }
 }
