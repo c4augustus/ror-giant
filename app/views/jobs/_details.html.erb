@@ -4,7 +4,7 @@
       <%  if i > 0 %>
             &nbsp;|&nbsp;
       <%  end %>
-      <%  if (iscat = (job.category == cat)) %> 
+      <%  if (iscat = (@job.category == cat)) %> 
             <strong>
       <%  end %>
       <%= cat %>
@@ -13,17 +13,15 @@
       <%  end %>
     <%  end %>
   </h4>
-  <h3>                            <%= job.title %></h3>
-  <h4><strong>JOB#</strong>       <%= job.id_scheme_ext %></h4>
+  <h3>                            <%= @job.title %></h3>
+  <h4><strong>JOB#</strong>       <%= @job.id_scheme_ext %></h4>
   <br>
-  <h4><strong>LOCATION:</strong>  <%= job.location %></h4>
-  <h4><strong>STATUS:</strong>    <%= job.employment_type %></h4>
-  <h4><strong>STARTS:</strong>    <%= job.start_date %></h4>
-  <h4><strong>RATE:</strong>      <%= job.pay_rate %></h4>
+  <h4><strong>LOCATION:</strong>  <%= @job.location %></h4>
+  <h4><strong>STATUS:</strong>    <%= @job.employment_type %></h4>
+  <h4><strong>STARTS:</strong>    <%= @job.start_date %></h4>
+  <h4><strong>RATE:</strong>      <%= @job.pay_rate %></h4>
   <br>
-  <p><%= raw job.description %>
-    <!--
-      <%= link_to 'MORE', job %>
-    -->
+  <p><%= raw @job.description %>
+    <!--%= link_to 'MORE', @job %-->
   </p>
 </div> <!-- /giant-job -->

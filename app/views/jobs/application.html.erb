@@ -1,0 +1,9 @@
+<%= render 'shared/header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
+
+<%= render 'details' %>
+
+<p>### APPLICATION DETAILS HERE ###</p>
+
+<%= link_to 'APPLY', apply_job_path(@job), class: 'giant-button' %>
+
+<%= render 'shared/footer' %>

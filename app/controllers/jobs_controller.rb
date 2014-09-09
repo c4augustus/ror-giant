@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:application, :referral]
 
   # GET /jobs
   # GET /jobs.json
@@ -7,18 +7,24 @@ class JobsController < ApplicationController
     @jobs = Rails.application.jobs_facility.refresh_jobs
   end
 
-  # GET /jobs/1
-  # GET /jobs/1.json
-  def show
+  # GET /jobs/1/application
+  def application
+    @application = JobApplication.new
   end
 
-  # GET /jobs/new
-  def new
-    @job = Job.new
+  # POST /jobs/1/apply
+  def apply
+    redirect_to jobs_path
   end
 
-  # GET /jobs/1/edit
-  def edit
+  # GET /jobs/1/referral
+  def referral
+    @referral = JobReferral.new
+  end
+
+  # POST /jobs/1/refer
+  def refer
+    redirect_to jobs_path
   end
 
   # POST /jobs
@@ -62,9 +68,8 @@ class JobsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_job
-      @job = Job.find(params[:id])
+      @job = Job.find(params[:job_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

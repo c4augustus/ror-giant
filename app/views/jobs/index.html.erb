@@ -14,10 +14,11 @@
     </div> <!-- /panel -->
     <hr>
   <%  @jobs.each do |job| %>
-    <%= render partial: 'details', locals: {job: job} %>
+    <%= @job = job %>
+    <%= render 'details' %>
     <br>
-    <%= link_to 'APPLY',         apply_job_path(job), class: 'giant-button' %>
-    <%= link_to 'TELL A FRIEND',  tell_job_path(job), class: 'giant-button' %>
+    <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-button' %>
+    <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     class: 'giant-button' %>
     <hr>
   <%  end %>
   </div> <!-- /col -->
