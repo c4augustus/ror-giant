@@ -1,5 +1,7 @@
 class Job
   include Mongoid::Document
+  has_many :job_application
+  has_many :job_referral
   field :id_scheme_ext, type: String
   field :title, type: String
   field :location, type: String
