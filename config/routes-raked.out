@@ -1,7 +1,9 @@
-   Prefix Verb URI Pattern               Controller#Action
-     root GET /                         welcome#index
-apply_job GET /jobs/:id/apply(.:format) jobs#apply
- tell_job GET /jobs/:id/tell(.:format)  jobs#tell
-     jobs GET /jobs(.:format)           jobs#index
-      job GET /jobs/:id(.:format)       jobs#show
-     page GET /pages/*id                high_voltage/pages#show
+                 Prefix Verb URI Pattern                                  Controller#Action
+                   root GET  /                                            welcome#index
+new_job_job_application GET  /jobs/:job_id/job_applications/new(.:format) jobs#application
+   job_job_applications POST /jobs/:job_id/job_applications(.:format)     jobs#apply
+   new_job_job_referral GET  /jobs/:job_id/job_referrals/new(.:format)    jobs#referral
+      job_job_referrals POST /jobs/:job_id/job_referrals(.:format)        jobs#refer
+                   jobs GET  /jobs(.:format)                              jobs#index
+                    job GET  /jobs/:id(.:format)                          jobs#show
+                   page GET  /pages/*id                                   high_voltage/pages#show
