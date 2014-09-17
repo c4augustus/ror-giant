@@ -2,8 +2,71 @@
 
 <%= render 'details' %>
 
-<p>### APPLICATION DETAILS HERE ###</p>
+<%= form_for([@job, @application]) do |f| %>
+  <% if @application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@application.errors.count, "error") %> prohibited this job from being saved:</h2>
+      <ul>
+      <% @application.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'APPLY', apply_job_path(@job), class: 'giant-button' %>
+  <div class="field">
+    <%= f.label "Name" %><br>
+    <%= f.text_field :name_first %>
+    <%= f.text_field :name_last %>
+  </div>
+  <div class="field">
+    <%= f.label "Email" %><br>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label "Phone" %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label "Available Start Date" %><br>
+    <%= f.date_field :date_start_available %>
+  </div>
+  <div class="field">
+    <%= f.label "What is your current employment status?" %><br>
+    <%= f.radio_button :status_employment_current, 'Employed' %>
+    <%= f.label :status_employment_current, 'Employed' %>
+    <%= f.radio_button :status_employment_current, 'Self-Employed' %>
+    <%= f.label :status_employment_current, 'Self-Employed' %>
+    <%= f.radio_button :status_employment_current, 'Unemployed' %>
+    <%= f.label :status_employment_current, 'Unemployed' %>
+    <%= f.radio_button :status_employment_current, 'Student' %>
+    <%= f.label :status_employment_current, 'Student' %>
+  </div>
+  <div class="field">
+    <%= f.label "Authorization to work in US" %><br>
+    <%= f.select :status_authorization_to_work, options_for_select(%w[Yes VisaTransfer No]) %>
+    <%= f.radio_button :status_authorization_to_work, 'Yes' %>
+    <%= f.label :status_authorization_to_work, 'Yes' %>
+    <%= f.radio_button :status_authorization_to_work, 'Visa Transfer' %>
+    <%= f.label :status_authorization_to_work, 'Visa Transfer' %>
+    <%= f.radio_button :status_authorization_to_work, 'No' %>
+    <%= f.label :status_authorization_to_work, 'No' %>
+  </div>
+  <div class="field">
+    <%= f.label "Attach Resume" %><br>
+    <%= f.file_field :attachment_resume %>
+  </div>
+  <div class="field">
+    <%= f.label "Attach Portfolio Link (if applicable)" %><br>
+    <%= f.file_field :attachment_portfolio %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'APPLY', class: 'giant-button' %>
+  </div>
+
+  <!--%= link_to 'APPLY', job_job_applications_path(@job), class: 'giant-button', action:  %-->
+
+<% end %> <!-- /form_for -->
 
 <%= render 'shared/footer' %>
