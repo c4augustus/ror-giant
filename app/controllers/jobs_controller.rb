@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:application, :referral]
+  before_action :set_job, only: [:application, :apply, :referral, :refer]
 
   # GET /jobs
   # GET /jobs.json
@@ -14,6 +14,11 @@ class JobsController < ApplicationController
 
   # POST /jobs/1/apply
   def apply
+    if @job
+      if (job_application = @job.apply(params.require(:job_application).permit!))
+        JobMailer.mail_application(job_application).deliver
+      end
+    end
     redirect_to jobs_path
   end
 
@@ -24,6 +29,11 @@ class JobsController < ApplicationController
 
   # POST /jobs/1/refer
   def refer
+    if @job
+      if (job_referral = @job.refer(params.require(:job_referral).permit!))
+        JobMailer.mail_referral(job_referral).deliver
+      end
+    end
     redirect_to jobs_path
   end
 
