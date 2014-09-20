@@ -4,15 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>@subject</h1>
+    <h1><%= link_to @job_reference, @url %></h1>
     <p>
-      Your friend thinks that you would be interested in this job:
-      <br>
-      <%= @job.description %>
+      Your friend <%= @job_referral.name %> thinks that you would be interested in
+      <%= link_to "this job", @url %>:
     </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
-    <p>Have a great day!</p>
+    <%= render partial: './application/job_details' %>
   </body>
 </html>

@@ -15,7 +15,7 @@
     <hr>
   <%  @jobs.each do |job| %>
     <% @job = job %>
-    <%= render 'details' %>
+    <%= render 'job_details' %>
     <br>
     <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-button' %>
     <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     class: 'giant-button' %>

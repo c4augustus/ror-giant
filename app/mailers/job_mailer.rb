@@ -12,16 +12,19 @@ class JobMailer < ActionMailer::Base
     @subject = "Application for #{reference_to_job}, by #{@job_application.name}"
     mail from: @job_application.email,
            to: email_address_for_resumes,
+           cc: @job_application.email,
       subject: @subject
   end
 
   def mail_referral(job_referral)
     @job_referral = job_referral
     @job = @job_referral.job
+    @job_reference = reference_to_job
     @url = url_to_job
     @subject = "#{@job_referral.name} wants to you know about #{reference_to_job}"
     mail from: email_address_for_resumes,
            to: @job_referral.email,
+           cc: email_address_for_resumes,
       subject: @subject
   end
 
