@@ -14,7 +14,7 @@
     </div> <!-- /panel -->
     <hr>
   <%  @jobs.each do |job| %>
-    <%= @job = job %>
+    <% @job = job %>
     <%= render 'details' %>
     <br>
     <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-button' %>

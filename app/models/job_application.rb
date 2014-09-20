@@ -10,4 +10,10 @@ class JobApplication
   field :status_authorization_to_work,  type: String
   field :attachment_resume,             type: String
   field :attachment_portfolio,          type: String
+
+  def name
+    name_first.empty? ? name_last :
+      (name_first + (name_last.empty? ? "" :
+                    (" " + name_last)))
+  end
 end

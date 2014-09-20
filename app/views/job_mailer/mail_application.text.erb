@@ -1,6 +1,12 @@
-@subject
-===============================================
- 
-job link: <%= @url %>.
- 
-Have a great day!
+Giant Recruiting job application from the website
+=================================================
+Job link:   <%= @url %>
+Job title:  <%= @job.title %>
+Job number: <%= @job.id_scheme_ext %>
+-----------
+Applicant name: <%= @job_application.name %>
+Applicant phone: <%= @job_application.phone %>
+Available start date: <%= @job_application.date_start_available %>
+Current employment status: <%= @job_application.status_employment_current %>
+Authorization to work in US: <%= @job_application.status_authorization_to_work %>
+============================
