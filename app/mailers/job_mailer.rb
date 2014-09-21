@@ -10,6 +10,12 @@ class JobMailer < ActionMailer::Base
     @job = @job_application.job
     @url = url_to_job
     @subject = "Application for #{reference_to_job}, by #{@job_application.name}"
+    if @job_application.attachment_resume
+      attachments['resume'] = @job_application.attachment_resume.read
+    end
+    if @job_application.attachment_portfolio
+      attachments['portfolio']  = @job_application.attachment_portfolio.read
+    end
     mail from: @job_application.email,
            to: email_address_for_resumes,
            cc: @job_application.email,

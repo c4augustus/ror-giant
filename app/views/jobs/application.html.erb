@@ -1,6 +1,6 @@
 <%= render 'shared/header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
 
-<%= render 'details' %>
+<%= render 'job_details' %>
 
 <%= form_for([@job, @application]) do |f| %>
   <% if @application.errors.any? %>

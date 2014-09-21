@@ -21,7 +21,7 @@ class Job
   end
 
   def apply(attributes)
-    JobApplication.create(attributes.merge!({job: self}))
+    JobApplication.build(attributes.merge!({job: self}))
   end
 
   def refer(attributes)
