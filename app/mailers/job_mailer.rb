@@ -40,9 +40,6 @@ private
   end
 
   def url_to_job
-    url_for(controller: 'jobs',
-                action: 'index',
-             only_path: false) <<
-      "##{@job.id_scheme_ext}"
+    jobs_url << "##{@job.id_scheme_ext}"
   end
 end
