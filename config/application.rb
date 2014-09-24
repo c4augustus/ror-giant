@@ -25,17 +25,20 @@ module RorGiant
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.action_mailer.perform_deliveries = true
     config.action_mailer.default_url_options = {
-      ## development testing:
-      ##host: 'christopheraugustus.com'
-      ## until forwarding can be set up:
-      ##host: 'giantrecruiting.com'
-      host: 'giant-staffiing.com'
+      host: 'giantrecruiting.com'
     }
+
+    config.custom_email_address_for_resumes =
+      # development testing:
+      ##'resumes@christopheraugustus.com'
+      # until forwarding can be set up:
+      ##'resumes@giantrecruiting.com'
+      'resumes@giant-staffing.com'
+
     config.smtp_settings = {
+      # development testing:
 =begin
-      ## development testing:
       address:              'mail.worldfusion.com',
       domain:               'worldfusion.com',
       port:                 465,

@@ -2,7 +2,7 @@ class JobMailer < ActionMailer::Base
   #default from: "from@example.com"
 
   def email_address_for_resumes
-    "resumes@#{default_url_options[:host]}"
+    Rails.application.config.custom_email_address_for_resumes
   end
 
   def mail_application(job_application)
