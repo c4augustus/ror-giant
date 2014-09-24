@@ -25,8 +25,29 @@ module RorGiant
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.action_mailer.perform_deliveries = true
     config.action_mailer.default_url_options = {
-      host: 'giantrecruiting.com'
+      ## development testing:
+      ##host: 'christopheraugustus.com'
+      ## until forwarding can be set up:
+      ##host: 'giantrecruiting.com'
+      host: 'giant-staffiing.com'
+    }
+    config.smtp_settings = {
+=begin
+      ## development testing:
+      address:              'mail.worldfusion.com',
+      domain:               'worldfusion.com',
+      port:                 465,
+      ssl:                  true,
+      tls:                  true,
+      enable_starttls_auto: false,
+      openssl_verify_mode:  :none,
+      authentication:       :login,
+      user_name:            ENV['RAILS_SMTP_SETTINGS_USER_NAME'],
+      password:             ENV['RAILS_SMTP_SETTINGS_PASSWORD'],
+=end
+      address: 'mail.giantrecruiting.com'
     }
 
     def jobs_facility
