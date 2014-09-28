@@ -322,6 +322,46 @@ p {
     margin:         0;
   }
 }
+.giant-form {
+  padding:          2em 4em 0em;
+  h2 {
+    text-align:     left;
+  }
+  label {
+    font-weight:    normal;
+    margin-bottom:  0.2em;
+  }
+  .field {
+    padding:        1em 0 0;
+  }
+  .giant-field-entry {
+    width:            100%;
+  }
+  .giant-field-entry-twin {
+    width:            49.5%;
+  }
+}
+.giant-form-button {
+  margin:           2em 0;
+}
+.giant-form-radio-button {
+}
+.giant-form-radio-button-label {
+  padding:          0 2em 0 0.5em;
+}
+.giant-form-radio-button-group {
+  padding:          0 1.3em;
+  span {
+    display:        block;
+  }
+}
+.giant-job-referral {
+  .giant-job-details {
+    border:           1px solid;
+    margin-top:       1em;
+    padding:          0.5em 1.5em;
+  }
+}
 .giant-map {
   padding:          0em 3em 3em;
   img {

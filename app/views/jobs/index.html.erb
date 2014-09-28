@@ -1,6 +1,7 @@
 <%= render partial: 'shared/header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
 
-<div class="container-fluid">
+<div class="giant-sections">
+
 <!-- @@@ design draft 1
   <h2><span class="giant-panel-heading">&nbsp;&nbsp;</span>OPEN JOBS</h2>
 -->
@@ -15,7 +16,7 @@
     <hr>
   <%  @jobs.each do |job| %>
     <% @job = job %>
-    <%= render 'job_details' %>
+    <%= render 'job', including: [:category] %>
     <br>
     <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-button' %>
     <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     class: 'giant-button' %>
@@ -24,6 +25,7 @@
   </div> <!-- /col -->
   <div class='col-sm-1'>
   </div>
-</div> <!-- /container -->
+
+</div> <!-- /giant-sections -->
 
 <%= render partial: 'shared/footer' %>

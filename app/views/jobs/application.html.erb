@@ -1,72 +1,79 @@
 <%= render 'shared/header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
 
-<%= render 'job_details' %>
-
-<%= form_for([@job, @application]) do |f| %>
-  <% if @application.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@application.errors.count, "error") %> prohibited this job from being saved:</h2>
-      <ul>
-      <% @application.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label "Name" %><br>
-    <%= f.text_field :name_first %>
-    <%= f.text_field :name_last %>
-  </div>
-  <div class="field">
-    <%= f.label "Email" %><br>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label "Phone" %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label "Available Start Date" %><br>
-    <%= f.date_field :date_start_available %>
-  </div>
-  <div class="field">
-    <%= f.label "What is your current employment status?" %><br>
-    <%= f.radio_button :status_employment_current, 'Employed' %>
-    <%= f.label :status_employment_current, 'Employed' %>
-    <%= f.radio_button :status_employment_current, 'Self-Employed' %>
-    <%= f.label :status_employment_current, 'Self-Employed' %>
-    <%= f.radio_button :status_employment_current, 'Unemployed' %>
-    <%= f.label :status_employment_current, 'Unemployed' %>
-    <%= f.radio_button :status_employment_current, 'Student' %>
-    <%= f.label :status_employment_current, 'Student' %>
-  </div>
-  <div class="field">
-    <%= f.label "Authorization to work in US" %><br>
-    <%= f.select :status_authorization_to_work, options_for_select(%w[Yes VisaTransfer No]) %>
-    <%= f.radio_button :status_authorization_to_work, 'Yes' %>
-    <%= f.label :status_authorization_to_work, 'Yes' %>
-    <%= f.radio_button :status_authorization_to_work, 'Visa Transfer' %>
-    <%= f.label :status_authorization_to_work, 'Visa Transfer' %>
-    <%= f.radio_button :status_authorization_to_work, 'No' %>
-    <%= f.label :status_authorization_to_work, 'No' %>
-  </div>
-  <div class="field">
-    <%= f.label "Attach Resume" %><br>
-    <%= f.file_field :attachment_resume %>
-  </div>
-  <div class="field">
-    <%= f.label "Attach Portfolio Link (if applicable)" %><br>
-    <%= f.file_field :attachment_portfolio %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit 'APPLY', class: 'giant-button' %>
-  </div>
-
-  <!--%= link_to 'APPLY', job_job_applications_path(@job), class: 'giant-button', action:  %-->
-
-<% end %> <!-- /form_for -->
+<div class="giant-sections">
+  <div class="giant-section">
+    <div class="giant-form">
+      <%= render 'job' %>
+      <%= form_for([@job, @application]) do |f| %>
+        <% if @application.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@application.errors.count, "error") %> prohibited this job from being saved:</h2>
+            <ul>
+            <% @application.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%= f.label "Name" %><br>
+          <%= f.text_field :name_first, placeholder: 'FIRST', class: "giant-field-entry-twin"  %>
+          <%= f.text_field :name_last,  placeholder: 'LAST',  class: "giant-field-entry-twin"  %>
+        </div>
+        <div class="field">
+          <%= f.label "Email" %><br>
+          <%= f.email_field :email, class: "giant-field-entry"  %>
+        </div>
+        <div class="field">
+          <%= f.label "Phone" %><br>
+          <%= f.text_field :phone, class: "giant-field-entry" %>
+        </div>
+        <div class="field">
+          <%= f.label "Available Start Date" %><br>
+          <%= f.date_field :date_start_available, class: "giant-field-entry" %>
+        </div>
+        <div class="field">
+          <%= f.label "What is your current employment status?" %><br>
+          <div class="giant-form-radio-button-group">
+            <span>
+              <%= f.radio_button :status_employment_current, 'Employed',      class: "giant-form-radio-button" %>
+              <%= f.label        :status_employment_current, 'Employed',      class: "giant-form-radio-button-label" %>
+              <%= f.radio_button :status_employment_current, 'Self-Employed', class: "giant-form-radio-button" %>
+              <%= f.label        :status_employment_current, 'Self-Employed', class: "giant-form-radio-button-label" %>
+            </span>
+            <span>
+              <%= f.radio_button :status_employment_current, 'Unemployed',    class: "giant-form-radio-button" %>
+              <%= f.label        :status_employment_current, 'Unemployed',    class: "giant-form-radio-button-label" %>
+              <%= f.radio_button :status_employment_current, 'Student',       class: "giant-form-radio-button" %>
+              <%= f.label        :status_employment_current, 'Student',       class: "giant-form-radio-button-label" %>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label "Authorization to work in US" %><br>
+          <div class="giant-form-radio-button-group">
+            <%= f.radio_button :status_authorization_to_work, 'Yes',            class: "giant-form-radio-button" %>
+            <%= f.label        :status_authorization_to_work, 'Yes',            class: "giant-form-radio-button-label" %>
+            <%= f.radio_button :status_authorization_to_work, 'Visa Transfer',  class: "giant-form-radio-button" %>
+            <%= f.label        :status_authorization_to_work, 'Visa Transfer',  class: "giant-form-radio-button-label" %>
+            <%= f.radio_button :status_authorization_to_work, 'No',             class: "giant-form-radio-button" %>
+            <%= f.label        :status_authorization_to_work, 'No',             class: "giant-form-radio-button-label" %>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label "Attach Resume" %><br>
+          <%= f.file_field :attachment_resume %>
+        </div>
+        <div class="field">
+          <%= f.label "Attach Portfolio Link (if applicable)" %><br>
+          <%= f.file_field :attachment_portfolio %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'APPLY', class: 'giant-button giant-form-button' %>
+        </div>
+      <% end %> <!-- /form_for -->
+    </div> <!-- /giant-form -->
+  </div> <!-- /giant-section -->
+</div> <!-- /giant-sections -->
 
 <%= render 'shared/footer' %>

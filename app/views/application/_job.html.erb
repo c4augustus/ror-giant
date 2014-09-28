@@ -1,18 +1,20 @@
 <div class="giant-job" id="<%= @job.id_scheme_ext %>">
-  <h4>
-    <%  Job.categories.each_with_index do |cat, i| %>
-      <%  if i > 0 %>
-            &nbsp;|&nbsp;
+  <% if local_assigns.has_key?(:including) && including.include?(:category) %>
+    <h4>
+      <%  Job.categories.each_with_index do |cat, i| %>
+        <%  if i > 0 %>
+              &nbsp;|&nbsp;
+        <%  end %>
+        <%  if (iscat = (@job.category == cat)) %> 
+              <strong>
+        <%  end %>
+        <%= cat %>
+        <%  if iscat %> 
+              </strong>
+        <%  end %>
       <%  end %>
-      <%  if (iscat = (@job.category == cat)) %> 
-            <strong>
-      <%  end %>
-      <%= cat %>
-      <%  if iscat %> 
-            </strong>
-      <%  end %>
-    <%  end %>
-  </h4>
+    </h4>
+  <% end %>
   <h3>                            <%= @job.title %></h3>
   <h4><strong>JOB#</strong>       <%= @job.id_scheme_ext %></h4>
   <br>

@@ -1,43 +1,45 @@
 <%= render 'shared/header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
 
-<h1>Tell a Friend</h1>
-
-<%= form_for([@job, @referral]) do |f| %>
-  <% if @referral.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@referral.errors.count, "error") %> prohibited this job from being saved:</h2>
-      <ul>
-      <% @referral.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label "Friend's Name" %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label "Friend's Email" %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label "Message Subject" %><br>
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= f.label "Message Text" %><br>
-    <%= f.text_field :body %>
-  </div>
-
-  <%= render 'job_details' %>
-
-  <div class="actions">
-    <%= f.submit 'TELL', class: 'giant-button' %>
-  </div>
-
-  <!--%= link_to 'TELL', job_job_referrals_path(@job), class: 'giant-button' %-->
-<% end %> <!-- /form_for -->
+<div class="giant-sections">
+  <div class="giant-section">
+    <div class="giant-form giant-job-referral">
+      <h2>Tell a Friend</h2>
+      <%= form_for([@job, @referral]) do |f| %>
+        <% if @referral.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@referral.errors.count, "error") %> prohibited this job from being saved:</h2>
+            <ul>
+            <% @referral.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%= f.label "Friend's Name" %><br>
+          <%= f.text_field :name,     class: "giant-field-entry" %>
+        </div>
+        <div class="field">
+          <%= f.label "Friend's Email" %><br>
+          <%= f.text_field :email,    class: "giant-field-entry" %>
+        </div>
+        <div class="field">
+          <%= f.label "Message Subject" %><br>
+          <%= f.text_field :subject,  class: "giant-field-entry" %>
+        </div>
+        <div class="field">
+          <%= f.label "Message Text" %><br>
+          <%= f.text_field :body,     class: "giant-field-entry" %>
+        </div>
+        <div class="giant-job-details">
+          <%= render 'job' %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'TELL', class: 'giant-button giant-form-button' %>
+        </div>
+      <% end %> <!-- /form_for -->
+    </div> <!-- /giant-form -->
+  </div> <!-- /giant-section -->
+</div> <!-- /giant-sections -->
 
 <%= render 'shared/footer' %>
