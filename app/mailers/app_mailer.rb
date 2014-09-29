@@ -1,4 +1,4 @@
-class JobMailer < ActionMailer::Base
+class AppMailer < ActionMailer::Base
   #default from: "from@example.com"
 
   def email_address_for_resumes
@@ -31,6 +31,15 @@ class JobMailer < ActionMailer::Base
     mail from: email_address_for_resumes,
            to: @job_referral.email,
            cc: email_address_for_resumes,
+      subject: @subject
+  end
+
+  def mail_talent_request(talent_request)
+    @talent_request = talent_request
+    @subject = "Talent request from #{@talent_request.name} @ #{@talent_request.company}"
+    mail from: @talent_request.email,
+           to: email_address_for_resumes,
+           cc: @talent_request.email,
       subject: @subject
   end
 
