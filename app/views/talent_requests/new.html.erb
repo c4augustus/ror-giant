@@ -1,0 +1,46 @@
+<%= render 'shared/header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
+
+<div class="giant-sections">
+  <div class="giant-section">
+    <div class="giant-form">
+      <h2>Request Talent</h2>
+      <%= form_for(@talent_request) do |f| %>
+        <% if @talent_request.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@talent_request.errors.count, "error") %> prohibited this talent request from being saved:</h2>
+            <ul>
+            <% @talent_request.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%= f.label       :name,    'Full Name' %><br>
+          <%= f.text_field  :name,    class: 'giant-field-entry' %>
+        </div>
+        <div class="field">
+          <%= f.label       :company, 'Company' %><br>
+          <%= f.text_field  :company, class: 'giant-field-entry' %>
+        </div>
+        <div class="field">
+          <%= f.label       :email,   'Email' %><br>
+          <%= f.text_field  :email,   class: 'giant-field-entry' %>
+        </div>
+        <div class="field">
+          <%= f.label       :phone,   'Phone' %><br>
+          <%= f.text_field  :phone,   class: 'giant-field-entry' %>
+        </div>
+        <div class="field">
+          <%= f.label       :what,    'Tell us what you\'re looking for' %><br>
+          <%= f.text_area   :what,    class: 'giant-field-entry giant-talent-request-what' %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'REQUEST',     class: 'giant-button giant-form-button' %>
+        </div>
+      <% end %> <!-- /form_for -->
+    </div> <!-- /giant-form -->
+  </div> <!-- /giant-section -->
+</div> <!-- /giant-sections -->
+
+<%= render 'shared/footer' %>
