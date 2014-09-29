@@ -16,7 +16,7 @@ class JobsController < ApplicationController
   def apply
     if @job
       if (job_application = @job.apply(params.require(:job_application).permit!))
-        JobMailer.mail_application(job_application).deliver
+        AppMailer.mail_application(job_application).deliver
       end
     end
     redirect_to jobs_path
@@ -31,12 +31,14 @@ class JobsController < ApplicationController
   def refer
     if @job
       if (job_referral = @job.refer(params.require(:job_referral).permit!))
-        JobMailer.mail_referral(job_referral).deliver
+        AppMailer.mail_referral(job_referral).deliver
       end
     end
     redirect_to jobs_path
   end
 
+## DISABLE UNUSED GENERATED CODE
+=begin
   # POST /jobs
   # POST /jobs.json
   def create
@@ -76,6 +78,7 @@ class JobsController < ApplicationController
       format.json { head :no_content }
     end
   end
+=end
 
   private
     def set_job
