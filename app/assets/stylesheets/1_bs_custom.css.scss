@@ -25,6 +25,7 @@ $color-page-trans:          rgba(255,255,255,0.9);
 $color-panel:               #efefef;
 $color-panel-trans:         rgba(239,239,239,0.8);
 $color-primary:             #e06600;
+$color-primary-bright:      #ff7f3f;
 $color-primary-trans:       rgba(224,102,0,0.8);
 $color-secondary:           #5b5c5d; // !!! used by header
 $color-secondary-inverse:   #000;
@@ -102,7 +103,8 @@ p {
   color: #fff;
 }
 .navbar-inverse .navbar-nav li a:hover {
-  background-color: $color-secondary-inverse;
+  //background-color: $color-secondary-inverse;
+  color:            $color-primary-bright;
 }
 .navbar-collapse {
   text-align: center;
@@ -204,8 +206,10 @@ p {
   min-width:        10em;
 }
 .giant-button:hover {
-  background-color: $color-secondary-inverse;
-  color:            $color-page;
+  //background-color: $color-secondary-inverse;
+  border-color:     $color-secondary-inverse;
+  //color:            $color-primary;
+  color:            $color-secondary-inverse;
 }
 .giant-header-top-row {
   background-color: $color-page-trans;
