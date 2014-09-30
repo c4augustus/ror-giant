@@ -3,6 +3,7 @@ class Job
   has_many :job_application
   has_many :job_referral
   field :id_scheme_ext,   type: String
+  field :category,        type: String
   field :title,           type: String
   field :location,        type: String
   field :employment_type, type: String
@@ -13,11 +14,17 @@ class Job
   field :description,     type: String
 
   def self.categories
-    @@categories ||= ['UXD', 'CREATIVE', 'MARKETING']
+    @@categories ||= ['ALL', 'UXD', 'CREATIVE', 'MARKETING']
   end
 
-  def category
-    "CREATIVE"
+  def self.category_matching(string)
+    unless string.blank?
+      regexp = /#{string.split[0]}/i
+      self.categories.each do |category|
+        return category if regexp.match category
+      end
+    end
+    nil
   end
 
   def apply(attributes)
