@@ -1,4 +1,59 @@
 class JobsFacility
+
+  SECONDS_INTERVAL_REFRESH = 100000
+
+  def refresh_jobs
+    unless @time_refresh_last &&
+        (Time.now < (@time_refresh_last + SECONDS_INTERVAL_REFRESH))
+      Job.delete_all
+      #retrieve_all_categories
+      retrieve_all_jobs
+      @time_refresh_last = Time.now
+    end
+    Job.all
+  end
+
+private
+
+  def retrieve_all_categories
+    if (hashcategories = fetch_external_categories_hash(true))
+      puts "## categories JSON: #{hashcategories}"
+    end
+  end
+
+  def retrieve_all_jobs
+    offset = 0
+    until 0 == (count = retrieve_jobs_starting_at(offset))
+      offset += count
+    end
+  end
+
+  def retrieve_jobs_starting_at(offset)
+    count = 0
+    if (hashjobs = fetch_external_jobs_hash(offset, false))
+      hashjobs["data"].each do |hashjob|
+        if (idschemeext = hashjob["id"])
+          job = Job.find_or_create_by(id_scheme_ext: idschemeext)
+          job.write_attributes(
+            category:         Job.category_matching(hashjob["skillList"]),
+            title:            hashjob["title"],
+## !!! disabled, so now these details must be provided in the description
+=begin
+            employment_type:  hashjob["employmentType"],
+            start_date:       hashjob["startDate"],
+            pay_rate:         hashjob["payRate"],
+            salary:           hashjob["salary"],
+            salary_unit:      hashjob["salaryUnit"],
+=end
+            description:      hashjob["publicDescription"])
+          job.save
+          count += 1
+        end 
+      end
+    end
+    count
+  end
+
   require 'json'
   require 'rest_client'
   require 'uri'
@@ -8,6 +63,81 @@ class JobsFacility
     RestClient.log = 'stdout'
   end
 
+  def fetch_external_categories_hash(including_all_fields)
+    if external_session_key && external_url_rest
+      log_integrating
+      RestClient.get(URI.encode(
+        "#{external_url_rest}search/Category"\
+        "?BhRestToken=#{external_session_key}"\
+        "&fields=#{including_all_fields ? "*" :
+          "id,name"}"\
+        "&count=#{count}"\
+        "&start=#{start}"
+      )) {|response, request, result, &block|
+        if response.code == 200 # Success
+          #puts "# SUCCESS, response=#{response}"
+          if including_all_fields
+            File.open("db/data_bh_categories_all_fields_"\
+                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+              f.write(response.encode)
+            end
+=begin
+          else
+            File.open("db/data_bh_categories_selected_fields_"\
+                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+              f.write(response.encode)
+            end
+=end
+          end
+          return JSON.parse response
+        else
+          # do not letting RestClient handle it
+          ##response.return!(request, result, &block)
+          puts "### FAILED: response code #{response.code}"
+        end
+      }
+    end
+    nil
+  end
+
+  def fetch_external_jobs_hash(offset, including_all_fields)
+    if external_session_key && external_url_rest
+      log_integrating
+      RestClient.get(URI.encode(
+        "#{external_url_rest}search/JobOrder"\
+        "?BhRestToken=#{external_session_key}"\
+        "&query=isOpen:1 AND isDeleted:0 AND NOT status:archive"\
+        "&fields=#{including_all_fields ? "*" :
+          ## !!! disabled, so now these details must be provided in the description
+          ##"id,categories,title,employmentType,startDate,payRate,salary,salaryUnit,publicDescription"}"\
+          "id,skillList,publicDescription"}"\
+        "&start=#{offset}"
+      )) {|response, request, result, &block|
+        if response.code == 200 # Success
+          #puts "# SUCCESS, response=#{response}"
+          if including_all_fields
+            File.open("db/data_bh_job_offers_all_fields_"\
+                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+              f.write(response.encode)
+            end
+=begin
+          else
+            File.open("db/data_bh_job_offers_selected_fields_"\
+                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+              f.write(response.encode)
+            end
+=end
+          end
+          return JSON.parse response
+        else
+          # do not letting RestClient handle it
+          ##response.return!(request, result, &block)
+          puts "### FAILED: response code #{response.code}"
+        end
+      }
+    end
+    nil
+  end
   def acquire_external_auth_code
     sec = Rails.application.secrets[:service_external_jobs]
     return unless sec
@@ -149,60 +279,5 @@ class JobsFacility
     @external_url_rest
   end
 
-  def fetch_external_jobs_hash(including_all_fields)
-    if external_session_key && external_url_rest
-      log_integrating
-      RestClient.get(URI.encode(
-        "#{external_url_rest}search/JobOrder"\
-        "?BhRestToken=#{external_session_key}"\
-        "&query=isOpen:1 AND isDeleted:0 AND NOT status:archive"\
-        "&fields=#{including_all_fields ? "*" :
-          "id,title,employmentType,startDate,payRate,salary,salaryUnit,publicDescription"}"\
-        "&start=0"
-      )) {|response, request, result, &block|
-        if response.code == 200 # Success
-          #puts "# SUCCESS, response=#{response}"
-          if including_all_fields
-            File.open("db/data_bh_job_offers_all_fields_"\
-                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
-              f.write(response.encode)
-            end
-          end
-          return JSON.parse response
-        else
-          # do not letting RestClient handle it
-          ##response.return!(request, result, &block)
-          puts "### FAILED: response code #{response.code}"
-        end
-      }
-    end
-    nil
-  end
 
-  SECONDS_INTERVAL_REFRESH = 100000
-
-  def refresh_jobs
-    unless @time_refresh_last &&
-        ((timenow = Time.now) <
-         (@time_refresh_last + SECONDS_INTERVAL_REFRESH))
-      @time_refresh_last = timenow
-      if (hashjobs = fetch_external_jobs_hash(false))
-        hashjobs["data"].each do |hashjob|
-          if (idschemeext = hashjob["id"])
-            job = Job.find_or_create_by(id_scheme_ext: idschemeext)
-            job.write_attributes(
-              title:            hashjob["title"],
-              employment_type:  hashjob["employmentType"],
-              start_date:       hashjob["startDate"],
-              pay_rate:         hashjob["payRate"],
-              salary:           hashjob["salary"],
-              salary_unit:      hashjob["salaryUnit"],
-              description:      hashjob["publicDescription"])
-            job.save
-          end
-        end 
-      end
-    end
-    Job.all
-  end
 end
