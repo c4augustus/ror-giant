@@ -21,3 +21,4 @@
 
 ## customization
 config/secrets.yml
+db/data*.json
