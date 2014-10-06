@@ -237,6 +237,16 @@ p {
     margin-bottom:  0.2em;
   } 
 }
+.giant-job-category {
+  &:active, &:focus, &:visited {
+    color:            $color-secondary;
+    text-decoration:  none;
+  }
+  &:hover {
+    color:            $color-primary;
+    text-decoration:  none;
+  }
+}
 .giant-billboard {
   @extend .jumbotron;
   background:       transparent;

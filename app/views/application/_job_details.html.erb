@@ -1,0 +1,16 @@
+<!-- !!! disabled, so now these details must be provided in the decription below
+  <h3>                            <%= @job.title %></h3>
+-->
+  <br>
+  <h4><strong>JOB#</strong>       <%= @job.id_scheme_ext %></h4>
+  <br>
+<!-- !!! disabled, so now these details must be provided in the decription below
+  <h4><strong>LOCATION:</strong>  <%= @job.location %></h4>
+  <h4><strong>STATUS:</strong>    <%= @job.employment_type %></h4>
+  <h4><strong>STARTS:</strong>    <%= @job.start_date %></h4>
+  <h4><strong>RATE:</strong>      <%= @job.pay_rate %></h4>
+  <br>
+-->
+  <p><%= raw @job.description %>
+    <!--%= link_to 'MORE', @job %-->
+  </p>

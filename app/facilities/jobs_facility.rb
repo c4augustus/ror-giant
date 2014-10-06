@@ -2,7 +2,7 @@ class JobsFacility
 
   SECONDS_INTERVAL_REFRESH = 100000
 
-  def refresh_jobs
+  def refresh_jobs(options={})
     unless @time_refresh_last &&
         (Time.now < (@time_refresh_last + SECONDS_INTERVAL_REFRESH))
       Job.delete_all
@@ -10,7 +10,8 @@ class JobsFacility
       retrieve_all_jobs
       @time_refresh_last = Time.now
     end
-    Job.all
+    category = Job.category_matching(options[:category])
+    Job.where((category && (category != 'ALL')) ? {category: category} : {}) 
   end
 
 private

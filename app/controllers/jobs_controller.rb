@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Rails.application.jobs_facility.refresh_jobs
+    @jobs = Rails.application.jobs_facility.refresh_jobs(category: params[:category])
   end
 
   # GET /jobs/1/application

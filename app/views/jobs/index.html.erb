@@ -14,14 +14,19 @@
       </div>
     </div> <!-- /panel -->
     <hr>
-  <%  @jobs.each do |job| %>
-    <% @job = job %>
-    <%= render 'job', including: [:category] %>
-    <br>
-    <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-button' %>
-    <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     class: 'giant-button' %>
+  <% if @jobs.empty? %>
+    <%= render 'job_category' %>
     <hr>
-  <%  end %>
+  <% else %>
+    <% @jobs.each do |job| %>
+      <% @job = job %>
+      <%= render 'job', including: [:category] %>
+      <br>
+      <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-button' %>
+      <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     class: 'giant-button' %>
+      <hr>
+    <% end %>
+  <% end %>
   </div> <!-- /col -->
   <div class='col-sm-1'>
   </div>
