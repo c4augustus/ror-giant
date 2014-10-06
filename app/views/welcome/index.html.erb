@@ -1,6 +1,6 @@
 <div class="container-fluid">
 <div class="row giant-background">
-<%= render partial: "shared/header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
+<%= render partial: "header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
 
   <div class="giant-billboard">
     <h1>AT GIANT,
@@ -19,7 +19,7 @@
           Whether it's full-time or contract,<br>
            Giant is here to help.<br>
           &nbsp;</p>
-        <%= render partial: "shared/button_request_talent" %>
+        <%= render partial: "button_request_talent" %>
       </div>
     </div> <!-- /panel -->
   </div> <!-- /col -->
@@ -33,7 +33,7 @@
           Giant's experts will help you every<br>
             step of the way.<br>
           &nbsp;</p>
-        <%= render partial: "shared/button_open_jobs" %>
+        <%= render partial: "button_open_jobs" %>
       </div>
     </div> <!-- /panel -->
   </div> <!-- /col -->
@@ -100,4 +100,4 @@
 </div> <!-- /row -->
 </div> <!-- /container -->
 
-<%= render partial: "shared/footer" %>
+<%= render partial: "footer" %>
