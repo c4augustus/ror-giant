@@ -8,12 +8,10 @@
   <div class="col-sm-1">
   </div>
   <div class="col-sm-10">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h2 class="panel-title">Open Jobs</h2>
-      </div>
-    </div> <!-- /panel -->
-    <hr>
+    <div class="giant-section-title">
+      <h2>Open Jobs</h2>
+    </div>
+    <hr class="giant-separator-title">
   <% if @jobs.empty? %>
     <%= render 'job_category' %>
     <hr>

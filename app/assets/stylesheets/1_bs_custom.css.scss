@@ -27,22 +27,25 @@ $color-panel-trans:         rgba(239,239,239,0.8);
 $color-primary:             #e06600;
 $color-primary-bright:      #ff7f3f;
 $color-primary-trans:       rgba(224,102,0,0.8);
-$color-secondary:           #5b5c5d; // !!! used by header
+//$color-secondary:           #5b5c5d; // !!! eyedropped from design header
+$color-secondary:           #4b4c4d; // !!! eyedropped from design header
 $color-secondary-inverse:   #000;
-$color-secondary-trans:     rgba(91,92,93,0.8);
-$color-tertiary:            #757677; // !!! used by footer
+//$color-secondary-trans:     rgba(91,92,93,0.8);
+$color-secondary-trans:     rgba(70,70,70,0.8);
+$color-tertiary:            #757677; // !!! eyedropped from design footer
 $color-tertiary-trans:      rgba(117,118,119,0.8);
 $color-quaternary:          #7f8083;
 $color-quaternary-trans:    rgba(127,128,131,0.8);
 $color-quintary:            #939393;
 $color-quintary-trans:      rgba(147,147,147,0.8);
 
+
 $font-family-primary:       Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
 $font-family-secondary:     Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
 body, p {
-  color: $color-quintary;
-  font-family: $font-family-secondary;
+  color: $color-secondary;
+  font-family: $font-family-primary;
 }
 body {
   font-size: 16px;
@@ -51,15 +54,15 @@ h1, h2, h3, h4 {
   font-family: $font-family-primary;
 }
 h1 {
-  color: $color-quaternary;
-  font-weight: 400;
+  color: $color-secondary;
+  font-weight: 600;
   font-size: 20px;
   text-align: center;
 }
 h2 {
   color: $color-primary;
-  font-weight: 300;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 18px;
   text-align: center;
 }
 h3 {
@@ -70,7 +73,7 @@ h3 {
 h4 {
   color: $color-secondary;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
 }
 hr {
   background: $color-secondary;
@@ -80,7 +83,7 @@ hr {
 }
 p {
   font-weight: 300;
-  line-height: 1.0;
+//  line-height: 1.0;
 }
 
 // Bootstrap styles:
@@ -95,12 +98,12 @@ p {
   min-height: 0em;
 }
 .navbar-inverse {
-  background-color: rgba(80,80,80,0.8);
+  background-color: $color-secondary-trans;
   border: 0;
-  color: #fff;
+  color: $color-page;
 }
 .navbar-inverse .navbar-nav li a {
-  color: #fff;
+  color: $color-page;
 }
 .navbar-inverse .navbar-nav li a:hover {
   //background-color: $color-secondary-inverse;
@@ -128,7 +131,7 @@ p {
 }
 .panel-title {
   color: $color-primary;   // override bs inherit
-  font-size: 20px;  // override bs 16px
+  font-size: 18px;  // override bs 16px
 }
 .panel-primary {
   background-color: $color-page;
@@ -149,6 +152,16 @@ p {
   .panel-body, .panel-heading, .panel-title {
     background-color: $color-panel;
   }
+  .panel-body, .panel-heading {
+    padding: 1.5em;
+  }
+  .panel-heading {
+    padding-bottom: 0em;
+  }
+  .panel-title {
+    padding-bottom: 0em;
+    padding-top: 0.2em;
+  }
   li {
     font-size: 12px;
     line-height: 1.5em;
@@ -156,6 +169,7 @@ p {
   ul {
     list-style-type: none;
     margin: 0;
+    padding: 0;
   }
 }
 .row {
@@ -200,16 +214,16 @@ p {
   border:           0.25em solid;
   border-color:     $color-primary; // override bs #357ebd
   border-radius:    0em;
-  color:            $color-primary; // override bs white
+  color:            $color-secondary; // override bs white
   font-family:      $font-family-primary;
-  font-weight:      600;
+  font-weight:      400;
   min-width:        10em;
 }
 .giant-button:hover {
-  //background-color: $color-secondary-inverse;
-  border-color:     $color-secondary-inverse;
-  //color:            $color-primary;
-  color:            $color-secondary-inverse;
+  background-color: $color-primary;
+  //border-color:     $color-secondary-inverse;
+  color:            $color-page;
+  //color:            $color-secondary-inverse;
 }
 .giant-header-top-row {
   background-color: $color-page-trans;
@@ -252,13 +266,11 @@ p {
   background:       transparent;
   padding:          5em 3em;
   text-align:       center;
-  h1, h4 {
-    font-weight:    600;
-  }
   h1 {
     color:          $color-primary;
     font-family:    $font-family-primary;
     font-size:      28px;
+    font-weight:    600;
     line-height:    1.75;
   }
 }
@@ -269,6 +281,7 @@ p {
   blockquote {
     @extend h2;
     border:         0;
+    font-weight:    400;
     line-height:    1.5em;
     margin:         0;
     padding:        0;
@@ -313,10 +326,9 @@ p {
 }
 .giant-section-title {
   @include make-row();
-  padding:          2em 2em;
+  padding:          4em 2em 2em;
   text-align:       center;
   h2 {
-    font-weight:    600;
     margin:         0;
   }
 }
@@ -329,10 +341,12 @@ p {
   padding:          0 2em 1em;
   h4 {
     font-weight:    600;
+    font-size:      600;
     margin:         0;
     padding:        0 0 0.2em;
   }
   p {
+    line-height:    1.3em;
     margin:         0;
   }
 }
@@ -407,6 +421,11 @@ p {
   }
   span.giant-contact-divider {
     height:         1em;
+  }
+}
+.giant-separator-title {
+  hr {
+    margin-top: 0em;
   }
 }
 .giant-talent-request-what {
