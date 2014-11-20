@@ -1,11 +1,13 @@
 class JobsFacility
 
-  SECONDS_INTERVAL_REFRESH = 100000
+  SECONDS_INTERVAL_REFRESH = 800
 
   def refresh_jobs(options={})
     unless @time_refresh_last &&
         (Time.now < (@time_refresh_last + SECONDS_INTERVAL_REFRESH))
       Job.delete_all
+      @external_access_token = nil
+      @external_session_key = nil
       #retrieve_all_categories
       retrieve_all_jobs
       @time_refresh_last = Time.now
@@ -202,34 +204,57 @@ private
     return unless sec && external_auth_code
     @external_access_token = nil
     log_integrating
-    RestClient.post(
-      "#{sec['uri_base_auth']}/token"\
-      "?grant_type=authorization_code"\
-      "&code=#{external_auth_code}"\
-      "&client_id=#{sec['auth_client_id']}"\
-      "&client_secret=#{sec['auth_client_secret']}",
-      nothing: 'nothing'
-    ) {|response, request, result, &block|
-      if response.code == 200 # Success
-        puts "# SUCCESS, response=#{response}"
-        responseHash = JSON.parse response
-        @external_access_token = responseHash["access_token"]
-        @external_refresh_token = responseHash["refresh_token"]
-      else
-        # do not letting RestClient handle it
-        ##response.return!(request, result, &block)
-        puts "### FAILED: response code #{response.code}"
-      end
-    }
-    if @external_access_token
-      puts "#..obtained external access token <#{@external_access_token}>"
-    else
-      puts "#..did NOT obtain external access token" 
-    end
     if @external_refresh_token
-      puts "#..obtained external refresh token <#{@external_refresh_token}>"
-    else
-      puts "#..did NOT obtain external refresh token" 
+      RestClient.post(
+        "#{sec['uri_base_auth']}/token"\
+        "?grant_type=refresh_token"\
+        "&refresh_token=#{@external_refresh_token}"\
+        "&client_id=#{sec['auth_client_id']}"\
+        "&client_secret=#{sec['auth_client_secret']}",
+        nothing: 'nothing'
+      ) {|response, request, result, &block|
+        if response.code == 200 # Success
+          puts "# SUCCESS, response=#{response}"
+          responseHash = JSON.parse response
+          @external_access_token = responseHash["access_token"]
+          @external_refresh_token = responseHash["refresh_token"]
+        else
+          # do not letting RestClient handle it
+          ##response.return!(request, result, &block)
+          puts "### FAILED: response code #{response.code}"
+        end
+      }
+    end
+    if !@external_access_token
+      RestClient.post(
+        "#{sec['uri_base_auth']}/token"\
+        "?grant_type=authorization_code"\
+        "&code=#{external_auth_code}"\
+        "&client_id=#{sec['auth_client_id']}"\
+        "&client_secret=#{sec['auth_client_secret']}",
+        nothing: 'nothing'
+      ) {|response, request, result, &block|
+        if response.code == 200 # Success
+          puts "# SUCCESS, response=#{response}"
+          responseHash = JSON.parse response
+          @external_access_token = responseHash["access_token"]
+          @external_refresh_token = responseHash["refresh_token"]
+        else
+          # do not letting RestClient handle it
+          ##response.return!(request, result, &block)
+          puts "### FAILED: response code #{response.code}"
+        end
+      }
+      if @external_access_token
+        puts "#..obtained external access token <#{@external_access_token}>"
+      else
+        puts "#..did NOT obtain external access token" 
+      end
+      if @external_refresh_token
+        puts "#..obtained external refresh token <#{@external_refresh_token}>"
+      else
+        puts "#..did NOT obtain external refresh token" 
+      end
     end
     @external_access_token
   end
