@@ -20,5 +20,6 @@
 .DS_Store
 
 ## customization
-config/secrets.yml
 db/data*.json
+config/secrets.yml
+config/secrets-private.yml
