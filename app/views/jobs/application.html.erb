@@ -2,8 +2,8 @@
 
 <div class="giant-sections">
   <div class="giant-section">
-    <div class="giant-form">
-      <%= render 'job' %>
+    <div class="giant-form giant-job-application">
+      <h2>Apply for Job</h2>
       <%= form_for([@job, @application]) do |f| %>
         <% if @application.errors.any? %>
           <div id="error_explanation">
@@ -70,6 +70,9 @@
         </div>
         <div class="actions">
           <%= f.submit 'APPLY', class: 'giant-button giant-form-button' %>
+        </div>
+        <div class="giant-job-details">
+          <%= render 'job' %>
         </div>
       <% end %> <!-- /form_for -->
     </div> <!-- /giant-form -->

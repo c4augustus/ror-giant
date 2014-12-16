@@ -388,8 +388,9 @@ p {
   }
 }
 .giant-form {
-  padding:          2em 4em 0em;
+  padding:          3em 4em;
   h2 {
+    margin:         0;
     text-align:     left;
   }
   label {
@@ -420,12 +421,10 @@ p {
     display:        block;
   }
 }
-.giant-job-referral {
-  .giant-job-details {
-    border:           1px solid;
-    margin-top:       1em;
-    padding:          0.5em 1.5em;
-  }
+.giant-job-details {
+  border:           1px solid;
+  margin:           0;
+  padding:          0.5em 1.5em;
 }
 .giant-map {
   padding:          0em 3em 3em;

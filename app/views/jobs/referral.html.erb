@@ -31,11 +31,11 @@
           <%= f.label "Message Text" %><br>
           <%= f.text_field :body,     class: "giant-field-entry" %>
         </div>
-        <div class="giant-job-details">
-          <%= render 'job' %>
-        </div>
         <div class="actions">
           <%= f.submit 'TELL', class: 'giant-button giant-form-button' %>
+        </div>
+        <div class="giant-job-details">
+          <%= render 'job' %>
         </div>
       <% end %> <!-- /form_for -->
     </div> <!-- /giant-form -->
