@@ -25,22 +25,27 @@ module RorGiant
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.custom_email_domain_default =
+      # development testing:
+      ##'christopheraugustus.com'
+      'giantrecruiting.com'
+    config.custom_email_address_for_resumes =
+      "resumes@#{config.custom_email_domain_default}"
+    config.custom_link_facebook =
+      "https://www.facebook.com/pages/Giant-Staffing-LLC/522568731137415"
+    config.custom_link_linkedin =
+      "https://www.linkedin.com/company/giant-staffing"
+    config.custom_link_twitter =
+      "https://twitter.com/GiantStaffing"
+
     config.action_mailer.default_url_options = {
-      host: 'giantrecruiting.com'
+      host: config.custom_email_domain_default
     }
 
-    config.custom_email_address_for_resumes =
-      # development testing:
-      ##'resumes@christopheraugustus.com'
-      # until forwarding can be set up:
-      ##'resumes@giantrecruiting.com'
-      'resumes@giant-staffing.com'
-
     config.smtp_settings = {
-      # development testing:
-=begin
-      address:              'mail.worldfusion.com',
-      domain:               'worldfusion.com',
+      address:              "mail.#{config.custom_email_domain_default}"
+=begin # development testing:
+      domain:               config.custom_email_domain_default
       port:                 465,
       ssl:                  true,
       tls:                  true,
@@ -50,7 +55,6 @@ module RorGiant
       user_name:            ENV['RAILS_SMTP_SETTINGS_USER_NAME'],
       password:             ENV['RAILS_SMTP_SETTINGS_PASSWORD'],
 =end
-      address: 'mail.giantrecruiting.com'
     }
 
     def jobs_facility

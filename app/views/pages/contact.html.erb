@@ -20,21 +20,22 @@
           <span class="giant-contact-divider"></span>
           <span class="giant-contact-name">MICKEY PUCKO</span>
           <span class="giant-contact-title">VP, CLIENT SERVICES</span>
-          <a href="mailto:mickey@giantrecruiting.com">
-            <span class="giant-contact-email">MICKEY@GIANTRECRUITING.COM</span>
+          <% email_address = "mickey@#{Rails.application.config.custom_email_domain_default}" %>
+          <a href="mailto:<%= email_address %>">
+            <span class="giant-contact-email"><%= email_address.upcase %></span>
           </a>
         </p>
       </div> <!-- /giant-cluster-item -->
       <div class="giant-cluster-item">
         <div class="giant-contact-icons">
           <h4>FOLLOW US</h4>
-          <a href="https://www.facebook.com/pages/Giant-Staffing-LLC/522568731137415">
+          <a href="<%= Rails.application.config.custom_link_facebook %>">
             <img src="/assets/FB-f-Logo__blue_144.png"/>
           </a>
-          <a href="https://twitter.com/GiantStaffing">
+          <a href="<%= Rails.application.config.custom_link_twitter %>">
             <img src="/assets/Twitter_logo_blue.png"/>
           </a>
-          <a href="https://www.linkedin.com/company/giant-staffing">
+          <a href="<%= Rails.application.config.custom_link_linkedin %>">
             <img src="/assets/In-2C-128px-R.png"/>
           </a>
         </div> <!-- /giant-contact-icons -->
