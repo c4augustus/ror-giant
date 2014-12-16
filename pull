@@ -1,0 +1,5 @@
+#!/bin/sh
+git checkout master
+git pull -r
+git checkout live
+git rebase master
