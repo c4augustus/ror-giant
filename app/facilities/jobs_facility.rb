@@ -13,7 +13,8 @@ class JobsFacility
       @time_refresh_last = Time.now
     end
     category = Job.category_matching(options[:category])
-    Job.where((category && (category != 'ALL')) ? {category: category} : {}) 
+    Job.where((category && (category != 'ALL')) ? {category: category} : {}).
+      sort({id_scheme_ext:-1}) 
   end
 
 private
