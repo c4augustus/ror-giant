@@ -123,6 +123,14 @@ p {
   line-height: 1em;
   padding: 1.4em 2em;
 }
+.nav li p { // @@@ CONSOLIDATE WITH ABOVE
+  border: 0;
+  color: $color-page;
+  font-size: 11px;
+  line-height: 1em;
+  margin: 0;
+  padding: 1.4em 2em;
+}
 .panel {
   box-shadow: none;
 }
@@ -208,6 +216,19 @@ p {
 //  width: 20px;
 //}
 }
+.giant-billboard {
+  @extend .jumbotron;
+  background:       transparent;
+  padding:          5em 3em;
+  text-align:       center;
+  h1 {
+    color:          $color-primary;
+    font-family:    $font-family-primary;
+    font-size:      28px;
+    font-weight:    600;
+    line-height:    1.75;
+  }
+}
 .giant-button {
   @extend .btn;
   background-color: $color-page;    // override bs #428bea
@@ -224,6 +245,22 @@ p {
   //border-color:     $color-secondary-inverse;
   color:            $color-page;
   //color:            $color-secondary-inverse;
+}
+.giant-contact-icons {
+  text-align:     center;
+  img {
+    padding:        1.0em 1.0em;
+    width:          5.0em;
+  }
+}
+.giant-footer {
+  @extend .navbar-wrapper; // bootstrap
+}
+.giant-footer-container {
+  @extend .container-fluid; // bootstrap
+}
+.giant-footer-row {
+  @extend .row; // bootstrap
 }
 .giant-header-top-row {
   background-color: $color-page-trans;
@@ -261,19 +298,6 @@ p {
     text-decoration:  none;
   }
 }
-.giant-billboard {
-  @extend .jumbotron;
-  background:       transparent;
-  padding:          5em 3em;
-  text-align:       center;
-  h1 {
-    color:          $color-primary;
-    font-family:    $font-family-primary;
-    font-size:      28px;
-    font-weight:    600;
-    line-height:    1.75;
-  }
-}
 .giant-testimonial {
   @extend .giant-billboard;
   margin:           0;
@@ -294,6 +318,19 @@ p {
       margin:       0;
       padding:      1em 0 0;
     }
+  }
+}
+.giant-navbar-collapse { 
+  @extend .navbar-collapse; // bootstrap
+  @extend .collapse;        // bootstrap
+  @extend .nav-justified;   // bootstrap
+}
+.giant-navbar-icon { 
+  a { // @@@ DOESN'T WORK
+    padding:        0;
+  }
+  img {
+    width:          2.0em;
   }
 }
 .giant-navbar-separator { 
