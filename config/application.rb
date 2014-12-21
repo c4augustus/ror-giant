@@ -41,20 +41,25 @@ module RorGiant
     config.action_mailer.default_url_options = {
       host: config.custom_email_domain_default
     }
-
-    config.smtp_settings = {
-      address:              "mail.#{config.custom_email_domain_default}"
-=begin # development testing:
-      domain:               config.custom_email_domain_default
-      port:                 465,
-      ssl:                  true,
-      tls:                  true,
+    config.action_mailer.smtp_settings = {
+      #address:              'secure.emailsrvr.com',
+      address:              'smtp.emailsrvr.com',
+      domain:               config.custom_email_domain_default,
+      #port:                 465,
+      port:                 587,
+      #ssl:                  true,
+      ssl:                  false,
+      #tls:                  true,
+      tls:                  false,
+      #enable_starttls_auto: true,
       enable_starttls_auto: false,
-      openssl_verify_mode:  :none,
-      authentication:       :login,
-      user_name:            ENV['RAILS_SMTP_SETTINGS_USER_NAME'],
-      password:             ENV['RAILS_SMTP_SETTINGS_PASSWORD'],
-=end
+      #openssl_verify_mode:  :none,
+      #authentication:       :login,
+      authentication:       :plain,
+      user_name:            Rails.application.secrets[:service_external_smtp]['account_user_name'],
+      password:             Rails.application.secrets[:service_external_smtp]['account_password']
+      #user_name:            ENV['RAILS_SMTP_SETTINGS_USER_NAME'],
+      #password:             ENV['RAILS_SMTP_SETTINGS_PASSWORD'],
     }
 
     def jobs_facility
