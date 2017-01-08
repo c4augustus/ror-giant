@@ -2,19 +2,8 @@
 // ## based on http://getbootstrap.com/examples/grid/grid.css
 @import "bootstrap";
 
+//@import url(http://fonts.googleapis.com/css?family=Muli:400,300);
 @import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
-@import url(http://fonts.googleapis.com/css?family=Muli:400,300);
-
-// ## licensing this font is a Giant pain in the ass
-//@font-face {
-//  font-family: "Brandon_Grotesque"
-//  src: asset-url('BrandonGrotesque_Bold.otf') format("opentype");
-//  src: asset-url('BrandonGrotesque_Black.otf')
-//  src: asset-url('BrandonGrotesque_Light.otf')
-//  src: asset-url('BrandonGrotesque_Medium.otf')
-//  src: asset-url('BrandonGrotesque_Regular.otf')
-//  src: asset-url('BrandonGrotesque_Thin.otf')
-//}
 
 $color-logo:                #c55e30;
 $color-logo-light:          #d3660b;
@@ -40,7 +29,8 @@ $color-quintary:            #939393;
 $color-quintary-trans:      rgba(147,147,147,0.8);
 
 
-$font-family-primary:       Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
+//$font-family-primary:       Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
+$font-family-primary:       OpenSans,"Helvetica Neue",Helvetica,Arial,sans-serif;
 $font-family-secondary:     Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
 body, p {
