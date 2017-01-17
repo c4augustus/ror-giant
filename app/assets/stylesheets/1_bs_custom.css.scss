@@ -9,11 +9,15 @@ $color-logo:                #c55e30;
 $color-logo-light:          #d3660b;
 $color-logo-trans:          rgba(197,94,48,0.8);
 $color-logo-trans-light:    rgba(211,102,11,0.8);
+$color-menu-button-border:  #1380a8;
+$color-menu-button-fill:    #6ed3fb;
+$color-menu-button-text:    #1380a8;
 $color-page:                #fff;
 $color-page-trans:          rgba(255,255,255,0.9);
 $color-panel:               #efefef;
 $color-panel-trans:         rgba(239,239,239,0.8);
-$color-primary:             #e06600;
+//$color-primary:             #e06600; ///< shade from 2014 design
+$color-primary:             #f87355; // !!! eyedropped from 2016 design header
 $color-primary-bright:      #ff7f3f;
 $color-primary-trans:       rgba(224,102,0,0.8);
 //$color-secondary:           #5b5c5d; // !!! eyedropped from design header
@@ -28,10 +32,11 @@ $color-quaternary-trans:    rgba(127,128,131,0.8);
 $color-quintary:            #939393;
 $color-quintary-trans:      rgba(147,147,147,0.8);
 
-
 //$font-family-primary:       Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
 $font-family-primary:       OpenSans,"Helvetica Neue",Helvetica,Arial,sans-serif;
 $font-family-secondary:     Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+$font-weight-semibold:      600;
 
 body, p {
   color: $color-secondary;
@@ -45,14 +50,14 @@ h1, h2, h3, h4 {
 }
 h1 {
   color: $color-secondary;
-  font-weight: 600;
+  font-weight: $font-weight-semibold;
   font-size: 20px;
   text-align: center;
 }
 h2 {
   color: $color-primary;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: $font-weight-semibold;
+  font-size: 14px;
   text-align: center;
 }
 h3 {
@@ -174,6 +179,17 @@ p {
   margin-right: 0px;
   margin-left: 0px;
 }
+
+// TODO: @@@ NOT USING THIS...YET
+// !!! non-standard bootstrap customization from
+// !!! http://getbootstrap.com.vn/examples/equal-height-columns/
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
 [class*="panel-"] {
   background-color: $color-page;
   border: 0px;
@@ -215,7 +231,7 @@ p {
     color:          $color-primary;
     font-family:    $font-family-primary;
     font-size:      28px;
-    font-weight:    600;
+    font-weight:    $font-weight-semibold;
     line-height:    1.75;
   }
 }
@@ -252,25 +268,77 @@ p {
 .giant-footer-row {
   @extend .row; // bootstrap
 }
-.giant-header-top-row {
-  background-color: $color-page-trans;
-  display:          table;
+
+/// !!! note: We are NOT using bootstrap grid in the header
+/// !!! because of the awkward design of the menu/navigation
+/// !!! buttons and how they would collapse using bootstrap
+
+$giant-header-left-edge-space: 0.7em;
+$giant-header-vert-edge-space: 0.3em;
+
+.giant-header-div-entire {
+  background-color: $color-page;
+  padding-left:     $giant-header-left-edge-space;
+  padding-bottom:   $giant-header-vert-edge-space;
 }
-.giant-header-top-column {
+.giant-header-div-section-brand {
+  //display:          table-cell; ///< !!! appends and spans height, but shrinks instead of collapsing
+  display:          inline-block; ///< !!! appends but doesn't span height
+  padding-bottom:   0.2em;
+  padding-top:      0.6em;
+  vertical-align:   middle; ///< !!! both outers must be middle for the smaller to be middle
+}
+.giant-header-div-section-menu {
+  //display:          table-cell; ///< !!! appends and spans height, but shrinks instead of collapsing
+  display:          inline-block; ///< !!! appends but doesn't span height
+  padding:          0;
+  padding-top:      $giant-header-vert-edge-space;
+  vertical-align:   middle; ///< !!! both outers must be middle for the smaller to be middle
+}
+.giant-header-div-within-menu {
   display:          table-cell;
-  vertical-align:   middle;
-}
-.giant-header-top-column-title {
+  padding:          0;
   width:            100%;
 }
-.giant-header-brand {
-  display:          block;
-  padding:          1em 1em;
+.giant-header-item-brand-image {
+  /// !!! inline-block would drop collapsed text to next line
+  //display:          inline-block;
+  display:          table-cell;
 }
-.giant-header-heading {
+.giant-header-item-brand-tagline {
+  /// !!! inline-block would drop collapsed text to next line
+  //display:          inline-block;
+  display:          table-cell;
   margin:           0;
-  padding:          0.5em 1em;
+  padding-left:     $giant-header-left-edge-space;
+  padding-right:    1.5em;
+  text-align:       left;   ///< !!! keep collapsing text left-adjusted
+  vertical-align:   middle; ///< !!! keep collapsing text in the middle
 }
+.giant-header-item-menu-link {
+  @extend .btn; ///< bootstrap
+  background-color: $color-menu-button-fill;
+  border:           0.1em solid;
+  border-color:     $color-menu-button-border;
+  border-radius:    0;
+  color:            $color-menu-button-text;
+  font-family:      $font-family-primary;
+  font-weight:      $font-weight-semibold;
+  margin:           0.25em 0.1em;
+  min-width:        10em;
+  padding:          1em 0.5em;
+}
+.giant-header-item-menu-link:hover {
+  background-color: $color-menu-button-text;
+  color:            $color-page;
+}
+.giant-header-item-phone {
+  color:            $color-secondary;
+  display:          inline-block;
+  margin:           0;
+  min-width:        10em;
+}
+
 .giant-job {
   h4 {
     //line-height:    0.75;
