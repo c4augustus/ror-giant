@@ -1,103 +1,106 @@
-<div class="container-fluid">
-<div class="row giant-background">
 <%= render partial: "header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
-
-  <div class="giant-billboard">
-    <h1>AT GIANT,
-    <br>WE PLACE THE BRIGHTEST
-    <br>AND MOST TALENTED CANDIDATES</h1>
-  </div> <!-- jumbotron -->
-</div> <!-- row -->
-<div class='row'>
-  <div class='col-xs-12 col-sm-6'>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h2 class="panel-title">Want to Hire?</h2>
+<div class="giant-page-home-all-div">
+  <div class="giant-page-home-jumbo-all-div">
+    <div class="giant-page-home-jumbo-bundle-div">
+      <div class="giant-page-home-jumbo-cluster-empty-div">
       </div>
-      <div class="panel-body">
-        <p>Need to fill a single position or an entire team?<br>
-          Whether it's full-time or contract,<br>
-           Giant is here to help.<br>
-          &nbsp;</p>
-        <%= render partial: "button_request_talent" %>
+      <div class="giant-page-home-jumbo-cluster-text-div">
+        <h1>SHAPE THE FUTURE
+        <br>OF YOUR COMPANY.
+        <br>HIRE THE BEST.</h1>
+        <div class="giant-page-home-jumbo-group-buttons-div">
+          <%= render partial: "button_open_jobs" %>
+          &nbsp;
+          <%= render partial: "button_request_talent" %>
+        </div>
       </div>
-    </div> <!-- /panel -->
-  </div> <!-- /col -->
-  <div class='col-xs-12 col-sm-6'>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h2 class="panel-title">Want a new Job?</h2>
-      </div>
-      <div class="panel-body">
-        <p>Looking for a job has never been easier.<br>
-          Giant's experts will help you every<br>
-            step of the way.<br>
-          &nbsp;</p>
-        <%= render partial: "button_open_jobs" %>
-      </div>
-    </div> <!-- /panel -->
-  </div> <!-- /col -->
-</div> <!-- /row -->
-<div class="row">
-  <div class='col-sm-1'>
+    </div>
   </div>
-  <div class='col-xs-10'>
-    <div class="panel panel-secondary">
-      <div class="panel-heading">
-        <h2 class="panel-title">What We Specialize In</h2>
+  <div class="giant-page-home-roles-all-div">
+    <div class="giant-page-home-roles-caption-all-div">
+       <div class="giant-page-home-roles-caption-tab-div">
+         <img src="/assets/giant-roles-tab.png"></img>
+       </div>
+      <h2 class="giant-page-home-roles-caption-text-heading">
+        POPULAR ROLES WE FILL
+      </h2>
+    </div>
+    <div class="giant-page-home-roles-list-all-div">
+      <div class="giant-page-home-roles-list-bundle-empty-div">
       </div>
-      <div class="panel-body">
-        <div class='col-sm-4'>
+      <div class="giant-page-home-roles-list-bundle-filled-div">
+        <div class='giant-page-home-roles-list-single-div'>
           <ul id="role_list_a">
-            <li>UI/UX Designer</li>
+            <li>VP of Product</li>
+            <li>Director of Product</li>
+            <li>Product Manager</li>
+            <li>Information Architect</li>
+            <li>Product Designer (UI/UX)</li>
+            <li>UX Designer (web / mobile)</li>
+            <li>UI Designer (web / mobile)</li>
+            <li>UX Researcher</li>
+            <li>Content Strategist</li>
             <li>Front End Developer</li>
-            <li>Product Designer</li>
-            <li>iOS Developer</li>
-            <li>3D Animator / Game Designer</li>
+            <li>3D Animator / Technical Artist</li>
+            <li>Brand Manager</li>
+            <li>Game Producer</li>
+            <li>Animator</li>
             <li>Motion Graphics</li>
             <li>Video Editor</li>
-            <li>Producer / Project Manager</li>
-            <li>Web Content Strategist</li>
-            <li>Media Buyer</li>
-            <li>Media Planner</li>
           </ul>
-        </div> <!-- /col -->
-        <div class='col-sm-4'>
+        </div>
+        <div class='giant-page-home-roles-list-single-div'>
           <ul id="role_list_b">
+            <li>Executive Creative Director</li>
             <li>Creative Director</li>
+            <li>Associate Creative Director</li>
             <li>Art Director</li>
-            <li>Graphic Designer / Web Designer</li>
-            <li>Production</li>
+            <li>Interactive Designer</li>
+            <li>Visual Designer (integrated)</li>
+            <li>Graphic Designer (brand)</li>
+            <li>Package Designer</li>
+            <li>Production Designer</li>
             <li>Project Manager</li>
+            <li>Digital Producer</li>
+            <li>Traffic Coordinator</li>
+            <li>Traffic Manager</li>
             <li>Presentation Specialist</li>
+            <li>Digital Strategist</li>
             <li>Account Manager / Director</li>
             <li>Studio Manager / Director</li>
             <li>Copywriter</li>
             <li>Proofreader / Editor</li>
             <li>Account Executive</li>
+            <li>Media Buying</li>
+            <li>Media Planning</li>
+            <li>Brand Ambassador</li>
           </ul>
-        </div> <!-- /col -->
-        <div class='col-sm-4'>
+        </div>
+        <div class='giant-page-home-roles-list-single-div'>
           <ul id="role_list_c">
-            <li>Social Media Strategist</li>
-            <li>Bi Analyst</li>
-            <li>Product Manager</li>
-            <li>Marketing Manager</li>
-            <li>Marcom Manager</li>
-            <li>Email Marketing Manager</li>
-            <li>Market Research</li>
-            <li>Consumer Promotions</li>
+            <li>Corporate/PR Communications</li>
+            <li>Marcom</li>
+            <li>Creative Services</li>
+            <li>Brand Marketing</li>
+            <li>Product Marketing</li>
+            <li>Social Media</li>
+            <li>Digital Campaigns</li>
+            <li>Demand Generation</li>
+            <li>Email Marketing (CRM)</li>
             <li>Online Marketing</li>
             <li>SEO/SEM</li>
-            <li>Social Media Web Analytics</li>
+            <li>Events</li>
+            <li>Marketing Operations</li>
+            <li>Digital / Web Analytics</li>
+            <li>Business Intelligence (BI)</li>
+            <li>Market Research</li>
+            <li>Consumer Promotions</li>
           </ul>
-        </div> <!-- /col -->
-      </div> <!-- /panel-body -->
-    </div> <!-- /panel -->
-  </div> <!-- /col -->
-  <div class='col-sm-1'>
-  </div> <!-- /col -->
-</div> <!-- /row -->
-</div> <!-- /container -->
-
+        </div>
+      </div>
+      <div class="giant-page-home-roles-list-bundle-empty-div">
+      </div>
+    </div>
+  </div>
+</div>
 <%= render partial: "footer" %>

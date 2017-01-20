@@ -21,7 +21,8 @@ $color-primary:             #f87355; // !!! eyedropped from 2016 design header
 $color-primary-bright:      #ff7f3f;
 $color-primary-trans:       rgba(224,102,0,0.8);
 //$color-secondary:           #5b5c5d; // !!! eyedropped from design header
-$color-secondary:           #4b4c4d; // !!! eyedropped from design header
+//$color-secondary:           #4b4c4d; // !!! eyedropped from 2014 design
+$color-secondary:           #666666; // !!! eyedropped from 2016 design
 $color-secondary-inverse:   #000;
 //$color-secondary-trans:     rgba(91,92,93,0.8);
 $color-secondary-trans:     rgba(70,70,70,0.8);
@@ -198,59 +199,37 @@ p {
 
 // unique styles:
 
-.giant-background {
-  background:       url("/assets/giant_jumbo.jpg") no-repeat;
-  background-size:  cover;
-/*
-// from http://jsfiddle.net/josephmcasey/KhPaF/ 
-  margin:auto;
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: 50%;
-  background-color: #fff;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-  z-index:-1;
-  position:fixed
-*/
-// previous design
-//.giant-heading-bullet {
-//  background-color: #f60;
-//  margin-right: 8px;
-//  width: 20px;
-//}
-}
 .giant-billboard {
   @extend .jumbotron;
   background:       transparent;
   padding:          5em 3em;
   text-align:       center;
   h1 {
-    color:          $color-primary;
+    color:          $color-secondary;
     font-family:    $font-family-primary;
     font-size:      28px;
-    font-weight:    $font-weight-semibold;
+    font-weight:    bold;
     line-height:    1.75;
+    text-align:     left;
   }
 }
 .giant-button {
   @extend .btn;
   background-color: $color-page;    // override bs #428bea
   border:           0.25em solid;
-  border-color:     $color-primary; // override bs #357ebd
-  border-radius:    0em;
+  border-color:     $color-secondary; // override bs #357ebd
+  border-radius:    0.3em;
+  border-width:     2px;
   color:            $color-secondary; // override bs white
   font-family:      $font-family-primary;
-  font-weight:      400;
-  min-width:        10em;
+  font-weight:      bold;
+  padding:          8px 12px;
+  min-width:        11em;
 }
 .giant-button:hover {
   background-color: $color-primary;
-  //border-color:     $color-secondary-inverse;
+  border-color:     $color-primary;
   color:            $color-page;
-  //color:            $color-secondary-inverse;
 }
 .giant-contact-icons {
   text-align:     center;
@@ -278,8 +257,11 @@ $giant-header-vert-edge-space: 0.3em;
 
 .giant-header-div-entire {
   background-color: $color-page;
+  box-shadow:       0 2px 6px -1px #aaa;
   padding-left:     $giant-header-left-edge-space;
   padding-bottom:   $giant-header-vert-edge-space;
+  position:         relative;
+  z-index:          1;
 }
 .giant-header-div-section-brand {
   //display:          table-cell; ///< !!! appends and spans height, but shrinks instead of collapsing
@@ -399,6 +381,86 @@ $giant-header-vert-edge-space: 0.3em;
   padding:          0.3em 0em;
   width:            1px;
 }
+.giant-page-home-all-div {
+  @extend .container-fluid;
+}
+.giant-page-home-jumbo-all-div {
+  @extend .jumbotron;
+  background:       url("/assets/giant-jumbo-home.jpg") no-repeat;
+  background-size:  cover;
+  margin:           0;
+  padding:          0;
+}
+.giant-page-home-jumbo-bundle-div {
+  display:          table;
+  width:            100%;
+}
+.giant-page-home-jumbo-cluster-empty-div {
+  display:          table-cell;
+  height:           480px;
+  width:            57%;
+}
+.giant-page-home-jumbo-cluster-text-div {
+  background:       transparent;
+  display:          table-cell;
+  padding:          4em 0 0 0;
+  width:            43%;
+  vertical-align:   top;
+  h1 {
+    color:          $color-secondary;
+    font-family:    $font-family-primary;
+    font-size:      36px;
+    font-weight:    bold;
+    line-height:    1.1em;
+    text-align:     left;
+  }
+}
+.giant-page-home-jumbo-group-buttons-div {
+  padding:          1em 0 0 0;
+}
+.giant-page-home-roles-all-div {
+}
+.giant-page-home-roles-caption-all-div {
+  text-align:       center; // !!! needed to center caption-cluster-div
+}
+.giant-page-home-roles-caption-tab-div {
+  background-color: $color-page;
+  display:          inline-block;
+  position:         relative;
+  bottom:           28px;
+}
+.giant-page-home-roles-caption-text-heading {
+  //margin-top:       -28px; // !!! would compensate for caption-tab-div offset
+  margin:           0.5em 0 1.5em;
+}
+.giant-page-home-roles-list-all-div {
+  @include make-row();
+}
+.giant-page-home-roles-list-bundle-empty-div {
+  @include make-sm-column(1);
+  @include make-xs-column(2);
+}
+.giant-page-home-roles-list-bundle-filled-div {
+  @include make-sm-column(10);
+  @include make-xs-column(8);
+  padding:          1em 0 3em;
+}
+.giant-page-home-roles-list-single-div {
+  @include make-sm-column(4);
+  padding-left:     10%;
+  li {
+    font-size:      14px;
+    font-weight:    $font-weight-semibold;
+    line-height:    2em;
+  }
+  ul {
+    list-style-type: none;
+    margin:         0;
+    padding:        0;
+    text-indent:    -2em;
+  }
+}
+
 .giant-sections {
   @extend .container-fluid;
 }
