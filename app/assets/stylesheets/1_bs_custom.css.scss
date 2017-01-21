@@ -9,9 +9,6 @@ $color-logo:                #c55e30;
 $color-logo-light:          #d3660b;
 $color-logo-trans:          rgba(197,94,48,0.8);
 $color-logo-trans-light:    rgba(211,102,11,0.8);
-$color-menu-button-border:  #1380a8;
-$color-menu-button-fill:    #6ed3fb;
-$color-menu-button-text:    #1380a8;
 $color-page:                #fff;
 $color-page-trans:          rgba(255,255,255,0.9);
 $color-panel:               #efefef;
@@ -299,11 +296,9 @@ $giant-header-vert-edge-space: 0.3em;
 }
 .giant-header-item-menu-link {
   @extend .btn; ///< bootstrap
-  background-color: $color-menu-button-fill;
-  border:           0.1em solid;
-  border-color:     $color-menu-button-border;
-  border-radius:    0;
-  color:            $color-menu-button-text;
+  background-color: $color-page;
+  border:           0;
+  color:            $color-secondary;
   font-family:      $font-family-primary;
   font-weight:      $font-weight-semibold;
   margin:           0.25em 0.1em;
@@ -311,12 +306,12 @@ $giant-header-vert-edge-space: 0.3em;
   padding:          1em 0.5em;
 }
 .giant-header-item-menu-link:hover {
-  background-color: $color-menu-button-text;
-  color:            $color-page;
+  color:            $color-primary;
 }
 .giant-header-item-phone {
   color:            $color-secondary;
   display:          inline-block;
+  font-weight:      bold;
   margin:           0;
   min-width:        10em;
 }
