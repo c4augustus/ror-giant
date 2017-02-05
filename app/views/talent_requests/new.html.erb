@@ -1,5 +1,4 @@
 <%= render 'header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
-
 <div class="giant-sections">
   <div class="giant-section">
     <div class="giant-form">
@@ -38,9 +37,8 @@
         <div class="actions">
           <%= f.submit 'REQUEST',     class: 'giant-button giant-form-button' %>
         </div>
-      <% end %> <!-- /form_for -->
-    </div> <!-- /giant-form -->
-  </div> <!-- /giant-section -->
-</div> <!-- /giant-sections -->
-
+      <% end %>
+    </div>
+  </div>
+</div>
 <%= render 'footer' %>
