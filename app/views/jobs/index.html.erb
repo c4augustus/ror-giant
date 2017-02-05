@@ -1,10 +1,9 @@
 <%= render partial: 'header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
+<div class="giant-section-aggregate-div">
+  <%= render partial: 'jumbotron' %>
 
-<div class="giant-sections">
-
-<!-- @@@ design draft 1
-  <h2><span class="giant-panel-heading">&nbsp;&nbsp;</span>OPEN JOBS</h2>
--->
+  <!-- TODO: @@@ REFACTOR OUT THE BOOTSTRAP NAMED STYLES -->
+  <div class="giant-section">
   <div class="col-sm-1">
   </div>
   <div class="col-sm-10">
@@ -25,10 +24,10 @@
       <hr>
     <% end %>
   <% end %>
-  </div> <!-- /col -->
+  </div>
   <div class='col-sm-1'>
   </div>
+  </div>
 
-</div> <!-- /giant-sections -->
-
+</div>
 <%= render partial: 'footer' %>
