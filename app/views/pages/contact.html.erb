@@ -1,18 +1,24 @@
-<%= render partial: "header", locals: {tab: @virtual_path[/^[^\/]+/]} %>
-
-<div class="giant-sections">
-  <div class="giant-section">
-    <div class="giant-section-title">
-      <h2>Give Us a Call and Let's Get Started.</h2>
-    </div> <!-- /giant-section-title -->
+<%= render partial: 'header', locals: {tab: @virtual_path[/^[^\/]+/]} %>
+<div class="giant-section-aggregate-div">
+  <div class="giant-section-jumbo-all-div giant-background-jumbo-contact">
+    <div class="giant-section-jumbo-bundle-div">
+      <div class="giant-section-jumbo-cluster-text-solo-div">
+        <h1>LET'S GET IN
+        <br>TOUCH TODAY!</h1>
+      </div>
+    </div>
+  </div>
+  <div class="giant-section-logos-all-div giant-background-logos-contact">
+  </div>
+  <div class="giant-section-substance-all-div">
+    <%= render partial: 'caption_substance', locals: { text:'CONTACT US' } %>
     <div class="giant-map">
       <img src="/assets/giant-map.png"></img>
-    </div> <!-- /giant-map -->
-  </div> <!-- /giant-section -->
-
+    </div>
+  </div>
   <div class="giant-section giant-contact-info">
-    <div class="giant-cluster">
-      <div class="giant-cluster-item">
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-item-div">
         <p class="giant-contact-details">
           <span class="giant-contact-address">576 Sacramento St, 3rd Floor</span>
           <span class="giant-contact-address">San Francisco, CA 94111</span>
@@ -25,8 +31,8 @@
             <span class="giant-contact-email"><%= email_address.upcase %></span>
           </a>
         </p>
-      </div> <!-- /giant-cluster-item -->
-      <div class="giant-cluster-item">
+      </div>
+      <div class="giant-substance-cluster-item-div">
         <div class="giant-contact-icons">
           <h4>FOLLOW US</h4>
           <a href="<%= Rails.application.config.custom_link_facebook %>">
@@ -38,10 +44,9 @@
           <a href="<%= Rails.application.config.custom_link_linkedin %>">
             <img src="/assets/In-2C-128px-R.png"/>
           </a>
-        </div> <!-- /giant-contact-icons -->
-      </div> <!-- /giant-cluster-item -->
-    </div> <!-- /giant-cluster -->
-  </div> <!-- /giant-section -->
-</div> <!-- /giant-sections -->
-
-<%= render partial: "footer" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: 'footer' %>
