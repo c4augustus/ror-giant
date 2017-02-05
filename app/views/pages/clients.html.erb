@@ -1,82 +1,93 @@
-<%= render partial: "header", locals: {tab: @virtual_path[/^[^\/]+/]} %>
-
-<div class="giant-sections">
-  <div class="giant-section">
-    <div class="giant-section-title">
-      <h2>What We Offer Clients</h2>
-    </div> <!-- /giant-section-title -->
-    <div class="giant-cluster">
-      <div class="giant-cluster-item">
-        <h4>FULL TIME, TEMPORARY, CONTRACT TO HIRE</h4>
-        <p>We do it all. From filling quick gigs to connecting you
-          with the newest member of your team, Giant will find
-          exactly what you need.</p>
-      </div> <!-- /giant-cluster-item -->
-      <div class="giant-cluster-item">
-        <h4>PINPOINT RECRUITING</h4>
-        <p>We’ve got style. Our unique recruiting style pinpoints
-          targeted candidates for your open positions, helping you
-          get the right hire faster and more efficiently.</p>
-      </div> <!-- /giant-cluster-item -->
-    </div> <!-- /giant-cluster -->
-    <div class="giant-cluster">
-      <div class="giant-cluster-item">
-        <h4>PAYROLL AND LIABILITY</h4>
-        <p>We’ve got you covered. Giant makes it easy to bring on
-          a new employee with payroll and liability services.</p>
-      </div> <!-- /giant-cluster-item -->
-      <div class="giant-cluster-item">
-        <h4>SATISFACTION GUARANTEE</h4>
-        <p>We’re confident. In fact, we know that you’ll love your
-          new hire, that’s why our industry leading 90 day gurantee
-          comes with no questions asked.</p>
-      </div> <!-- /giant-cluster-item -->
-    </div> <!-- /giant-cluster -->
-    <div class="giant-cluster">
-      <div class="giant-cluster-item">
+<%= render partial: 'header', locals: {tab: @virtual_path[/^[^\/]+/]} %>
+<div class="giant-section-aggregate-div">
+  <div class="giant-section-jumbo-all-div giant-background-jumbo-clients">
+    <div class="giant-section-jumbo-bundle-div">
+      <div class="giant-section-jumbo-cluster-empty-div">
+      </div>
+      <div class="giant-section-jumbo-cluster-text-div">
+        <h1>
+        <br>TODAY'S TALENT.
+        <br>TOMORROW'S SUCCESS.</h1>
+        <div class="giant-section-jumbo-group-buttons-div">
+          <%= render partial: "button_open_jobs" %>
+          &nbsp;
+          <%= render partial: "button_request_talent" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="giant-section-logos-all-div giant-background-logos-clients">
+  </div>
+  <div class="giant-section-substance-all-div">
+    <%= render partial: 'caption_substance', locals: { text:'WHY INDUSTRY LEADERS CHOOSE GIANT' } %>
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-item-div">
+        <h4>HIRING TALENT</h4>
+        <p>We do it all. From long or short-team
+          contracts, contract-to-hire to full time
+          placements, our expert recruiters will find you
+          the best talent to fit your hiring needs.</p>
+      </div>
+      <div class="giant-substance-cluster-item-div">
         <h4>CLIENT RELATIONSHIP</h4>
-        <p>We work with you. Acting as both an extension of existing
-          recruiting teams or as your main resource for talent,
-          we work closely with clients and hiring managers
-          to understand your needs, provide consultation and
-          connect you with amazing candidates.</p>
-      </div> <!-- /giant-cluster-item -->
-      <div class="giant-cluster-item">
+        <p>We listen to you. Acting as extension of
+          your recruiting team(s) or as your main
+          resource, we work closely with hiring
+          managers to gain an in-depth understanding
+          of their specific job requisitions.</p>
+      </div>
+      <div class="giant-substance-cluster-item-div">
         <h4>INDUSTRY EXPERTISE</h4>
-        <p>We get it. We’re not keyword-matchers, our team is made
-          up of industry experts who know the roles we recruit for
-          indside and out.</p>
-      </div> <!-- /giant-cluster-item -->
-    </div> <!-- /giant-cluster -->
-    <div class="giant-section-title">
-      <%= render partial: "button_request_talent" %>
-    </div> <!-- /giant-section-title -->
-  </div> <!-- /giant-section -->
-
-  <div class="giant-section-separator"></div>
-
-  <div class="giant-section">
-    <div class="giant-testimonial">
-      <blockquote>
-        “Giant Recruiting team is professional in every sense
-        of the word. They are knowledgeable, thoughtful,
-        customer focused, responsive and trustworthy.
-        They did a great job handling our hiring needs!”
-        <footer><cite>
-          RESOURCE MANAGER, DIGITAL AGENCY
-        </cite></footer>
-      </blockquote>
-    </div> <!-- /giant-testimonial -->
-  </div> <!-- /giant-section -->
-
-  <div class="giant-section-separator"></div>
-
-  <div class="giant-section">
-    <div class="giant-clients-brands">
-      <p>We are proud to work with some of the coolest brands on the planet!</p>
-      <img src="/assets/giant-clients-brands.png"></img>
-    </div> <!-- /giant-clients-brands -->
-  </div> <!-- /giant-section -->
-</div> <!-- /giant-sections -->
-
-<%= render partial: "footer" %>
+        <p>We're creative people just like you. With years
+          of creative and recruiting experience we will
+          find you the perfect candidates(s) to fit your
+          company culture, hiring needs and your
+          budget.</p>
+      </div>
+    </div>
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-item-div">
+        <h4>SATISFACTION GUARANTEED</h4>
+        <p>We put our money behind our work. We're so
+          confident in our candidates that we provide
+          an industry leading 90-day guarantee on all
+          full time placements - no questions asked.</p>
+      </div>
+      <div class="giant-substance-cluster-item-div">
+        <h4>NO PAPERWORK HASSLE</h4>
+        <p>As a hiring manager you want to focus on
+          what you do best - grow your team. We take
+          care of everything related to hiring including
+          references, background checks, payroll, taxes
+          and more.</p>
+      </div>
+      <div class="giant-substance-cluster-item-div">
+        <h4>NETWORKS OF SKILLED CANDIDATES</h4>
+        <p>We build your dream team. We utilize our
+          vast networks of active and passive
+          candidates to help raise the quality level of
+          every hire. This means faster time to hire and
+          higher quality candidates.</p>
+      </div>
+    </div>
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-full-link-div">
+        <%= render partial: "button_contact_us" %>
+      </div>
+    </div>
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-testimonial-div">
+        <blockquote>
+          “I turned to Giant after spent 3 months searching in vain for the right talent. I don't see giant as an
+          external partner but an extension of our in-house team. Whether it's full time or temp roles they
+          quickly understand the role and only deliver qualified candidates so I don't waste my time -- that's
+          the benefit in today's "speed of light" business world."
+          <footer><cite>
+            - James S., CMO
+          </cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: 'footer' %>

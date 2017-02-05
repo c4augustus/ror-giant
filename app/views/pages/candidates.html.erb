@@ -1,79 +1,86 @@
-<%= render partial: "header", locals: {tab: @virtual_path[/^[^\/]+/]} %>
-
-<div class="giant-sections">
-  <div class="giant-section">
-    <div class="giant-section-title">
-      <h2>What We Offer Candidates</h2>
-    </div> <!-- /giant-section-title -->
-    <div class="giant-cluster">
-      <div class="giant-cluster-item">
+<%= render partial: 'header', locals: {tab: @virtual_path[/^[^\/]+/]} %>
+<div class="giant-section-aggregate-div">
+  <div class="giant-section-jumbo-all-div giant-background-jumbo-candidates">
+    <div class="giant-section-jumbo-bundle-div">
+      <div class="giant-section-jumbo-cluster-empty-div">
+      </div>
+      <div class="giant-section-jumbo-cluster-text-div">
+        <h1>
+        <br>GREATNESS AWAITS.
+        <br>WE'LL GET YOU THERE.</h1>
+        <div class="giant-section-jumbo-group-buttons-div">
+          <%= render partial: "button_open_jobs" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="giant-section-logos-all-div giant-background-logos-candidates">
+  </div>
+  <div class="giant-section-substance-all-div">
+    <%= render partial: 'caption_substance', locals: { text:'WHY TOP CANDIATES CHOOSE GIANT' } %>
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-item-div">
         <h4>THE RIGHT POSITION</h4>
-        <p>We listen to you. We believe in listening to our candidates
-          to find out what they want and matching them with the
-          position that’s right for them.</p>
-      </div> <!-- /giant-cluster-item -->
-      <div class="giant-cluster-item">
+        <p>We have the right position for you.
+          We'll take the time to understand your career goals
+          and objectives, so we can match you to your dream job.</p>
+      </div>
+      <div class="giant-substance-cluster-item-div">
+        <h4>UNDERSTANDING EMPLOYER NEEDS</h4>
+        <p>We understand what employers are looking for.
+          We'll guide you every step of the way and match you with
+          the right opportunities to advance your career.</p>
+      </div>
+      <div class="giant-substance-cluster-item-div">
         <h4>COMPENSATION INSIGHT</h4>
-        <p>We know our stuff. Our data is your data - we’ll advise you
-          on market rates and compensation to make sure you get
-          paid what you’re worth.</p>
-      </div> <!-- /giant-cluster-item -->
-    </div> <!-- /giant-cluster -->
-    <div class="giant-cluster">
-      <div class="giant-cluster-item">
-        <h4>ADVICE AND CONSULTATION</h4>
-        <p>We’ll guide you. Job searching can be tough, that’s why
-          our expereinced recruiting team will lend a helping hand
-          - whether it be advising you on your resume, portfolio or
-          how to approach your job hunt.</p>
-      </div> <!-- /giant-cluster-item -->
-      <div class="giant-cluster-item">
-        <h4>UNDERSTANDING EMPLOYER'S NEEDS</h4>
-        <p>We get them. Because we have a deep understanding of
-          what our clients need, the team at Giant will make sure
-          we’re connecting you with the right opportunity that will
-          help advance your career and skillset.</p>
-      </div> <!-- /giant-cluster-item -->
-    </div> <!-- /giant-cluster -->
-    <div class="giant-cluster">
-      <div class="giant-cluster-item">
+        <p>We know compensation inside out.
+          Our compensation experts will advise you on market rates
+          and trends so you know you'll get what you're worth.</p>
+      </div>
+    </div>
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-item-div">
         <h4>INTERVIEW PREPARATION</h4>
-        <p>We’ve got your back. We work closely with hiring
-          managers and hiring teams, giving us valuable insight
-          into their interview process. We’ll prep you before your
-          interview and give you all the tools you need to land your
-          dream job.</p>
-      </div> <!-- /giant-cluster-item -->
-      <div class="giant-cluster-item">
-        <h4>PROACTIVE PLACEMENTS</h4>
-        <p>We don’t wait around. Even if we don’t have an open job
-          that’s a fit, we’ll proactively seek employers and
-          opportunities for you that are a fit with your background
-          and career objectives.</p>
-      </div> <!-- /giant-cluster-item -->
-    </div> <!-- /giant-cluster -->
-    <div class="giant-section-title">
-      <%= render partial: "button_open_jobs" %>
-    </div> <!-- /giant-section-title -->
-  </div> <!-- /giant-section -->
-
-  <div class="giant-section-separator"></div>
-
-  <div class="giant-section">
-    <div class="giant-testimonial">
-      <blockquote>
-        “Giant Recruiting team is amazing! They are great at
-        communicating and getting results. Always available
-        for questions and advice. I have worked with them on
-        several freelance gigs and would highly recommend
-        anyone thinking of using a professional recruiter to
-        contact Giant Recruiting!!”
-      <footer><cite>
-        FREELANCE, ART DIRECTOR
-      </cite></footer>
-      </blockquote>
-    </div> <!-- /giant-testimonial -->
-  </div> <!-- /giant-section -->
-</div> <!-- /giant-sections -->
-
-<%= render partial: "footer" %>
+        <p>We set you up for success.
+          We have valuable insight into the hiring managers interview
+          process and we'll prep you before your interviews to make
+          sure your'e a step ahead.</p>
+      </div>
+      <div class="giant-substance-cluster-item-div">
+        <h4>MAKING YOU STAND OUT</h4>
+        <p>We want you to be your best.
+          Out experienced recruiting team will guide you whether
+          advising on your resume, portfolio or how to achieve your
+          career goals.</p>
+      </div>
+      <div class="giant-substance-cluster-item-div">
+        <h4>PROACTIVE OUTREACH</h4>
+        <p>We move fast.
+          Even if we don't have an open job that's a fit, we'll
+          proactively reach out to employers for opportunities
+          that align with your career objectives.</p>
+      </div>
+    </div>
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-full-link-div">
+        <%= render partial: "button_contact_us" %>
+      </div>
+    </div>
+    <div class="giant-substance-cluster-div">
+      <div class="giant-substance-cluster-testimonial-div">
+        <blockquote>
+          “The Giant Recruiting team is amazing! They are great at
+          communicating and getting results. Always available
+          for questions and advice. I have worked with them on
+          several freelance gigs and would highly recommend
+          anyone thinking of using a professional recruiter to
+          contact Giant Recruiting!!”
+        <footer><cite>
+          - Mark P., Sr. Product Manager
+        </cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: 'footer' %>
