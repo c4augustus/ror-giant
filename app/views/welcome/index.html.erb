@@ -1,14 +1,14 @@
-<%= render partial: "header", locals: { tab:@virtual_path[/^[^\/]+/] } %>
-<div class="giant-page-home-all-div">
-  <div class="giant-page-home-jumbo-all-div">
-    <div class="giant-page-home-jumbo-bundle-div">
-      <div class="giant-page-home-jumbo-cluster-empty-div">
+<%= render partial: 'header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
+<div class="giant-section-aggregate-div">
+  <div class="giant-section-jumbo-all-div giant-background-jumbo-home">
+    <div class="giant-section-jumbo-bundle-div">
+      <div class="giant-section-jumbo-cluster-empty-div">
       </div>
-      <div class="giant-page-home-jumbo-cluster-text-div">
+      <div class="giant-section-jumbo-cluster-text-div">
         <h1>SHAPE THE FUTURE
         <br>OF YOUR COMPANY.
         <br>HIRE THE BEST.</h1>
-        <div class="giant-page-home-jumbo-group-buttons-div">
+        <div class="giant-section-jumbo-group-buttons-div">
           <%= render partial: "button_open_jobs" %>
           &nbsp;
           <%= render partial: "button_request_talent" %>
@@ -16,20 +16,15 @@
       </div>
     </div>
   </div>
-  <div class="giant-page-home-roles-all-div">
-    <div class="giant-page-home-roles-caption-all-div">
-       <div class="giant-page-home-roles-caption-tab-div">
-         <img src="/assets/giant-roles-tab.png"></img>
-       </div>
-      <h2 class="giant-page-home-roles-caption-text-heading">
-        POPULAR ROLES WE FILL
-      </h2>
-    </div>
-    <div class="giant-page-home-roles-list-all-div">
-      <div class="giant-page-home-roles-list-bundle-empty-div">
+  <div class="giant-section-logos-all-div giant-background-logos-home">
+  </div>
+  <div class="giant-section-substance-all-div">
+    <%= render partial: 'caption_substance', locals: { text:'POPULAR ROLES WE FILL' } %>
+    <div class="giant-section-substance-roles-list-all-div">
+      <div class="giant-section-substance-roles-list-bundle-empty-div">
       </div>
-      <div class="giant-page-home-roles-list-bundle-filled-div">
-        <div class='giant-page-home-roles-list-single-div'>
+      <div class="giant-section-substance-roles-list-bundle-filled-div">
+        <div class='giant-section-substance-roles-list-single-div'>
           <ul id="role_list_a">
             <li>VP of Product</li>
             <li>Director of Product</li>
@@ -49,7 +44,7 @@
             <li>Video Editor</li>
           </ul>
         </div>
-        <div class='giant-page-home-roles-list-single-div'>
+        <div class='giant-section-substance-roles-list-single-div'>
           <ul id="role_list_b">
             <li>Executive Creative Director</li>
             <li>Creative Director</li>
@@ -76,7 +71,7 @@
             <li>Brand Ambassador</li>
           </ul>
         </div>
-        <div class='giant-page-home-roles-list-single-div'>
+        <div class='giant-section-substance-roles-list-single-div'>
           <ul id="role_list_c">
             <li>Corporate/PR Communications</li>
             <li>Marcom</li>
@@ -98,9 +93,9 @@
           </ul>
         </div>
       </div>
-      <div class="giant-page-home-roles-list-bundle-empty-div">
+      <div class="giant-section-substance-roles-list-bundle-empty-div">
       </div>
     </div>
   </div>
 </div>
-<%= render partial: "footer" %>
+<%= render partial: 'footer' %>
