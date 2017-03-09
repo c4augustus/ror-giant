@@ -1,5 +1,7 @@
 class JobsFacility
 
+  FAKE_IT = false
+
   SECONDS_INTERVAL_REFRESH = 800
 
   def refresh_jobs(options={})
@@ -26,6 +28,35 @@ private
   end
 
   def retrieve_all_jobs
+    if FAKE_IT
+      retrieve_all_jobs_fake
+    else
+      retrieve_all_jobs_real
+    end
+  end
+
+  def retrieve_all_jobs_fake
+    job1 = Job.find_or_create_by(id_scheme_ext: 'FAKE0001')
+    job1.write_attributes(
+      category:    'UXD',
+      title:       'FAKE TITLE #1',
+      description: 'FAKE DESCRIPTION #1')
+    job1.save
+    job2 = Job.find_or_create_by(id_scheme_ext: 'FAKE0002')
+    job2.write_attributes(
+      category:    'CREATIVE',
+      title:       'FAKE TITLE #2',
+      description: 'FAKE DESCRIPTION #2')
+    job2.save
+    job3 = Job.find_or_create_by(id_scheme_ext: 'FAKE0003')
+    job3.write_attributes(
+      category:    'MARKETING',
+      title:       'FAKE TITLE #3',
+      description: 'FAKE DESCRIPTION #3')
+    job3.save
+  end
+
+  def retrieve_all_jobs_real
     offset = 0
     until 0 == (count = retrieve_jobs_starting_at(offset))
       offset += count
