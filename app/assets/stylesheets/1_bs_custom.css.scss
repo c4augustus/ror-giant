@@ -43,7 +43,7 @@ body, p {
   font-family: $font-family-primary;
 }
 body {
-  font-size: 16px;
+  font-size: 14px;
 }
 h1, h2, h3, h4 {
   font-family: $font-family-primary;
@@ -391,16 +391,6 @@ $giant-header-vert-edge-space: 0.3em;
     margin-bottom:  0.2em;
   } 
 }
-.giant-job-category {
-  &:active, &:focus, &:visited {
-    color:            $color-secondary;
-    text-decoration:  none;
-  }
-  &:hover {
-    color:            $color-primary;
-    text-decoration:  none;
-  }
-}
 .giant-testimonial {
   @extend .giant-billboard;
   margin:           0;
@@ -519,6 +509,90 @@ $giant-header-vert-edge-space: 0.3em;
   //margin-top:       -28px; // !!! would compensate for caption-tab-div offset
   font-weight:      $font-weight-semibold;
   margin:           0.5em 0 1.5em;
+}
+.giant-section-substance-jobs-bundle-div {
+  @include make-sm-column(10);
+  @include make-sm-column-offset(1);
+  margin:           0 0 2em 0;
+}
+.giant-section-substance-jobs-button {
+  @extend .giant-button-secondary;
+  border-color:     #ccc;
+  border-radius:    0.4em;
+  font-size:        13px;
+  font-weight:      $font-weight-semibold;
+  margin:           0em 0.2em;
+  padding:          0.4em 1em;
+  min-width:        10em;
+}
+.giant-section-substance-jobs-buttons-div {
+  margin:           0.5em 0 2em;
+  text-align:       right;
+}
+.giant-section-substance-jobs-category-div {
+  margin:           0.5em 0;
+  text-align:       center;
+}
+.giant-section-substance-jobs-category-text {
+  padding:          0em 2em;
+  &:active, &:focus, &:visited {
+    color:            $color-button-secondary;
+    text-decoration:  none;
+  }
+  &:hover {
+    color:            $color-primary;
+    text-decoration:  none;
+  }
+}
+.giant-section-substance-jobs-details-all-div {
+  @extend .row-eq-height;
+  @include make-sm-column(12);
+  padding:          0.65em 0;
+}
+.giant-section-substance-jobs-details-brief-div {
+  @extend .row-eq-height;
+  @include make-sm-column(3);
+  padding:          0;
+}
+.giant-section-substance-jobs-details-brief-content-div {
+  display:          table-cell;
+  width:            100%; // needed to get line all the way to the right
+}
+.giant-section-substance-jobs-details-brief-content-number-p {
+  font-size:        16px;
+  margin:           0;
+}
+.giant-section-substance-jobs-details-brief-content-number-label-span {
+}
+.giant-section-substance-jobs-details-brief-content-number-digits-span {
+  color:            $color-primary;
+  font-weight:      bold;
+}
+.giant-section-substance-jobs-details-brief-content-title-p {
+  margin:           0;
+}
+.giant-section-substance-jobs-details-brief-line-inner-div {
+  @extend .row-eq-height;
+  background-color: $color-panel;
+  margin:           0 2em;
+  text-align:       center;
+  width:            0.3em;
+}
+.giant-section-substance-jobs-details-brief-line-outer-div {
+  @extend .row-eq-height;
+  padding:          0;
+  text-align:       right;
+}
+.giant-section-substance-jobs-details-description-div {
+  @include make-sm-column(9);
+  @include make-xs-column(9);
+  background-color: $color-panel;
+  margin:           0;
+  p {
+    margin:         0;
+  }
+  padding:          2em;
+  //padding:          1em 0 3em;
 }
 .giant-section-substance-roles-list-all-div {
   @include make-row();
