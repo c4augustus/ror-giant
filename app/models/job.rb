@@ -14,7 +14,7 @@ class Job
   field :description,     type: String
 
   def self.categories
-    @@categories ||= ['ALL', 'UXD', 'CREATIVE', 'MARKETING']
+    @@categories ||= ['ALL', 'CREATIVE', 'INTERACTIVE', 'MARKETING']
   end
 
   def self.category_matching(string)
