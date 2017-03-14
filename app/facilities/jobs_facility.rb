@@ -38,13 +38,13 @@ private
   def retrieve_all_jobs_fake
     job1 = Job.find_or_create_by(id_scheme_ext: 'FAKE0001')
     job1.write_attributes(
-      category:    'UXD',
+      category:    'CREATIVE',
       title:       'FAKE TITLE #1',
       description: 'FAKE DESCRIPTION #1')
     job1.save
     job2 = Job.find_or_create_by(id_scheme_ext: 'FAKE0002')
     job2.write_attributes(
-      category:    'CREATIVE',
+      category:    'INTERACTIVE',
       title:       'FAKE TITLE #2',
       description: 'FAKE DESCRIPTION #2')
     job2.save
@@ -69,18 +69,20 @@ private
       hashjobs["data"].each do |hashjob|
         if (idschemeext = hashjob["id"])
           job = Job.find_or_create_by(id_scheme_ext: idschemeext)
+          categoryparsed = hashjob["skillList"].try(:lines).try(:first).try(:chomp).try(:delete, ';')
+          categorymatching = Job.category_matching(categoryparsed)
           job.write_attributes(
-            category:         Job.category_matching(hashjob["skillList"]),
-            title:            hashjob["title"],
-## !!! disabled, so now these details must be provided in the description
-=begin
+            category:         categorymatching,
+            description:      hashjob["publicDescription"],
             employment_type:  hashjob["employmentType"],
             start_date:       hashjob["startDate"],
+            title:            hashjob["title"])
+## !!! disabled, so now these details must be provided in the description
+=begin
             pay_rate:         hashjob["payRate"],
             salary:           hashjob["salary"],
             salary_unit:      hashjob["salaryUnit"],
 =end
-            description:      hashjob["publicDescription"])
           job.save
           count += 1
         end 
@@ -145,24 +147,25 @@ private
         "&fields=#{including_all_fields ? "*" :
           ## !!! disabled, so now these details must be provided in the description
           ##"id,categories,title,employmentType,startDate,payRate,salary,salaryUnit,publicDescription"}"\
-          "id,skillList,publicDescription"}"\
+          ##"id,skillList,publicDescription"}"\
+          "id,employmentType,publicDescription,skillList,startDate,title"}"\
         "&start=#{offset}"
       )) {|response, request, result, &block|
         if response.code == 200 # Success
           #puts "# SUCCESS, response=#{response}"
+=begin
           if including_all_fields
             File.open("db/data_bh_job_offers_all_fields_"\
                       "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
               f.write(response.encode)
             end
-=begin
           else
             File.open("db/data_bh_job_offers_selected_fields_"\
                       "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
               f.write(response.encode)
             end
-=end
           end
+=end
           return JSON.parse response
         else
           # do not letting RestClient handle it
