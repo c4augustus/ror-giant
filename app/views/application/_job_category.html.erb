@@ -1,14 +1,12 @@
-  <h4>
-    <%  Job.categories.each_with_index do |cat, i| %>
-      <%  if i > 0 %>
-            &nbsp;|&nbsp;
+      <%  Job.categories.each_with_index do |cat, i| %>
+        <%  if i > 0 %>
+              |
+        <%  end %>
+        <%  if (iscat = (@job && @job.category == cat)) %>
+              <strong>
+        <%  end %>
+        <%= link_to cat, jobs_path(category: cat), class: 'giant-section-substance-jobs-category-text' %>
+        <%  if iscat %>
+              </strong>
+        <%  end %>
       <%  end %>
-      <%  if (iscat = (@job && @job.category == cat)) %> 
-            <strong>
-      <%  end %>
-      <%= link_to cat, jobs_path(category: cat), class: 'giant-job-category' %>
-      <%  if iscat %> 
-            </strong>
-      <%  end %>
-    <%  end %>
-  </h4>

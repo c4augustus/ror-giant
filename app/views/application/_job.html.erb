@@ -1,6 +1,8 @@
 <div class="giant-job" id="<%= @job.id_scheme_ext %>">
   <% if local_assigns.has_key?(:including) && including.include?(:category) %>
-    <%= render './application/job_category' %>
+    <div class="giant-section-substance-jobs-category-div">
+        <%= render './application/job_category' %>
+    </div>
   <% end %>
   <%= render './application/job_details' %>
-</div> <!-- /giant-job -->
+</div>

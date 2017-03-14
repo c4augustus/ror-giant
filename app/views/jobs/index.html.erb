@@ -1,33 +1,28 @@
 <%= render partial: 'header', locals: { tab:@virtual_path[/^[^\/]+/] } %>
 <div class="giant-section-aggregate-div">
   <%= render partial: 'jumbotron' %>
-
-  <!-- TODO: @@@ REFACTOR OUT THE BOOTSTRAP NAMED STYLES -->
-  <div class="giant-section">
-  <div class="col-sm-1">
+  <div class="giant-section-logos-all-div giant-background-logos-candidates">
   </div>
-  <div class="col-sm-10">
-    <div class="giant-section-title">
-      <h2>Open Jobs</h2>
+  <div class="giant-section-substance-all-div">
+    <div class="giant-section-substance-caption-all-div">
+        <%= render partial: 'substance_caption_tab' %>
     </div>
-    <hr class="giant-separator-title">
-  <% if @jobs.empty? %>
-    <%= render 'job_category' %>
-    <hr>
-  <% else %>
-    <% @jobs.each do |job| %>
-      <% @job = job %>
-      <%= render 'job', including: [:category] %>
-      <br>
-      <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-button' %>
-      <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     class: 'giant-button' %>
-      <hr>
+    <div class="giant-section-substance-jobs-bundle-div">
+    <% if @jobs.empty? %>
+      <div class="giant-section-substance-jobs-category-div">
+          <%= render 'job_category' %>
+      </div>
+    <% else %>
+      <% @jobs.each do |job| %>
+        <% @job = job %>
+        <%= render 'job', including: [:category] %>
+        <div class="giant-section-substance-jobs-buttons-div">
+          <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     class: 'giant-section-substance-jobs-button' %>
+          <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-section-substance-jobs-button' %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+    </div>
   </div>
-  <div class='col-sm-1'>
-  </div>
-  </div>
-
 </div>
 <%= render partial: 'footer' %>
