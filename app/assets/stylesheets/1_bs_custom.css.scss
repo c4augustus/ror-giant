@@ -3,7 +3,7 @@
 @import "bootstrap";
 
 //@import url(http://fonts.googleapis.com/css?family=Muli:400,300);
-@import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
+//@import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
 
 $color-button-secondary:    #23acdc;
 $color-logo:                #c55e30;
@@ -31,9 +31,7 @@ $color-quaternary-trans:    rgba(127,128,131,0.8);
 $color-quintary:            #939393;
 $color-quintary-trans:      rgba(147,147,147,0.8);
 
-//$font-family-primary:       Muli,"Helvetica Neue",Helvetica,Arial,sans-serif;
 $font-family-primary:       OpenSans,"Helvetica Neue",Helvetica,Arial,sans-serif;
-$font-family-secondary:     Signika,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
 $font-weight-light:         300;
 $font-weight-semibold:      600;
@@ -78,7 +76,6 @@ hr {
 }
 p {
   font-weight: 300;
-//  line-height: 1.0;
 }
 
 // Bootstrap styles:
@@ -130,7 +127,7 @@ p {
   box-shadow: none;
 }
 .panel-heading {
-  font-family: $font-family-secondary;
+  font-family: $font-family-primary;
 }
 .panel-title {
   color: $color-primary;   // override bs inherit
@@ -556,6 +553,7 @@ $giant-header-vert-edge-space: 0.3em;
 }
 .giant-section-substance-jobs-details-brief-content-div {
   display:          table-cell;
+  padding-top:      1em;
   width:            100%; // needed to get line all the way to the right
 }
 .giant-section-substance-jobs-details-brief-content-number-p {
@@ -588,13 +586,88 @@ $giant-header-vert-edge-space: 0.3em;
 .giant-section-substance-jobs-details-description-div {
   @include make-sm-column(9);
   @include make-xs-column(9);
+  margin:           0;
+  padding:          0;
+}
+.giant-section-substance-jobs-details-description-prose-div {
   background-color: $color-panel;
   margin:           0;
+  padding:          2em;
   p {
     margin:         0;
   }
-  padding:          2em;
-  //padding:          1em 0 3em;
+}
+
+.giant-section-substance-jobs-referral-all-div {
+  $edge-height: 0.8em;
+  $edge-width: 0.6em;
+  .giant-bordered-edge {
+    border-bottom-width: $edge-height;
+    border-color:   $color-page;
+    border-left-width: $edge-width;
+    border-right-width: $edge-width;
+    border-style:   solid;
+    border-top-width: $edge-height;
+  }
+  .giant-form-field {
+    @extend .giant-bordered-edge;
+    background-color: $color-panel;
+    color:          $color-secondary;
+    padding:        0.8em 1em;
+    width:          100%;
+  }
+  .giant-hr-bottom {
+    margin:         1em 0 0 0;
+  }
+  .giant-hr-top {
+    margin:         0 0 $edge-height 0;
+  }
+  .giant-referral-friends-name-input {
+    @extend .giant-form-field;
+    width:          49.5%;
+  }
+  .giant-referral-friends-email-input {
+    @extend .giant-form-field;
+    width:          49.5%;
+  }
+  .giant-referral-subject-input {
+    @extend .giant-form-field;
+    font-style:     italic;
+  }
+  .giant-referral-body-input {
+    @extend .giant-form-field;
+    font-style:     italic;
+    font-weight:    $font-weight-light;
+  }
+  .giant-referral-submits-div {
+    @extend .giant-bordered-edge;
+    margin-bottom:  1.5em;
+    position:       relative;
+  }
+  .giant-referral-submit-input {
+    @extend .giant-section-substance-jobs-button;
+    //margin:         1em 0 2em 0;
+    width:          auto;
+  }
+  .giant-referral-submit-cancel-input {
+    @extend .giant-referral-submit-input;
+    border:         none;
+  }
+  .giant-referral-submit-send-input {
+    @extend .giant-referral-submit-input;
+    position:       absolute;
+    right:          0;
+  }
+  h2 {
+    font-weight:    $font-weight-semibold;
+    margin:         0;
+    padding:        0.4em 1em;
+    text-align:     left;
+  }
+  hr {
+    background:     $color-panel;
+    height:         0.08em;
+  }
 }
 .giant-section-substance-roles-list-all-div {
   @include make-row();
