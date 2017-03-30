@@ -27,8 +27,11 @@
     </div>
   </div>
   <div class="giant-section-substance-jobs-details-description-div">
-    <p><%= raw @job.description %>
-      <!--%= link_to 'MORE', @job %-->
-    </p>
+    <%= render './jobs/referral_hidden' %>
+    <div class="giant-section-substance-jobs-details-description-prose-div">
+      <p><%= raw @job.description %>
+        <!--%= link_to 'MORE', @job %-->
+      </p>
+    </div>
   </div>
 </div>

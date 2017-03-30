@@ -17,7 +17,7 @@
         <% @job = job %>
         <%= render 'job', including: [:category] %>
         <div class="giant-section-substance-jobs-buttons-div">
-          <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     class: 'giant-section-substance-jobs-button' %>
+          <%= link_to 'TELL A FRIEND', new_job_job_referral_path(@job),     remote: true, class: 'giant-section-substance-jobs-button' %>
           <%= link_to 'APPLY',         new_job_job_application_path(@job),  class: 'giant-section-substance-jobs-button' %>
         </div>
       <% end %>

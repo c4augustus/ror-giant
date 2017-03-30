@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:application, :apply, :referral, :refer]
+  respond_to :html, :js
 
   # GET /jobs
   # GET /jobs.json
@@ -29,12 +30,13 @@ class JobsController < ApplicationController
 
   # POST /jobs/1/refer
   def refer
-    if @job
-      if (job_referral = @job.refer(params.require(:job_referral).permit!))
-        AppMailer.mail_referral(job_referral).deliver
+    if params[:commit].eql?('SEND')
+      if @job
+        if (job_referral = @job.refer(params.require(:job_referral).permit!))
+          AppMailer.mail_referral(job_referral).deliver
+        end
       end
     end
-    redirect_to jobs_path
   end
 
 ## DISABLE UNUSED GENERATED CODE
