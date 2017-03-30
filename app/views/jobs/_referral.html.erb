@@ -1,0 +1,29 @@
+<div class="giant-section-substance-jobs-referral-all-div">
+  <hr class="giant-hr-top">
+  <h2>TELL A FRIEND</h2>
+  <%= form_for([@job, @referral], remote: true) do |f| %>
+    <% if @referral.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@referral.errors.count, "error") %> prohibited this job from being saved:</h2>
+        <ul>
+        <% @referral.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.text_field :name, class: "giant-referral-friends-name-input",
+        placeholder: "Friend's Name*" %>
+    <%= f.text_field :email, class: "giant-referral-friends-name-input",
+        placeholder: "Friend's Email*" %>
+    <%= f.text_field :subject, class: "giant-referral-subject-input",
+        value: "Giant Job Listing: #{@job.title} - JOB ##{@job.id_scheme_ext}" %>
+    <%= f.text_area :body, cols:80, rows:6, class: "giant-referral-body-input",
+        value: "Hello! I found an open role you might be interested in, courtesy of Giant Recruiting." %>
+  <hr class="giant-hr-bottom">
+  <div class="giant-referral-submits-div">
+    <%= f.submit 'x CANCEL', name: 'cancel', class: 'giant-referral-submit-cancel-input' %>
+    <%= f.submit 'SEND', class: 'giant-referral-submit-send-input' %>
+  </div>
+  <% end %>
+</div>
