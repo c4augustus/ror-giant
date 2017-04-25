@@ -1,0 +1,58 @@
+<div class="giant-section-substance-jobs-disposition-all-div">
+  <hr class="giant-hr-top">
+  <h2>APPLY</h2>
+  <%= form_for([@job, @jobapp], html: {multipart: true}, remote: true) do |f| %>
+    <%= token_tag(nil) %>
+    <% if @jobapp.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@jobapp.errors.count, "error") %> prohibited this job from being saved:</h2>
+        <ul>
+        <% @jobapp.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.text_field :name_first, class: "giant-jobapp-name-first-input",
+        placeholder: "First Name*" %>
+    <div class="giant-jobapp-employment-div">
+      <%= f.select :status_employment_current,
+          ['Employed', 'Self-Employed', 'Unemployed', 'Student'],
+          {prompt: "Current Employment Status"},
+          {class: "giant-jobapp-employment-select"} %>
+    </div>
+    <%= f.text_field :name_last, class: "giant-jobapp-name-last-input",
+        placeholder: "Last Name*" %>
+    <div class="giant-jobapp-authorized-div">
+      <%= f.select :status_authorization_to_work,
+          ['Yes', 'Visa Transfer', 'No'],
+          {prompt: "Authorized to work in the US?"},
+          {class: "giant-jobapp-authorized-select"} %>
+    </div>
+    <%= f.text_field :email, class: "giant-jobapp-email-input",
+        placeholder: "Email*" %>
+    <%= f.text_field :link_to_portfolio, class: "giant-jobapp-portfolio-link-input",
+        placeholder: "Add link to portfolio (if applicable)" %>
+    <%= f.text_field :phone, class: "giant-jobapp-phone-input",
+        placeholder: "Phone*" %>
+    <%= f.text_field :link_to_resume, class: "giant-jobapp-resume-link-input",
+        placeholder: "Add link to resume" %>
+    <div class="giant-jobapp-available-div">
+      <%= f.label "Available Start Date:" %>
+      <%= f.date_field :date_start_available, class: "giant-jobapp-available-input-date",
+          placeholder: "MM/DD/YYYY" %>
+    </div>
+    <div class="giant-jobapp-resume-file-div">
+      <span class=giant-jobapp-resume-file-pre-span>Attach resume:</span>
+      <label class="giant-jobapp-resume-file-label">
+        <%= f.file_field :attachment_resume, class: "giant-jobapp-resume-file-input" %>
+        <span class=giant-jobapp-resume-file-post-span>choose file</span>
+      </label>
+    </div>
+  <hr class="giant-hr-bottom">
+  <div class="giant-referral-submits-div">
+    <%= f.submit 'x CANCEL', name: 'cancel', class: 'giant-referral-submit-cancel-input' %>
+    <%= f.submit 'SEND', class: 'giant-referral-submit-send-input' %>
+  </div>
+  <% end %>
+</div>
