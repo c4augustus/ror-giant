@@ -27,9 +27,11 @@ module RorGiant
 
     config.custom_email_domain_default =
       # development testing:
-      ##'christopheraugustus.com'
+      #'c4augustus.com'
       'giantrecruiting.com'
     config.custom_email_address_for_resumes =
+      # development testing:
+      #"support@#{config.custom_email_domain_default}"
       "resumes@#{config.custom_email_domain_default}"
     config.custom_link_facebook =
       "https://www.facebook.com/pages/Giant-Staffing-LLC/522568731137415"
