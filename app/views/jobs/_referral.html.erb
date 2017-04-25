@@ -1,4 +1,4 @@
-<div class="giant-section-substance-jobs-referral-all-div">
+<div class="giant-section-substance-jobs-disposition-all-div">
   <hr class="giant-hr-top">
   <h2>TELL A FRIEND</h2>
   <%= form_for([@job, @referral], remote: true) do |f| %>
@@ -14,7 +14,7 @@
     <% end %>
     <%= f.text_field :name, class: "giant-referral-friends-name-input",
         placeholder: "Friend's Name*" %>
-    <%= f.text_field :email, class: "giant-referral-friends-name-input",
+    <%= f.text_field :email, class: "giant-referral-friends-email-input",
         placeholder: "Friend's Email*" %>
     <%= f.text_field :subject, class: "giant-referral-subject-input",
         value: "Giant Job Listing: #{@job.title} - JOB ##{@job.id_scheme_ext}" %>

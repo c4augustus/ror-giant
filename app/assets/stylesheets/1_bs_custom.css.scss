@@ -28,7 +28,7 @@ $color-tertiary:            #757677; // !!! eyedropped from design footer
 $color-tertiary-trans:      rgba(117,118,119,0.8);
 $color-quaternary:          #7f8083;
 $color-quaternary-trans:    rgba(127,128,131,0.8);
-$color-quintary:            #939393;
+$color-quintary:            #aaa;
 $color-quintary-trans:      rgba(147,147,147,0.8);
 
 $font-family-primary:       OpenSans,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -73,6 +73,20 @@ hr {
   height: 1px;
   margin-top: 3em;
   margin-bottom: 3em;
+}
+input::-webkit-input-placeholder {
+  color:            $color-quintary;
+}
+input:-moz-placeholder {
+  // !!! mozilla adds its own fade
+  //color:            $color-quintary;
+}
+input::-moz-placeholder {
+  // !!! mozilla adds its own fade
+  //color:            $color-quintary;
+}
+input:-ms-input-placeholder {
+  color:            $color-quintary;
 }
 p {
   font-weight: 300;
@@ -598,8 +612,8 @@ $giant-header-vert-edge-space: 0.3em;
   }
 }
 
-.giant-section-substance-jobs-referral-all-div {
-  $edge-height: 0.8em;
+.giant-section-substance-jobs-disposition-all-div {
+  $edge-height: 0.7em;
   $edge-width: 0.6em;
   .giant-bordered-edge {
     border-bottom-width: $edge-height;
@@ -616,19 +630,103 @@ $giant-header-vert-edge-space: 0.3em;
     padding:        0.8em 1em;
     width:          100%;
   }
+  .giant-form-field-half-width {
+    @extend .giant-form-field;
+    width:          49.5%;
+  }
+  .giant-form-field-half-width-div {
+    @extend .giant-form-field;
+    display:        inline-block;
+    width:          49.5%;
+  }
+  .giant-form-field-inline-input {
+    @include placeholder($color-quintary);
+    display:        inline;
+    background:     none;
+    border:         0;
+    line-height:    1em;
+    padding:        0;
+  }
+  .giant-form-field-inline-select {
+    @extend .giant-form-field-inline-input;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+  }
+  .giant-form-field-select-div {
+    @extend .giant-form-field-half-width-div;
+    padding:        0.75em 0.95em;
+  }
   .giant-hr-bottom {
     margin:         1em 0 0 0;
   }
   .giant-hr-top {
     margin:         0 0 $edge-height 0;
   }
+  .giant-jobapp-authorized-div {
+    @extend .giant-form-field-select-div;
+  }
+  .giant-jobapp-authorized-select {
+    @extend .giant-form-field-inline-select;
+  }
+  .giant-jobapp-available-div {
+    @extend .giant-form-field-half-width-div;
+  }
+  .giant-jobapp-available-input-date {
+    @extend .giant-form-field-inline-input;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    width:          10em;
+  }
+  .giant-jobapp-email-input {
+    @extend .giant-form-field-half-width;
+  }
+  .giant-jobapp-employment-div {
+    @extend .giant-form-field-select-div;
+  }
+  .giant-jobapp-employment-select {
+    @extend .giant-form-field-inline-select;
+  }
+  .giant-jobapp-name-first-input {
+    @extend .giant-form-field-half-width;
+  }
+  .giant-jobapp-name-last-input {
+    @extend .giant-form-field-half-width;
+  }
+  .giant-jobapp-phone-input {
+    @extend .giant-form-field-half-width;
+  }
+  .giant-jobapp-portfolio-link-input {
+    @extend .giant-form-field-half-width;
+  }
+  .giant-jobapp-resume-file-div {
+    @extend .giant-form-field-half-width-div;
+  }
+  .giant-jobapp-resume-file-label {
+    @extend .giant-form-field-inline-input;
+  }
+  .giant-jobapp-resume-file-input {
+    // technique from http://stackoverflow.com/questions/21842274/cross-browser-custom-styling-for-file-upload-button
+    position: fixed;
+    top: -1000px;
+  }
+  .giant-jobapp-resume-file-post-span {
+    @extend .giant-form-field-inline-input;
+    color:          $color-button-secondary;
+  }
+  .giant-jobapp-resume-file-pre-span {
+    @extend .giant-form-field-inline-input;
+  }
+  .giant-jobapp-resume-link-input {
+    @extend .giant-form-field-half-width;
+  }
   .giant-referral-friends-name-input {
-    @extend .giant-form-field;
-    width:          49.5%;
+    @extend .giant-form-field-half-width;
   }
   .giant-referral-friends-email-input {
-    @extend .giant-form-field;
-    width:          49.5%;
+    @extend .giant-form-field-half-width;
   }
   .giant-referral-subject-input {
     @extend .giant-form-field;
@@ -646,7 +744,6 @@ $giant-header-vert-edge-space: 0.3em;
   }
   .giant-referral-submit-input {
     @extend .giant-section-substance-jobs-button;
-    //margin:         1em 0 2em 0;
     width:          auto;
   }
   .giant-referral-submit-cancel-input {
@@ -667,6 +764,11 @@ $giant-header-vert-edge-space: 0.3em;
   hr {
     background:     $color-panel;
     height:         0.08em;
+  }
+  label {
+    display:        inline;
+    font-weight:    normal;
+    margin:         0;
   }
 }
 .giant-section-substance-roles-list-all-div {
