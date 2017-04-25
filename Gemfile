@@ -63,3 +63,8 @@ gem 'high_voltage'
 
 ## RESTful service integration [2014.05.08 cathames]
 gem 'rest-client'
+
+## console debugging
+group :development do
+  gem 'byebug'
+end
