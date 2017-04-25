@@ -9,6 +9,9 @@
       Your friend <%= @job_referral.name %> thinks that you would be interested in
       <%= link_to "this job", @url %>:
     </p>
+    <p>
+      <%= @job_referral.body %>
+    </p>
     <%= render partial: './application/job' %>
   </body>
 </html>
