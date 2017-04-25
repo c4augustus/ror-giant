@@ -64,6 +64,9 @@ gem 'high_voltage'
 ## RESTful service integration [2014.05.08 cathames]
 gem 'rest-client'
 
+## AJAX file upload support
+gem 'remotipart', '~> 1.2'
+
 ## console debugging
 group :development do
   gem 'byebug'
