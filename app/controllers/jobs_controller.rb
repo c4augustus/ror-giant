@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:application, :apply, :referral, :refer]
+  before_action :set_job, only: [:jobapp, :jobapply, :referral, :refer]
   respond_to :html, :js
 
   # GET /jobs
@@ -8,19 +8,20 @@ class JobsController < ApplicationController
     @jobs = Rails.application.jobs_facility.refresh_jobs(category: params[:category])
   end
 
-  # GET /jobs/1/application
-  def application
-    @application = JobApplication.new
+  # GET /jobs/1/jobapp
+  def jobapp
+    @jobapp = JobApplication.new
   end
 
-  # POST /jobs/1/apply
-  def apply
-    if @job
-      if (job_application = @job.apply(params.require(:job_application).permit!))
-        AppMailer.mail_application(job_application).deliver
+  # POST /jobs/1/jobapply
+  def jobapply
+    if params[:commit].eql?('SEND')
+      if @job
+        if (job_application = @job.apply(params.require(:job_application).permit!))
+          AppMailer.mail_application(job_application).deliver
+        end
       end
     end
-    redirect_to jobs_path
   end
 
   # GET /jobs/1/referral
@@ -38,49 +39,6 @@ class JobsController < ApplicationController
       end
     end
   end
-
-## DISABLE UNUSED GENERATED CODE
-=begin
-  # POST /jobs
-  # POST /jobs.json
-  def create
-    @job = Job.new(job_params)
-
-    respond_to do |format|
-      if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @job }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /jobs/1
-  # PATCH/PUT /jobs/1.json
-  def update
-    respond_to do |format|
-      if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /jobs/1
-  # DELETE /jobs/1.json
-  def destroy
-    @job.destroy
-    respond_to do |format|
-      format.html { redirect_to jobs_url }
-      format.json { head :no_content }
-    end
-  end
-=end
 
   private
     def set_job

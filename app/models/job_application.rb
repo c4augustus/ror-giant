@@ -8,8 +8,9 @@ class JobApplication
   field :date_start_available,          type: Date
   field :status_employment_current,     type: String
   field :status_authorization_to_work,  type: String
+  field :link_to_portfolio,             type: String
+  field :link_to_resume,                type: String
   field :attachment_filename_resume,    type: String
-  field :attachment_filename_portfolio, type: String
 
   attr_accessor :attachment_resume, :attachment_portfolio
 

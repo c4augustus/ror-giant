@@ -2,8 +2,8 @@
                    root GET  /                                            welcome#index
         talent_requests POST /talent_requests(.:format)                   talent_requests#create
      new_talent_request GET  /talent_requests/new(.:format)               talent_requests#new
-new_job_job_application GET  /jobs/:job_id/job_applications/new(.:format) jobs#application
-   job_job_applications POST /jobs/:job_id/job_applications(.:format)     jobs#apply
+new_job_job_application GET  /jobs/:job_id/job_applications/new(.:format) jobs#jobapp
+   job_job_applications POST /jobs/:job_id/job_applications(.:format)     jobs#jobapply
    new_job_job_referral GET  /jobs/:job_id/job_referrals/new(.:format)    jobs#referral
       job_job_referrals POST /jobs/:job_id/job_referrals(.:format)        jobs#refer
                    jobs GET  /jobs(.:format)                              jobs#index
