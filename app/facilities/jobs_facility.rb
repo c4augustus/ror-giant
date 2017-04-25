@@ -1,6 +1,10 @@
 class JobsFacility
 
   FAKE_IT = false
+  DUMP_JSON_CATEGORIES = false
+  DUMP_JSON_JOBS = false
+  INCLUDE_ALL_FIELDS_CATEGORIES = true
+  INCLUDE_ALL_FIELDS_JOBS = false
 
   SECONDS_INTERVAL_REFRESH = 800
 
@@ -22,7 +26,7 @@ class JobsFacility
 private
 
   def retrieve_all_categories
-    if (hashcategories = fetch_external_categories_hash(true))
+    if (hashcategories = fetch_external_categories_hash(INCLUDE_ALL_FIELDS_CATEGORIES))
       puts "## categories JSON: #{hashcategories}"
     end
   end
@@ -65,7 +69,7 @@ private
 
   def retrieve_jobs_starting_at(offset)
     count = 0
-    if (hashjobs = fetch_external_jobs_hash(offset, false))
+    if (hashjobs = fetch_external_jobs_hash(offset, INCLUDE_ALL_FIELDS_JOBS))
       hashjobs["data"].each do |hashjob|
         if (idschemeext = hashjob["id"])
           job = Job.find_or_create_by(id_scheme_ext: idschemeext)
@@ -73,7 +77,7 @@ private
           categorymatching = Job.category_matching(categoryparsed)
           job.write_attributes(
             category:         categorymatching,
-            description:      hashjob["publicDescription"],
+            description:      hashjob["description"],
             employment_type:  hashjob["employmentType"],
             start_date:       hashjob["startDate"],
             title:            hashjob["title"])
@@ -113,18 +117,18 @@ private
       )) {|response, request, result, &block|
         if response.code == 200 # Success
           #puts "# SUCCESS, response=#{response}"
-          if including_all_fields
-            File.open("db/data_bh_categories_all_fields_"\
-                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
-              f.write(response.encode)
+          if DUMP_JSON_CATEGORIES
+            if including_all_fields
+              File.open("db/data_bh_categories_all_fields_"\
+                        "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+                f.write(response.encode)
+              end
+            else
+              File.open("db/data_bh_categories_selected_fields_"\
+                        "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+                f.write(response.encode)
+              end
             end
-=begin
-          else
-            File.open("db/data_bh_categories_selected_fields_"\
-                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
-              f.write(response.encode)
-            end
-=end
           end
           return JSON.parse response
         else
@@ -146,26 +150,26 @@ private
         "&query=isOpen:1 AND isDeleted:0 AND NOT status:archive"\
         "&fields=#{including_all_fields ? "*" :
           ## !!! disabled, so now these details must be provided in the description
-          ##"id,categories,title,employmentType,startDate,payRate,salary,salaryUnit,publicDescription"}"\
-          ##"id,skillList,publicDescription"}"\
-          "id,employmentType,publicDescription,skillList,startDate,title"}"\
+          ##"id,categories,title,employmentType,startDate,payRate,salary,salaryUnit,description"}"\
+          ##"id,skillList,description"}"\
+          "id,employmentType,description,skillList,startDate,title"}"\
         "&start=#{offset}"
       )) {|response, request, result, &block|
         if response.code == 200 # Success
           #puts "# SUCCESS, response=#{response}"
-=begin
-          if including_all_fields
-            File.open("db/data_bh_job_offers_all_fields_"\
-                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
-              f.write(response.encode)
-            end
-          else
-            File.open("db/data_bh_job_offers_selected_fields_"\
-                      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
-              f.write(response.encode)
+          if DUMP_JSON_JOBS
+            if including_all_fields
+              File.open("db/data_bh_job_offers_all_fields_"\
+                        "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+                f.write(response.encode)
+              end
+            else
+              File.open("db/data_bh_job_offers_selected_fields_"\
+                        "#{DateTime.now.strftime("%Y%m%d%H%M%S")}.json", "w") do |f|
+                f.write(response.encode)
+              end
             end
           end
-=end
           return JSON.parse response
         else
           # do not letting RestClient handle it
