@@ -477,15 +477,8 @@ $giant-header-vert-edge-space: 0.3em;
   width:            100%;
   vertical-align:   top;
   h1 {
-    color:          $color-secondary;
-    font-family:    $font-family-primary;
     font-size:      52px;
     font-weight:    bold;
-    line-height:    1.1em;
-    text-align:     center;
-    // TODO: @@@ using the actual image size doesn't result in center
-    //width:          1280px; // force to center of background image
-    width:          1240px; // force to center of background image
   }
 }
 .giant-section-jumbo-group-buttons-div {
