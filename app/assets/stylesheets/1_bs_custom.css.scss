@@ -6,10 +6,12 @@
 //@import url(http://fonts.googleapis.com/css?family=Signika:400,300,600,700);
 
 $color-button-secondary:    #23acdc;
-$color-logo:                #c55e30;
-$color-logo-light:          #d3660b;
-$color-logo-trans:          rgba(197,94,48,0.8);
-$color-logo-trans-light:    rgba(211,102,11,0.8);
+// TODO: @@@ UNUSED
+//$color-logo:                #c55e30;
+//$color-logo-light:          #d3660b;
+//$color-logo-trans:          rgba(197,94,48,0.8);
+//$color-logo-trans-light:    rgba(211,102,11,0.8);
+$color-logos:               rgba(74,79,94,0.8);
 $color-page:                #fff;
 $color-page-trans:          rgba(255,255,255,0.9);
 $color-panel:               #efefef;
@@ -224,24 +226,10 @@ p {
 .giant-background-jumbo-jobs {
   background:       url("/assets/giant-background-jumbo-jobs.jpg") no-repeat;
 }
-.giant-background-logos-candidates {
-  background:       url("/assets/giant-background-logos-candidates.jpg") no-repeat;
-}
-.giant-background-logos-clients {
-  background:       url("/assets/giant-background-logos-clients.jpg") no-repeat;
-}
-.giant-background-logos-contact {
-  background:       url("/assets/giant-background-logos-contact.jpg") no-repeat;
-}
-.giant-background-logos-home {
-  background:       url("/assets/giant-background-logos-home.jpg") no-repeat;
-}
-.giant-background-logos-jobs {
-  background:       url("/assets/giant-background-logos-jobs.jpg") no-repeat;
-}
 .giant-billboard {
   @extend .jumbotron;
   background:       transparent;
+  background-size:  1280px;
   padding:          5em 3em;
   text-align:       center;
   h1 {
@@ -450,10 +438,14 @@ $giant-header-vert-edge-space: 0.3em;
 }
 .giant-section-jumbo-all-div {
   @extend .jumbotron;
-  background-size:  1280px;
-  height:           400px;
+  background-position: center top;
+  //background-size:  cover; // expand to fill horiz edges, not what we want
+  //background-size:  1280px;
+  text-align:       center;
+  height:           620px;
   margin:           0;
   padding:          0;
+  position:         relative; // !!! need for logo bar position absolute
 }
 .giant-section-jumbo-bundle-div {
   display:          table;
@@ -499,11 +491,39 @@ $giant-header-vert-edge-space: 0.3em;
 .giant-section-jumbo-group-buttons-div {
   padding:          1em 0 0 0;
 }
+$giant-logos-bar-height: 80px;
+$giant-logos-gap-width: 40px;
 .giant-section-logos-all-div {
-  background-size:  auto;
-  height:           80px;
-  margin:           0;
-  padding:          0;
+  background-color: $color-logos;
+  bottom:           0;
+  height:           $giant-logos-bar-height;
+  left:             0; // !!! required to keep centered and full width
+  overflow:         hidden;
+  position:         absolute; // !!! required to place at bottom
+  right:            0; // !!! required to keep centered and full width
+  div {
+    //display:        flex; // TODO: @@@ FUTURE DEVELOPMENT
+    display:        inline-block;
+  }
+  .group-first-div {
+    float:          left;
+    padding:        0 $giant-logos-gap-width 0 0;
+    text-align:     right;
+    width:          50%;
+  }
+  .group-second-div {
+    float:          right;
+    padding:        0 0 0 $giant-logos-gap-width;
+    text-align:     left;
+    width:          50%;
+  }
+  .img-div {
+    line-height:    $giant-logos-bar-height; // !!! required for vertical centering
+    padding:        0 1em;
+  }
+  .img-div-png {
+    height:         50%;
+  }
 }
 .giant-section-substance-all-div {
 }
@@ -511,7 +531,7 @@ $giant-header-vert-edge-space: 0.3em;
   text-align:       center; // !!! needed to center caption-tab-div
 }
 .giant-section-substance-caption-tab-div {
-  background-color: $color-page;
+  background:       transparent;
   display:          inline-block;
   position:         relative;
   bottom:           28px;
