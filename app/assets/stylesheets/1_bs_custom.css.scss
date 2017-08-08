@@ -94,62 +94,6 @@ p {
   font-weight: 300;
 }
 
-// Bootstrap styles:
-
-.panel {
-  box-shadow: none;
-}
-.panel-heading {
-  font-family: $font-family-primary;
-}
-.panel-title {
-  color: $color-primary;   // override bs inherit
-  font-size: 18px;  // override bs 16px
-}
-.panel-primary {
-  background-color: $color-page;
-  margin: 2em 0em;
-  text-align: center;
-  p {
-    font-family: $font-family-primary;
-    font-size: 14px;
-  }
-  .panel-body, .panel-heading, .panel-title {
-    background-color: $color-page;
-  }
-  .panel-heading {
-    padding: 0em 0em;
-  }
-}
-.panel-secondary {
-  .panel-body, .panel-heading, .panel-title {
-    background-color: $color-panel;
-  }
-  .panel-body, .panel-heading {
-    padding: 1.5em;
-  }
-  .panel-heading {
-    padding-bottom: 0em;
-  }
-  .panel-title {
-    padding-bottom: 0em;
-    padding-top: 0.2em;
-  }
-  li {
-    font-size: 12px;
-    line-height: 1.5em;
-  }
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-}
-.row {
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
 // TODO: @@@ NOT USING THIS...YET
 // !!! non-standard bootstrap customization from
 // !!! http://getbootstrap.com.vn/examples/equal-height-columns/
@@ -158,12 +102,6 @@ p {
   display: -webkit-flex;
   display: -ms-flexbox;
   display:         flex;
-}
-
-[class*="panel-"] {
-  background-color: $color-page;
-  border: 0px;
-//  color: #ff6600;
 }
 
 // unique styles:
@@ -310,11 +248,11 @@ $giant-nav-menu-item-padding-y: 1em;
 $giant-nav-menu-padding-right: 11em;
 
 $giant-breakpoint-nav-menu-min: $grid-float-breakpoint; ///< bootstrap navbar collapse threshold
-$giant-breakpoint-tagline-a-hide-max: 639px;
+$giant-breakpoint-tagline-a-hide-max: 700px;
 $giant-breakpoint-tagline-b-show-min: $giant-breakpoint-tagline-a-hide-max + 1;
 $giant-breakpoint-tagline-b-show-max: $giant-breakpoint-nav-menu-min - 1;
 $giant-breakpoint-tagline-c-hide-min: $giant-breakpoint-tagline-b-show-max + 1;
-$giant-breakpoint-tagline-c-hide-max: 1151px;
+$giant-breakpoint-tagline-c-hide-max: 1200px;
 $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
 
 @media (max-width: $giant-breakpoint-tagline-a-hide-max),
@@ -404,7 +342,7 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
             @extend .giant-table-cell-middle;
             @extend .giant-header-text;
           }
-          .giant-brand-div {
+          .giant-brand-span {
             @extend .giant-table-cell-middle;
             background: url("/assets/giant-brand-logo.png") no-repeat;
             background-position: ($giant-brand-margin-x / 2) ($giant-brand-margin-y / 2);
