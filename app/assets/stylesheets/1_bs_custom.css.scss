@@ -96,49 +96,6 @@ p {
 
 // Bootstrap styles:
 
-.container-fluid {
-  padding-left: 0em;
-  padding-right: 0em;
-}
-.navbar {
-  font-family: $font-family-primary;
-  margin-bottom: 0;
-  min-height: 0em;
-}
-.navbar-inverse {
-  background-color: $color-secondary-trans;
-  border: 0;
-  color: $color-page;
-}
-.navbar-inverse .navbar-nav li a {
-  color: $color-page;
-}
-.navbar-inverse .navbar-nav li a:hover {
-  //background-color: $color-secondary-inverse;
-  color:            $color-primary-bright;
-}
-.navbar-collapse {
-  text-align: center;
-  line-height: 0em;
-}
-.navbar-nav {
-  display: inline-block;
-  float: none;
-}
-.nav li a {
-  border: 0;
-  font-size: 11px;
-  line-height: 1em;
-  padding: 1.4em 2em;
-}
-.nav li p { // @@@ CONSOLIDATE WITH ABOVE
-  border: 0;
-  color: $color-page;
-  font-size: 11px;
-  line-height: 1em;
-  margin: 0;
-  padding: 1.4em 2em;
-}
 .panel {
   box-shadow: none;
 }
@@ -312,75 +269,160 @@ p {
   @extend .row; // bootstrap
 }
 
-/// !!! note: We are NOT using bootstrap grid in the header
-/// !!! because of the awkward design of the menu/navigation
-/// !!! buttons and how they would collapse using bootstrap
+// !!! we have to use the physical size of the logo image
+$giant-brand-logo-x: 59px;
+$giant-brand-logo-y: 57px;
+$giant-brand-margin-x: 13px;
+$giant-brand-margin-y: 15px;
+$giant-brand-height: $giant-brand-logo-y + $giant-brand-margin-y;
+$giant-brand-width: $giant-brand-logo-x + $giant-brand-margin-x;
+$giant-hamburger-margin-x: 28px;
+$giant-nav-menu-item-padding-x: 2em;
+$giant-nav-menu-item-padding-y: 1em;
+$giant-nav-menu-padding-right: 11em;
 
-$giant-header-left-edge-space: 0.7em;
-$giant-header-vert-edge-space: 0.3em;
+$giant-breakpoint-nav-menu-min: $grid-float-breakpoint; ///< bootstrap navbar collapse threshold
+$giant-breakpoint-tagline-a-hide-max: 639px;
+$giant-breakpoint-tagline-b-show-min: $giant-breakpoint-tagline-a-hide-max + 1;
+$giant-breakpoint-tagline-b-show-max: $giant-breakpoint-nav-menu-min - 1;
+$giant-breakpoint-tagline-c-hide-min: $giant-breakpoint-tagline-b-show-max + 1;
+$giant-breakpoint-tagline-c-hide-max: 1151px;
+$giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
 
-.giant-header-div-entire {
-  background-color: $color-page;
-  box-shadow:       0 2px 6px -1px #aaa;
-  padding-left:     $giant-header-left-edge-space;
-  padding-bottom:   $giant-header-vert-edge-space;
-  position:         relative;
-  z-index:          1;
+@media (max-width: $giant-breakpoint-tagline-a-hide-max),
+       (min-width: $giant-breakpoint-tagline-c-hide-min) and
+       (max-width: $giant-breakpoint-tagline-c-hide-max) {
+  .giant-header-tagline-display {
+      display: none;
+  }
 }
-.giant-header-div-section-brand {
-  //display:          table-cell; ///< !!! appends and spans height, but shrinks instead of collapsing
-  display:          inline-block; ///< !!! appends but doesn't span height
-  padding-bottom:   0.2em;
-  padding-top:      0.6em;
-  vertical-align:   middle; ///< !!! both outers must be middle for the smaller to be middle
+@media (min-width: $giant-breakpoint-tagline-b-show-min) and
+       (max-width: $giant-breakpoint-tagline-b-show-max),
+       (min-width: $giant-breakpoint-tagline-d-show-min) {
+  .giant-header-tagline-display {
+      display: table-cell;
+  }
 }
-.giant-header-div-section-menu {
-  //display:          table-cell; ///< !!! appends and spans height, but shrinks instead of collapsing
-  display:          inline-block; ///< !!! appends but doesn't span height
-  padding:          0;
-  padding-top:      $giant-header-vert-edge-space;
-  vertical-align:   middle; ///< !!! both outers must be middle for the smaller to be middle
+
+// !!! ONLY way to get bootstrap menu to vertically align in the middle
+@media (min-width: $giant-breakpoint-nav-menu-min) {
+  .giant-nav-menu-valign-middle {
+      padding-right: $giant-nav-menu-padding-right;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: perspective(1px) translateY(-50%);
+  }
 }
-.giant-header-div-within-menu {
-  display:          table-cell;
-  padding:          0;
-  width:            100%;
+
+.giant-table-cell-middle {
+  display: table-cell;
+  vertical-align: middle;
 }
-.giant-header-item-brand-image {
-  /// !!! inline-block would drop collapsed text to next line
-  //display:          inline-block;
-  display:          table-cell;
-}
-.giant-header-item-brand-tagline {
-  /// !!! inline-block would drop collapsed text to next line
-  //display:          inline-block;
-  display:          table-cell;
-  margin:           0;
-  padding-left:     $giant-header-left-edge-space;
-  padding-right:    1.5em;
-  text-align:       left;   ///< !!! keep collapsing text left-adjusted
-  vertical-align:   middle; ///< !!! keep collapsing text in the middle
-}
-.giant-header-item-menu-link {
-  @extend .btn; ///< bootstrap
-  background-color: $color-page;
-  border:           0;
-  color:            $color-secondary;
-  font-family:      $font-family-primary;
-  font-weight:      $font-weight-semibold;
-  margin:           0.25em 0.1em;
-  min-width:        10em;
-  padding:          1em 0.5em;
-}
-.giant-header-item-menu-link:hover {
-  color:            $color-primary;
-}
-.giant-header-item-phone {
-  color:            $color-secondary;
-  display:          inline-block;
-  font-weight:      bold;
-  margin:           0;
-  min-width:        10em;
+
+.giant-header-div {
+  .giant-header-text {
+    font-family: $font-family-primary;
+    font-size: 12px;
+    line-height: 1em;
+    margin: 0;
+  }
+  nav {
+    @extend .navbar; ///< bootstrap
+    @extend .navbar-default; ///< bootstrap
+    //@extend .navbar-fixed-top; ///< bootstrap !!! but not yet used
+    background-color: $color-page;
+    border: 0;
+    box-shadow: 0 2px 6px -1px #aaa;
+    margin: 0;
+    position: relative; ///< @note: incompatible with .navbar-fixed-top
+    z-index: 1; ///< @note: unnecessary with .navbar-fixed-top
+    .giant-nav-container-div {
+      @extend .container; ///< bootstrap
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      .giant-nav-menu-toggle-outer-div {
+        float: left; // !!! change from bootstrap's .navbar-toggle being floated right
+        height: $giant-brand-height;
+        .giant-nav-menu-toggle-inner-div {
+          display: table-cell;
+          height: $giant-brand-height;
+          vertical-align: middle;
+          button {
+            @extend .navbar-toggle; ///< bootstrap
+            border: 0;
+            margin: 0 ($giant-hamburger-margin-x - $giant-brand-margin-x) 0 $giant-hamburger-margin-x;
+            padding: 0;
+            .giant-nav-menu-hamburger-div {
+              .giant-hamburger-layer-span {
+                @extend .icon-bar; ///< bootstrap
+                margin: 0.7em 0;
+                width: 2em;
+              }
+            }
+            .giant-toggle-assist-span {
+              @extend .sr-only; ///< bootstrap
+            }
+          }
+        }
+      }
+      .giant-nav-contents-always-outer-div {
+        @extend .navbar-header; ///< bootstrap
+        .giant-nav-contents-always-inner-div {
+          display: table;
+          white-space: nowrap;
+          h2 {
+            @extend .giant-table-cell-middle;
+            @extend .giant-header-text;
+          }
+          .giant-brand-div {
+            @extend .giant-table-cell-middle;
+            background: url("/assets/giant-brand-logo.png") no-repeat;
+            background-position: ($giant-brand-margin-x / 2) ($giant-brand-margin-y / 2);
+            height: $giant-brand-height;
+            min-width: $giant-brand-width;
+          }
+          .giant-tagline-h2 {
+            @extend .giant-header-tagline-display;
+          }
+          .giant-phone-number-h2 {
+            color: $color-secondary;
+            font-weight: bold;
+            text-align: right;
+            padding-right: $giant-nav-menu-item-padding-x * 2;
+            width: 100%;
+          }
+        }
+      }
+      .giant-nav-contents-collapsable-div {
+        @extend .navbar-collapse; ///< bootstrap
+        @extend .collapse; ///< bootstrap
+        padding: 0;
+        .giant-nav-menu-div {
+          @extend .giant-nav-menu-valign-middle;
+          ul {
+            @extend .nav; ///< bootstrap
+            @extend .navbar-nav; ///< bootstrap
+            li {
+              padding: $giant-nav-menu-item-padding-y $giant-nav-menu-item-padding-x;
+              a {
+                @extend .btn; ///< bootstrap
+                @extend .giant-header-text;
+                color: $color-secondary;
+                border: 0;
+                font-weight: $font-weight-semibold;
+                padding: 0;
+                &:hover { // TODO: ### NOT OVERRIDING BOOTSRAP NAV
+                  color: $color-primary !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .giant-job {
@@ -412,29 +454,9 @@ $giant-header-vert-edge-space: 0.3em;
     }
   }
 }
-.giant-navbar-collapse { 
-  @extend .navbar-collapse; // bootstrap
-  @extend .collapse;        // bootstrap
-  @extend .nav-justified;   // bootstrap
-}
-.giant-navbar-icon { 
-  a { // @@@ DOESN'T WORK
-    padding:        0;
-  }
-  img {
-    width:          2.0em;
-  }
-}
-.giant-navbar-separator { 
-  background-color: $color-page;
-  font-size:        11px; // same style as .navbar-nav > li 
-  line-height:      1em;  // same style as .navbar-nav > li
-  margin-top:       1.1em;
-  padding:          0.3em 0em;
-  width:            1px;
-}
 .giant-section-aggregate-div {
-  @extend .container-fluid;
+  @extend .container-fluid; ///< bootstrap
+  padding: 0;
 }
 .giant-section-jumbo-all-div {
   @extend .jumbotron;
