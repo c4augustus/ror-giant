@@ -259,14 +259,42 @@ p {
     width:          5.0em;
   }
 }
+
 .giant-footer {
-  @extend .navbar-wrapper; // bootstrap
-}
-.giant-footer-container {
-  @extend .container-fluid; // bootstrap
-}
-.giant-footer-row {
-  @extend .row; // bootstrap
+  background-color: $color-logos;
+  .giant-footer-container-div {
+    .giant-footer-row-div {
+      color: $color-primary-bright;
+      text-align: center;
+      p {
+        color: $color-page;
+        margin: 0;
+        padding-bottom: 2em;
+      }
+      ul {
+        @extend .nav; ///< bootstrap
+        @extend .navbar-nav; ///< bootstrap
+        display: inline-block;
+        float: none;
+        padding-top: 1em;
+        li {
+          display: inline-block;
+          a {
+            border: 0;
+            font-size: 11px;
+            line-height: 1em;
+            padding: 1.4em 2em;
+            &:hover {
+              background-color: $color-primary-bright !important;
+            }
+            img {
+              width: 2.0em;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // !!! we have to use the physical size of the logo image
@@ -413,7 +441,7 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
                 border: 0;
                 font-weight: $font-weight-semibold;
                 padding: 0;
-                &:hover { // TODO: ### NOT OVERRIDING BOOTSRAP NAV
+                &:hover {
                   color: $color-primary !important;
                 }
               }

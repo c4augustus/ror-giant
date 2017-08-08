@@ -1,51 +1,26 @@
 <footer class="giant-footer">
-    <div class="giant-footer-container">
-      <div class="giant-footer-row">
-        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div> <!-- navbar-header -->
-            <div class="giant-navbar-collapse">
-              <ul class="nav navbar-nav">
-                <!-- <li class="active"><a href="#">Home</a></li> -->
-                <li><a href="/pages/clients">FOR CLIENTS</a></li>
-                <li><a href="/pages/candidates">FOR CANDIDATES</a></li>
-                <li><a href="/jobs">OPEN JOBS</a></li>
-                <li><a href="/pages/contact">CONTACT US</a></li>
-              </ul>  <!-- nav -->
-            </div> <!-- giant-navbar-collapse -->
-            <div class="giant-navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li class="giant-navbar-icon">
-                  <a href="<%= Rails.application.config.custom_link_facebook %>">
-                    <img src="/assets/FB-f-Logo__white_144.png"/>
-                  </a>
-                </li>
-                <li class="giant-navbar-icon">
-                  <a href="<%= Rails.application.config.custom_link_twitter %>">
-                    <img src="/assets/Twitter_logo_white.png"/>
-                  </a>
-                </li>
-                <li class="giant-navbar-icon">
-                  <a href="<%= Rails.application.config.custom_link_linkedin %>">
-                    <img src="/assets/In-White-128px-R.png"/>
-                  </a>
-                </li>
-              </ul>  <!-- nav -->
-            </div> <!-- giant-navbar-collapse -->
-            <div class="giant-navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li><p>&copy GIANT 2017</p></li>
-              </ul>  <!-- nav -->
-            </div> <!-- giant-navbar-collapse -->
-          </div> <!-- container -->
-        </div> <!-- navbar -->
-      </div> <!-- giant-footer-row -->
-    </div> <!-- giant-footer-container -->
+  <div class="giant-footer-container-div">
+    <div class="giant-footer-row-div">
+      <ul>
+        <li>
+          <a href="<%= Rails.application.config.custom_link_facebook %>">
+            <img src="/assets/FB-f-Logo__white_144.png"/>
+          </a>
+        </li>
+        <li>
+          <a href="<%= Rails.application.config.custom_link_twitter %>">
+            <img src="/assets/Twitter_logo_white.png"/>
+          </a>
+        </li>
+        <li>
+          <a href="<%= Rails.application.config.custom_link_linkedin %>">
+            <img src="/assets/In-White-128px-R.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="giant-footer-row-div">
+      <p>&copy GIANT 2017</p>
+    </div>
+  </div>
 </footer>
