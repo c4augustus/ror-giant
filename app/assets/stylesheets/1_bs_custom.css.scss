@@ -328,7 +328,7 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
     margin: 0;
   }
   nav {
-    @extend .navbar; ///< bootstrap
+    @extend .navbar; ///< bootstrap (note: defaults to 50px height)
     @extend .navbar-default; ///< bootstrap
     //@extend .navbar-fixed-top; ///< bootstrap !!! but not yet used
     background-color: $color-page;
@@ -344,14 +344,13 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
       width: 100%;
       .giant-nav-menu-toggle-outer-div {
         float: left; // !!! change from bootstrap's .navbar-toggle being floated right
-        height: $giant-brand-height;
         .giant-nav-menu-toggle-inner-div {
           display: table-cell;
-          height: $giant-brand-height;
           vertical-align: middle;
           button {
             @extend .navbar-toggle; ///< bootstrap
             border: 0;
+            height: $giant-brand-height;
             margin: 0 ($giant-hamburger-margin-x - $giant-brand-margin-x) 0 $giant-hamburger-margin-x;
             padding: 0;
             .giant-nav-menu-hamburger-div {
