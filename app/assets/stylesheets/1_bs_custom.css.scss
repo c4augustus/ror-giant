@@ -369,6 +369,7 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
       }
       .giant-nav-contents-always-outer-div {
         @extend .navbar-header; ///< bootstrap
+        width: 100%;
         .giant-nav-contents-always-inner-div {
           display: table;
           white-space: nowrap;
