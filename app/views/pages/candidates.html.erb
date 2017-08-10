@@ -1,19 +1,23 @@
 <%= render partial: 'header', locals: {tab: @virtual_path[/^[^\/]+/]} %>
 <div class="giant-section-aggregate-div">
-  <div class="giant-section-jumbo-all-div giant-background-jumbo-candidates">
-    <div class="giant-section-jumbo-bundle-div">
-      <div class="giant-section-jumbo-cluster-empty-div">
-      </div>
-      <div class="giant-section-jumbo-cluster-text-div">
-        <h1>
-        <br>GREATNESS AWAITS.
-        <br>WE'LL GET YOU THERE.</h1>
-        <div class="giant-section-jumbo-group-buttons-div">
-          <%= render partial: "button_open_jobs" %>
-        </div>
+  <div class="giant-jumbo-all-div">
+    <div class="giant-jumbo-image-div giant-background-jumbo-candidates">
+        <%= render partial: "section_logos" %>
+    </div>
+    <div class="giant-jumbo-content-div giant-jumbo-content-offset-candidates">
+      <h1 class="giant-jumbo-text-breaks1">
+          GREATNESS AWAITS.<br>
+          WE'LL GET YOU THERE.
+      </h1>
+      <h1 class="giant-jumbo-text-breaks2">
+          GREATNESS<br>
+          AWAITS. WE'LL<br>
+          GET YOU THERE.
+      </h1>
+      <div class="giant-jumbo-buttons-div">
+        <%= render partial: "button_open_jobs" %>
       </div>
     </div>
-    <%= render partial: "section_logos" %>
   </div>
   <div class="giant-section-substance-all-div">
     <%= render partial: 'substance_caption_text', locals: { text:'WHY TOP CANDIDATES CHOOSE GIANT' } %>

@@ -1,21 +1,24 @@
 <%= render partial: 'header', locals: {tab: @virtual_path[/^[^\/]+/]} %>
 <div class="giant-section-aggregate-div">
-  <div class="giant-section-jumbo-all-div giant-background-jumbo-clients">
-    <div class="giant-section-jumbo-bundle-div">
-      <div class="giant-section-jumbo-cluster-empty-div">
-      </div>
-      <div class="giant-section-jumbo-cluster-text-div">
-        <h1>
-        <br>TODAY'S TALENT.
-        <br>TOMORROW'S SUCCESS.</h1>
-        <div class="giant-section-jumbo-group-buttons-div">
-          <%= render partial: "button_open_jobs" %>
-          &nbsp;
-          <%= render partial: "button_request_talent" %>
-        </div>
+  <div class="giant-jumbo-all-div">
+    <div class="giant-jumbo-image-div giant-background-jumbo-clients">
+        <%= render partial: "section_logos" %>
+    </div>
+    <div class="giant-jumbo-content-div giant-jumbo-content-offset-clients">
+      <h1 class="giant-jumbo-text-breaks1">
+        TODAY'S TALENT.<br>
+        TOMORROW'S SUCCESS.
+      </h1>
+      <h1 class="giant-jumbo-text-breaks2">
+        TODAY'S TALENT.<br>
+        TOMORROW'S<br>
+        SUCCESS.
+      </h1>
+      <div class="giant-jumbo-buttons-div">
+        <%= render partial: "button_open_jobs" %>
+        <%= render partial: "button_request_talent" %>
       </div>
     </div>
-    <%= render partial: "section_logos" %>
   </div>
   <div class="giant-section-substance-all-div">
     <%= render partial: 'substance_caption_text', locals: { text:'WHY INDUSTRY LEADERS CHOOSE GIANT' } %>

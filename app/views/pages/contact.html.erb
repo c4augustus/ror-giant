@@ -1,13 +1,19 @@
 <%= render partial: 'header', locals: {tab: @virtual_path[/^[^\/]+/]} %>
 <div class="giant-section-aggregate-div">
-  <div class="giant-section-jumbo-all-div giant-background-jumbo-contact">
-    <div class="giant-section-jumbo-bundle-div">
-      <div class="giant-section-jumbo-cluster-text-solo-div">
-        <h1>LET'S GET IN
-        <br>TOUCH TODAY!</h1>
-      </div>
+  <div class="giant-jumbo-all-div">
+    <div class="giant-jumbo-image-div giant-background-jumbo-contact">
+        <%= render partial: "section_logos" %>
     </div>
-    <%= render partial: "section_logos" %>
+    <div class="giant-jumbo-content-div giant-jumbo-content-offset-contact">
+      <h1 class="giant-jumbo-text-breaks1">
+          LET'S GET IN<br>
+          TOUCH TODAY!
+      </h1>
+      <h1 class="giant-jumbo-text-breaks2">
+          LET'S GET IN<br>
+          TOUCH TODAY!
+      </h1>
+    </div>
   </div>
   <div class="giant-section-substance-all-div">
     <%= render partial: 'substance_caption_text', locals: { text:'CONTACT US' } %>
