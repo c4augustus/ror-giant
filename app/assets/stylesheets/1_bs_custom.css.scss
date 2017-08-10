@@ -46,15 +46,25 @@ $giant-jumbo-image-aspect:
     $giant-visual-design-constraint-jumbo-image-size-x
   / $giant-visual-design-constraint-jumbo-image-size-y;
 
-$giant-visual-design-constraint-iphone-jumbo-max-height: 180px;
-
-// TODO: ### FOR TESTING, DESKTOP BROWSER SQUISHING WON'T GO BELOW 400px
+// !!! swap for for testing because desktop chrome squishing won't go below 400px
+$giant-breakpoint-iphone-max-width: 475px;
 //$giant-breakpoint-iphone-max-width: 375px;
-$giant-breakpoint-iphone-max-width: 400px;
+$giant-visual-design-constraint-iphone-jumbo-max-height: 228px;
+//$giant-visual-design-constraint-iphone-jumbo-max-height: 180px;
+
+$giant-jumbo-iphone-max-height-aspect: // == 2.083...
+    $giant-breakpoint-iphone-max-width
+  / $giant-visual-design-constraint-iphone-jumbo-max-height;
+$giant-jumbo-iphone-max-height-aspect-y-over-x-pct: 48%;
+//    $giant-visual-design-constraint-iphone-jumbo-max-height;
+//  / $giant-breakpoint-iphone-max-width; // ==  0.48%;
+
+$giant-breakpoint-mobile-min-width: $giant-breakpoint-iphone-max-width + 1;
 $giant-breakpoint-mobile-max-width: $screen-xs-max;
 $giant-breakpoint-tablet-min-width: $screen-sm-min; // boostrap default of 768px
 
 $giant-visual-design-constraint-tablet-jumbo-max-height: 400px;
+
 $giant-jumbo-tablet-max-height-aspect: // == 1.92
     $giant-breakpoint-tablet-min-width
   / $giant-visual-design-constraint-tablet-jumbo-max-height;
@@ -68,6 +78,10 @@ $giant-visual-design-constraint-desktop-jumbo-max-height: $giant-visual-design-c
 //  * $giant-visual-design-constraint-desktop-jumbo-max-height;
 $giant-breakpoint-desktop-jumbo-max-height-min-width: 1190px;
 $giant-breakpoint-desktop-min-width: $giant-breakpoint-desktop-jumbo-max-height-min-width;
+
+$giant-visual-design-constraint-logos-bar-height: 80px;
+$giant-visual-design-constraint-logos-gap-width: 40px;
+$giant-visual-design-constraint-logos-padding-vertical: 1em;
 
 body, p {
   color: $color-secondary;
@@ -456,14 +470,31 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
   padding: 0;
 }
 
-@media (max-width: $giant-breakpoint-mobile-max-width) {
+@media (max-width: $giant-breakpoint-iphone-max-width) {
   .giant-jumbo-responsive {
-      background-size: contain;
+      background-size: auto 100%;
       height: $giant-visual-design-constraint-iphone-jumbo-max-height;
+  }
+}
+@media (min-width: $giant-breakpoint-mobile-min-width) {
+  .giant-jumbo-responsive {
+      // interpolate height between this and the next breakpoint
+      background-size: cover;
+      width: 100%;
+      height: 0;
+      padding: 0;
+      padding-bottom: $giant-jumbo-iphone-max-height-aspect-y-over-x-pct;
+  }
+}
+@media (max-width: $giant-breakpoint-mobile-max-width) {
+  .giant-logos-all-div-responsive {
+      transform: scale(0.5) translate(-50%, 50%);
+      width: 200%;
   }
 }
 @media (min-width: $giant-breakpoint-tablet-min-width) {
   .giant-jumbo-responsive {
+      // interpolate height between this and the next breakpoint
       background-size: cover;
       width: 100%;
       height: 0;
@@ -524,12 +555,11 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
 .giant-section-jumbo-group-buttons-div {
   padding:          1em 0 0 0;
 }
-$giant-logos-bar-height: 80px;
-$giant-logos-gap-width: 40px;
 .giant-section-logos-all-div {
+  @extend .giant-logos-all-div-responsive;
   background-color: $color-logos;
   bottom:           0;
-  height:           $giant-logos-bar-height;
+  height: $giant-visual-design-constraint-logos-bar-height;
   left:             0; // !!! required to keep centered and full width
   overflow:         hidden;
   position:         absolute; // !!! required to place at bottom
@@ -540,22 +570,21 @@ $giant-logos-gap-width: 40px;
   }
   .group-first-div {
     float:          left;
-    padding:        0 $giant-logos-gap-width 0 0;
+    padding:        0;
+    padding-right: $giant-visual-design-constraint-logos-gap-width;
     text-align:     right;
     width:          50%;
   }
   .group-second-div {
     float:          right;
-    padding:        0 0 0 $giant-logos-gap-width;
+    padding:        0;
+    padding-left: $giant-visual-design-constraint-logos-gap-width;
     text-align:     left;
     width:          50%;
   }
   .img-div {
-    line-height:    $giant-logos-bar-height; // !!! required for vertical centering
-    padding:        0 1em;
-  }
-  .img-div-png {
-    height:         50%;
+    line-height: $giant-visual-design-constraint-logos-bar-height;
+    padding: 0 $giant-visual-design-constraint-logos-padding-vertical;
   }
 }
 .giant-section-substance-all-div {
