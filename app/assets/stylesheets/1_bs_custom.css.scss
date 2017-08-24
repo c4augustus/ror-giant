@@ -452,11 +452,17 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
   @extend .container-fluid; ///< bootstrap
   padding: 0;
 }
+.giant-substance-cluster-div-responsive {
+  padding: 0 7em;
+}
 
 @media (max-width: $giant-breakpoint-iphone-max-width) {
   .giant-jumbo-image-div-responsive {
     background-size: auto 100%;
     height: $giant-visual-design-constraint-iphone-jumbo-max-height;
+  }
+  .giant-substance-cluster-div-responsive {
+    padding: 0 2em;
   }
 }
 @media (min-width: $giant-breakpoint-mobile-min-width) {
@@ -598,6 +604,15 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
 }
 .giant-section-substance-all-div {
 }
+/* TODO: @@@ FUTURE
+.giant-section-substance-all-outer-div {
+  @include make-row();
+}
+.giant-section-substance-all-inner-div {
+  @include make-xs-column(10);
+  @include make-xs-column-offset(1);
+}
+*/
 .giant-section-substance-caption-all-div {
   text-align:       center; // !!! needed to center caption-tab-div
 }
@@ -894,8 +909,8 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
   @extend .container-fluid;
 }
 .giant-substance-cluster-div {
+  @extend .giant-substance-cluster-div-responsive;
   @include make-row();
-  padding:          0 7em;
 }
 .giant-substance-cluster-item-div {
   @include make-sm-column(4);
