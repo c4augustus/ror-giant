@@ -183,57 +183,40 @@ p {
 }
 .giant-button {
   @extend .btn;
-  background-color: $color-page;    // override bs #428bea
-  border:           0.25em solid;
-  border-color:     $color-secondary; // override bs #357ebd
-  border-radius:    0.3em;
-  border-width:     2px;
-  color:            $color-secondary; // override bs white
-  font-family:      $font-family-primary;
-  font-weight:      bold;
-  padding:          8px 12px;
-  min-width:        11em;
-}
-.giant-button:hover {
-  background-color: $color-primary;
-  border-color:     $color-primary;
-  color:            $color-page;
+  background-color: $color-page;
+  border: 0.25em solid;
+  border-width: 2px;
+  color: $color-secondary; // override bs #357ebd
+  font-family: $font-family-primary;
+  font-weight: bold;
+  min-width: 11em;
 }
 .giant-button-primary {
-  @extend .btn;
-  background-color: $color-page;    // override bs #428bea
-  border:           0.25em solid;
-  border-color:     $color-secondary; // override bs #357ebd
-  border-radius:    0.3em;
-  border-width:     2px;
-  color:            $color-secondary; // override bs white
-  font-family:      $font-family-primary;
-  font-weight:      bold;
-  padding:          8px 12px;
-  min-width:        11em;
+  @extend .giant-button;
+  padding: 0.6em 1em;
 }
 .giant-button-primary:hover {
   background-color: $color-primary;
-  border-color:     $color-primary;
-  color:            $color-page;
+  border-color: $color-primary;
+  color: $color-page;
 }
 .giant-button-secondary {
-  @extend .btn;
-  background-color: $color-page;    // override bs #428bea
-  border:           0.25em solid;
-  border-color:     $color-secondary; // override bs #357ebd
-  border-radius:    0.3em;
-  border-width:     2px;
-  color:            $color-secondary; // override bs white
-  font-family:      $font-family-primary;
-  font-weight:      bold;
-  padding:          0.7em 3em;
-  min-width:        11em;
+  @extend .giant-button;
+  padding: 0.7em 3em;
 }
 .giant-button-secondary:hover {
   background-color: $color-button-secondary;
-  border-color:     $color-button-secondary;
-  color:            $color-page;
+  border-color: $color-button-secondary;
+  color: $color-page;
+}
+.giant-button-contact-us {
+  @extend .giant-button-secondary;
+}
+.giant-button-open-jobs {
+  @extend .giant-button-primary;
+}
+.giant-button-request-talent {
+  @extend .giant-button-primary;
 }
 .giant-contact-icons {
   text-align:     center;
