@@ -144,21 +144,6 @@ p {
 .giant-background-jumbo-jobs {
   background:       url("/assets/giant-background-jumbo-jobs.jpg") no-repeat;
 }
-.giant-billboard {
-  @extend .jumbotron; ///< bootstrap
-  background:       transparent;
-  background-size:  1280px;
-  padding:          5em 3em;
-  text-align:       center;
-  h1 {
-    color:          $color-secondary;
-    font-family:    $font-family-primary;
-    font-size:      28px;
-    font-weight:    bold;
-    line-height:    1.75;
-    text-align:     left;
-  }
-}
 .giant-button {
   @extend .btn;
   background-color: $color-page;
@@ -403,28 +388,6 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
     margin-top:     0.2em;
     margin-bottom:  0.2em;
   } 
-}
-.giant-testimonial {
-  @extend .giant-billboard;
-  margin:           0;
-  padding:          2em 10em;
-  blockquote {
-    @extend h2;
-    border:         0;
-    font-weight:    400;
-    line-height:    1.5em;
-    margin:         0;
-    padding:        0;
-    footer:before {
-      content:      none;
-    }
-    cite {
-      @extend h4;
-      display:      block; 
-      margin:       0;
-      padding:      1em 0 0;
-    }
-  }
 }
 .giant-section-aggregate-div {
   @extend .container-fluid; ///< bootstrap
@@ -968,37 +931,6 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
     }
   }
 }
-.giant-section-separator {
-  background-color: $color-tertiary;
-  height:           1px;
-  margin:           0em 5em; 
-}
-.giant-section-title {
-  @include make-row();
-  padding:          4em 2em 2em;
-  text-align:       center;
-  h2 {
-    margin:         0;
-  }
-}
-.giant-cluster {
-  @include make-row();
-  padding:          0 4em;
-}
-.giant-cluster-item {
-  @include make-sm-column(6);
-  padding:          0 2em 1em;
-  h4 {
-    font-weight:    600;
-    font-size:      600;
-    margin:         0;
-    padding:        0 0 0.2em;
-  }
-  p {
-    line-height:    1.3em;
-    margin:         0;
-  }
-}
 .giant-form {
   padding:          3em 4em;
   h2 {
@@ -1022,34 +954,6 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
 .giant-form-button {
   margin:           2em 0;
 }
-.giant-form-radio-button {
-}
-.giant-form-radio-button-label {
-  padding:          0 2em 0 0.5em;
-}
-.giant-form-radio-button-group {
-  padding:          0 1.3em;
-  span {
-    display:        block;
-  }
-}
-.giant-job-details {
-  border:           1px solid;
-  margin:           0;
-  padding:          0.5em 1.5em;
-}
-.giant-map {
-  padding:          0em 3em 3em;
-  img {
-    width:          100%;
-  }
-}
-.giant-clients-brands {
-  padding:          2em 5em; // TODO: @@@ DRY: sides same as separator
-  img {
-    width:          100%;
-  }
-}
 .giant-contact-info {
   padding:          0 0 2em;
 }
@@ -1069,11 +973,6 @@ $giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
   }
   span.giant-contact-divider {
     height:         1em;
-  }
-}
-.giant-separator-title {
-  hr {
-    margin-top: 0em;
   }
 }
 .giant-talent-request-what {
