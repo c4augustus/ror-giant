@@ -73,7 +73,7 @@ body, p {
 body {
   font-size: 14px;
 }
-h1, h2, h3, h4 {
+h1, h2, h4 {
   font-family: $font-family-primary;
 }
 h1 {
@@ -87,11 +87,6 @@ h2 {
   font-weight: $font-weight-semibold;
   font-size: 14px;
   text-align: center;
-}
-h3 {
-  color: $color-primary;
-  font-weight: 300;
-  font-size: 20px;
 }
 h4 {
   color: $color-secondary;
