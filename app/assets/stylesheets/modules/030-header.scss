@@ -21,6 +21,162 @@
   }
 }
 
+// !!! we have to use the physical size of the logo image
+$giant-brand-logo-x: 59px;
+$giant-brand-logo-y: 57px;
+$giant-brand-margin-x: 13px;
+$giant-brand-margin-y: 15px;
+$giant-brand-height: $giant-brand-logo-y + $giant-brand-margin-y;
+$giant-brand-width: $giant-brand-logo-x + $giant-brand-margin-x;
+$giant-hamburger-margin-x: 28px;
+$giant-nav-menu-item-padding-x: 2em;
+$giant-nav-menu-item-padding-y: 1em;
+$giant-nav-menu-padding-right: 11em;
+
+$giant-breakpoint-nav-menu-min: $grid-float-breakpoint; ///< bootstrap navbar collapse threshold
+$giant-breakpoint-tagline-a-hide-max: 700px;
+$giant-breakpoint-tagline-b-show-min: $giant-breakpoint-tagline-a-hide-max + 1;
+$giant-breakpoint-tagline-b-show-max: $giant-breakpoint-nav-menu-min - 1;
+$giant-breakpoint-tagline-c-hide-min: $giant-breakpoint-tagline-b-show-max + 1;
+$giant-breakpoint-tagline-c-hide-max: $giant-breakpoint-desktop-jumbo-max-height-min-width - 1;
+$giant-breakpoint-tagline-d-show-min: $giant-breakpoint-tagline-c-hide-max + 1;
+
+@media (max-width: $giant-breakpoint-tagline-a-hide-max),
+       (min-width: $giant-breakpoint-tagline-c-hide-min) and
+       (max-width: $giant-breakpoint-tagline-c-hide-max) {
+  .giant-header-tagline-display {
+      display: none;
+  }
+}
+@media (min-width: $giant-breakpoint-tagline-b-show-min) and
+       (max-width: $giant-breakpoint-tagline-b-show-max),
+       (min-width: $giant-breakpoint-tagline-d-show-min) {
+  .giant-header-tagline-display {
+      display: table-cell;
+  }
+}
+
+// !!! ONLY way to get bootstrap menu to vertically align in the middle
+@media (min-width: $giant-breakpoint-nav-menu-min) {
+  .giant-nav-menu-valign-middle {
+      padding-right: $giant-nav-menu-padding-right;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: perspective(1px) translateY(-50%);
+  }
+}
+
+.giant-table-cell-middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.giant-header-div {
+  .giant-header-text {
+    font-family: $font-family-primary;
+    font-size: 12px;
+    line-height: 1em;
+    margin: 0;
+  }
+  nav {
+    @extend .navbar; ///< bootstrap (note: defaults to 50px height)
+    @extend .navbar-default; ///< bootstrap
+    //@extend .navbar-fixed-top; ///< bootstrap !!! but not yet used
+    background-color: $color-page;
+    border: 0;
+    box-shadow: 0 2px 6px -1px #aaa;
+    margin: 0;
+    position: relative; ///< @note: incompatible with .navbar-fixed-top
+    z-index: 1; ///< @note: unnecessary with .navbar-fixed-top
+    .giant-nav-container-div {
+      @extend .container; ///< bootstrap
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      .giant-nav-menu-toggle-outer-div {
+        float: left; // !!! change from bootstrap's .navbar-toggle being floated right
+        .giant-nav-menu-toggle-inner-div {
+          display: table-cell;
+          vertical-align: middle;
+          button {
+            @extend .navbar-toggle; ///< bootstrap
+            border: 0;
+            height: $giant-brand-height;
+            margin: 0 ($giant-hamburger-margin-x - $giant-brand-margin-x) 0 $giant-hamburger-margin-x;
+            padding: 0;
+            .giant-nav-menu-hamburger-div {
+              .giant-hamburger-layer-span {
+                @extend .icon-bar; ///< bootstrap
+                margin: 0.7em 0;
+                width: 2em;
+              }
+            }
+            .giant-toggle-assist-span {
+              @extend .sr-only; ///< bootstrap
+            }
+          }
+        }
+      }
+      .giant-nav-contents-always-outer-div {
+        @extend .navbar-header; ///< bootstrap
+        width: 100%;
+        .giant-nav-contents-always-inner-div {
+          display: table;
+          white-space: nowrap;
+          h2 {
+            @extend .giant-table-cell-middle;
+            @extend .giant-header-text;
+          }
+          .giant-brand-span {
+            @extend .giant-table-cell-middle;
+            background: url("/assets/giant-brand-logo.png") no-repeat;
+            background-position: ($giant-brand-margin-x / 2) ($giant-brand-margin-y / 2);
+            height: $giant-brand-height;
+            min-width: $giant-brand-width;
+          }
+          .giant-tagline-h2 {
+            @extend .giant-header-tagline-display;
+          }
+          .giant-phone-number-h2 {
+            color: $color-secondary;
+            font-weight: bold;
+            text-align: right;
+            padding-right: $giant-nav-menu-item-padding-x * 2;
+            width: 100%;
+          }
+        }
+      }
+      .giant-nav-contents-collapsable-div {
+        @extend .navbar-collapse; ///< bootstrap
+        @extend .collapse; ///< bootstrap
+        padding: 0;
+        .giant-nav-menu-div {
+          @extend .giant-nav-menu-valign-middle;
+          ul {
+            @extend .nav; ///< bootstrap
+            @extend .navbar-nav; ///< bootstrap
+            li {
+              padding: $giant-nav-menu-item-padding-y $giant-nav-menu-item-padding-x;
+              a {
+                @extend .btn; ///< bootstrap
+                @extend .giant-header-text;
+                color: $color-secondary;
+                border: 0;
+                font-weight: $font-weight-semibold;
+                padding: 0;
+                &:hover {
+                  color: $color-primary !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .giant-job {
   h4 {
     //line-height:    0.75;
