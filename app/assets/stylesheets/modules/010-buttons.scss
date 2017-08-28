@@ -1,0 +1,37 @@
+.giant-button {
+  @extend .btn;
+  background-color: $color-page;
+  border: 0.25em solid;
+  border-width: 2px;
+  color: $color-secondary; // override bs #357ebd
+  font-family: $font-family-primary;
+  font-weight: bold;
+  min-width: 11em;
+}
+.giant-button-primary {
+  @extend .giant-button;
+  padding: 0.6em 1em;
+}
+.giant-button-primary:hover {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  color: $color-page;
+}
+.giant-button-secondary {
+  @extend .giant-button;
+  padding: 0.7em 3em;
+}
+.giant-button-secondary:hover {
+  background-color: $color-button-secondary;
+  border-color: $color-button-secondary;
+  color: $color-page;
+}
+.giant-button-contact-us {
+  @extend .giant-button-secondary;
+}
+.giant-button-open-jobs {
+  @extend .giant-button-primary;
+}
+.giant-button-request-talent {
+  @extend .giant-button-primary;
+}
