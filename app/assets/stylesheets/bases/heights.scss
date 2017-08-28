@@ -1,0 +1,8 @@
+// non-standard bootstrap customization from
+// http://getbootstrap.com.vn/examples/equal-height-columns/
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
