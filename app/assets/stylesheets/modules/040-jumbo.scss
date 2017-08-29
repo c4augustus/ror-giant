@@ -14,6 +14,11 @@
   background:       url("/assets/giant-background-jumbo-jobs.jpg") no-repeat;
 }
 
+// TODO: @@@ RESOLVE WITH MODULE FOR cluster
+.giant-substance-cluster-div-responsive {
+  padding: 0 7em;
+}
+
 @media (max-width: $giant-breakpoint-iphone-max-width) {
   .giant-jumbo-image-div-responsive {
     background-size: auto 100%;

@@ -1,0 +1,51 @@
+.giant-substance-cluster-div {
+  @extend .giant-substance-cluster-div-responsive;
+  @include make-row();
+}
+.giant-substance-cluster-item-div {
+  @include make-sm-column(4);
+  padding:          1.7em 2em;
+  h4 {
+    font-weight:    bold;
+    margin:         0;
+    padding:        0 0 0.2em;
+  }
+  p {
+    font-size:      14px;
+    font-weight:    $font-weight-light;
+    line-height:    1.4em;
+    margin:         0;
+  }
+}
+.giant-substance-cluster-full-link-div {
+  @include make-sm-column(12);
+  padding:          1.7em 2em;
+  text-align:       center;
+}
+.giant-substance-cluster-testimonial-div {
+  @include make-sm-column(8);
+  @include make-sm-column-offset(2);
+  margin:           0;
+  padding:          1.7em 2em 3.4em;
+  text-align:       center;
+  blockquote {
+    border:         0;
+    font-size:      14px;
+    font-style:     italic;
+    font-weight:    $font-weight-light;
+    line-height:    1.5em;
+    margin:         0;
+    padding:        0;
+    footer:before {
+      content:      none;
+    }
+    cite {
+      color:        $color-secondary;
+      display:      block;
+      font-size:    14px;
+      font-weight:  $font-weight-light;
+      margin:       0;
+      padding:      0;
+    }
+  }
+}
