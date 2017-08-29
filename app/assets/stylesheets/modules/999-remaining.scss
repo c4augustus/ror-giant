@@ -17,17 +17,6 @@
   padding: 0 7em;
 }
 
-.giant-section-substance-all-div {
-}
-/* TODO: @@@ FUTURE
-.giant-section-substance-all-outer-div {
-  @include make-row();
-}
-.giant-section-substance-all-inner-div {
-  @include make-xs-column(10);
-  @include make-xs-column-offset(1);
-}
-*/
 .giant-section-substance-caption-all-div {
   text-align:       center; // !!! needed to center caption-tab-div
 }
