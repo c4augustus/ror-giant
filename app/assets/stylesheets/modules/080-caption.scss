@@ -1,0 +1,14 @@
+.giant-section-substance-caption-all-div {
+  text-align:       center; // !!! needed to center caption-tab-div
+}
+.giant-section-substance-caption-tab-div {
+  background:       transparent;
+  display:          inline-block;
+  position:         relative;
+  bottom:           28px;
+}
+.giant-section-substance-caption-text-heading {
+  //margin-top:       -28px; // !!! would compensate for caption-tab-div offset
+  font-weight:      $font-weight-semibold;
+  margin:           0.5em 0 1.5em;
+}
