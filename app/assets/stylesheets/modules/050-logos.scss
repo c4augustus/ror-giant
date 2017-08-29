@@ -1,0 +1,32 @@
+.giant-section-logos-all-div {
+  @extend .giant-logos-all-div-responsive;
+  background-color: $color-logos;
+  bottom:           0;
+  height: $giant-visual-design-constraint-logos-bar-height;
+  left:             0; // !!! required to keep centered and full width
+  overflow:         hidden;
+  position:         absolute; // !!! required to place at bottom
+  right:            0; // !!! required to keep centered and full width
+  div {
+    //display:        flex; // TODO: @@@ FUTURE DEVELOPMENT
+    display:        inline-block;
+  }
+  .group-first-div {
+    float:          left;
+    padding:        0;
+    padding-right: $giant-visual-design-constraint-logos-gap-width;
+    text-align:     right;
+    width:          50%;
+  }
+  .group-second-div {
+    float:          right;
+    padding:        0;
+    padding-left: $giant-visual-design-constraint-logos-gap-width;
+    text-align:     left;
+    width:          50%;
+  }
+  .img-div {
+    line-height: $giant-visual-design-constraint-logos-bar-height;
+    padding: 0 $giant-visual-design-constraint-logos-padding-vertical;
+  }
+}
