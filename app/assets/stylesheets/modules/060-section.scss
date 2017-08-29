@@ -1,0 +1,19 @@
+.giant-section-aggregate-div {
+  @extend .container-fluid; ///< bootstrap
+  padding: 0;
+}
+.giant-sections {
+  @extend .container-fluid;
+}
+.giant-section {
+  .giant-jumbotron {
+    margin:         0;
+    padding:        3em 8em;
+    h1, h4 {
+      margin:       0;
+    }
+    h1 {
+      padding:      0 0 1em;
+    }
+  }
+}
