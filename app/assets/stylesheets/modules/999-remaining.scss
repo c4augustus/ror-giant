@@ -264,33 +264,6 @@
     margin:         0;
   }
 }
-.giant-section-substance-roles-list-all-div {
-  @include make-row();
-}
-.giant-section-substance-roles-list-bundle-empty-div {
-  @include make-sm-column(1);
-  @include make-xs-column(2);
-}
-.giant-section-substance-roles-list-bundle-filled-div {
-  @include make-sm-column(10);
-  @include make-xs-column(8);
-  padding:          1em 0 3em;
-}
-.giant-section-substance-roles-list-single-div {
-  @include make-sm-column(4);
-  padding-left:     10%;
-  li {
-    font-size:      14px;
-    font-weight:    $font-weight-semibold;
-    line-height:    2em;
-  }
-  ul {
-    list-style-type: none;
-    margin:         0;
-    padding:        0;
-    text-indent:    -2em;
-  }
-}
 
 .giant-form {
   padding:          3em 4em;
