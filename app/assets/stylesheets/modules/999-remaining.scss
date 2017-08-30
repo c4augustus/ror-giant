@@ -292,25 +292,6 @@
   }
 }
 
-.giant-substance-simple-div {
-  @include make-row();
-  padding:          3em 3em;
-}
-.giant-substance-simple-item-div {
-  @include make-sm-column(12);
-  padding:          0;
-  h4 {
-    color:          $color-primary;
-    font-weight:    normal;
-    padding:        0.6em 0;
-    margin:         0;
-  }
-  p {
-    font-weight:    normal;
-    padding:        0.6em 0;
-    margin:         0;
-  }
-}
 .giant-form {
   padding:          3em 4em;
   h2 {
