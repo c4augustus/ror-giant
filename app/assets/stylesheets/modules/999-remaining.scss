@@ -1,11 +1,3 @@
-.giant-contact-icons {
-  text-align:     center;
-  img {
-    padding:        1.0em 1.0em;
-    width:          5.0em;
-  }
-}
-
 .giant-job {
   h4 {
     //line-height:    0.75;
@@ -287,27 +279,6 @@
 }
 .giant-form-button {
   margin:           2em 0;
-}
-.giant-contact-info {
-  padding:          0 0 2em;
-}
-.giant-contact-details {
-  span {
-    @extend h4;
-    display:        block;
-    text-align:     left;
-  }
-  span.giant-contact-address,
-  span.giant-contact-title {
-    font-weight:    300;
-  }
-  span.giant-contact-name,
-  span.giant-contact-title {
-    color:          $color-primary;
-  }
-  span.giant-contact-divider {
-    height:         1em;
-  }
 }
 .giant-talent-request-what {
   height:           6em;
