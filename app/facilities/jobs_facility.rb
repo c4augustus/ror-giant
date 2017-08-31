@@ -1,6 +1,6 @@
 class JobsFacility
 
-  FAKE_IT = false
+  FAKE_IT = true
   DUMP_JSON_CATEGORIES = false
   DUMP_JSON_JOBS = false
   INCLUDE_ALL_FIELDS_CATEGORIES = true
