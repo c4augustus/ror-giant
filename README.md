@@ -1,3 +1,3 @@
 ror-giant
 =========
-Ruby on Rails website for giantrecruiting.com
+Ruby on Rails website for http://giantrecruiting.com
